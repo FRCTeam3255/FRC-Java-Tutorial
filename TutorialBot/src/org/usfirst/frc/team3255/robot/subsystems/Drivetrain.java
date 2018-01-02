@@ -26,14 +26,14 @@ public class Drivetrain extends Subsystem {
 		leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
 		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
 		rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
-		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+		rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
 		
 		// Robot Drive
 		robotDrive = new RobotDrive(leftFrontTalon, leftBackTalon, rightFrontTalon, rightBackTalon);
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-		robotDrive.arcadeDrive(moveSpeed, moveSpeed);
+		robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
 	}
 
     // Put methods for controlling this subsystem
