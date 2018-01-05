@@ -10,3 +10,4 @@ A tutorial on how to program a robot for use in the FIRST Robotics Competition
   
 ### Parts:
 - [Part 1: Creating a Basic Driving Robot](https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/Part-1-Creating-a-Basic-Driving-Robot)
+- [Part 2: Using Pneumatics](https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/Part-2-Using-Pneumatics)
