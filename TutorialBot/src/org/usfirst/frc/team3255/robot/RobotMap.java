@@ -23,4 +23,8 @@ public class RobotMap {
 	public static final int OI_DRIVER_CONTROLLER = 0;
 	public static final int JOYSTICK_MOVE_AXIS = 1;
 	public static final int JOYSTICK_ROTATE_AXIS = 2;
+	
+	// Solenoids
+	public static final int SHOOTER_PITCH_SOLENOID_DEPLOY = 0;
+	public static final int SHOOTER_PITCH_SOLENOID_RETRACT = 1;
 }

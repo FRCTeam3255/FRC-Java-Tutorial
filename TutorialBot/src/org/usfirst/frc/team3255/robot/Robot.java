@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3255.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3255.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team3255.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,6 +24,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static Drivetrain drivetrain = null;
+	public static Shooter shooter = null;
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -35,6 +37,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		drivetrain = new Drivetrain();
+		shooter = new Shooter();
 		
 		oi = new OI(); // MUST ALWAYS BE THE LAST SUBSYSTEM
 		
