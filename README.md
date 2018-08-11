@@ -1,4 +1,4 @@
-# FRC Java Tutorial
+# FRC Java Tutorial for Eclipse
 A tutorial on how to program a robot for use in the FIRST Robotics Competition
 
 # NOTE: THIS IS FOR PROGRAMMING IN ECLIPSE! 
