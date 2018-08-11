@@ -1,4 +1,4 @@
-# FRC Java Tutorial
+# FRC Java Tutorial for Visual Studio Code
 A tutorial on how to program a robot for use in the FIRST Robotics Competition
 
 # NOTE: THIS IS FOR PROGRAMMING IN VISUAL STUDIO CODE! 
