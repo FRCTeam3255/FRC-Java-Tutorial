@@ -2,7 +2,7 @@
 A tutorial on how to program a robot for use in the FIRST Robotics Competition
 
 # NOTE: THIS IS FOR PROGRAMMING IN ECLIPSE! 
-### TO SEE THE VISUAL STUDIO CODE VERSION PLEASE SWITCH TO THE MASTER BRANCH](https://github.com/FRCTeam3255/FRC-Java-Tutorial/)
+### TO SEE THE VISUAL STUDIO CODE VERSION PLEASE SWITCH TO THE [MASTER BRANCH](https://github.com/FRCTeam3255/FRC-Java-Tutorial/)
 
 ## This reposiotry includes:
 
