@@ -24,5 +24,5 @@ To see the Eclipse specific tutorial (no longer updated) switch to the [Eclipse 
 - Part F: Imaging the roboRIO
 - Part G: Setting-up the Robot Radio
 ###### Programming for an FRC Robot:
-- Part 1: Creating a Basic Driving Robot 
+- [Part 1: Creating a Basic Driving Robot](https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/Part-1-Creating-a-Basic-Driving-Robot)
 - More sections to be completed in the future
