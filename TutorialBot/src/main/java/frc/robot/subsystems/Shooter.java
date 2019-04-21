@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,10 +20,12 @@ public class Shooter extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	DoubleSolenoid pitchSolenoid = null;
+	DigitalInput shooterSwitch = null;
 
 	public Shooter() {
 		pitchSolenoid = new DoubleSolenoid(RobotMap.SHOOTER_PITCH_SOLENOID_DEPLOY,
 				RobotMap.SHOOTER_PITCH_SOLENOID_RETRACT);
+		shooterSwitch = new DigitalInput(RobotMap.SHOOTER_SWITCH);
 	}
 
 	public void pitchUp() {
@@ -31,6 +34,10 @@ public class Shooter extends Subsystem {
 
 	public void pitchDown() {
 		pitchSolenoid.set(Value.kForward);
+	}
+
+	public boolean isShooterSwitchClosed() {
+		return shooterSwitch.get();
 	}
 
 	@Override

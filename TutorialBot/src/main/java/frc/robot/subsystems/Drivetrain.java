@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -28,6 +29,8 @@ public class Drivetrain extends Subsystem {
 
 	DifferentialDrive differentialDrive = null;
 
+	Encoder driveEncoder = null;
+
 	public Drivetrain() {
 		leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
 		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
@@ -38,10 +41,25 @@ public class Drivetrain extends Subsystem {
 		SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
 
 		differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+
+		driveEncoder = new Encoder(RobotMap.DRIVETRAIN_DRIVE_ENCODER_A, RobotMap.DRIVETRAIN_DRIVE_ENCODER_B);
 	}
 
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
 		differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+	}
+
+	public double getDriveEncoderCount() {
+		return driveEncoder.get();
+	}
+
+	public void resetDriveEncoderCount() {
+		driveEncoder.reset();
+	}
+
+	public double getDriveEncoderDistance() {
+		double driveEncoderCountsPerFoot = 1;
+		return (getDriveEncoderCount() / (driveEncoderCountsPerFoot)) * 12;
 	}
 
 	@Override

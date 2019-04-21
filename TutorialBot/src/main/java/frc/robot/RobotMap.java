@@ -35,6 +35,13 @@ public class RobotMap {
 	public static final int SHOOTER_PITCH_SOLENOID_DEPLOY = 0;
 	public static final int SHOOTER_PITCH_SOLENOID_RETRACT = 1;
 
+	// Switches
+	public static final int SHOOTER_SWITCH = 0;
+
+	// Encoders
+	public static final int DRIVETRAIN_DRIVE_ENCODER_A = 1;
+	public static final int DRIVETRAIN_DRIVE_ENCODER_B = 2;
+
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
