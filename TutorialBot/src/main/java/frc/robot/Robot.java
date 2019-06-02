@@ -16,6 +16,7 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Telemetry;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
 	public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
 	public static Drivetrain m_drivetrain = null;
 	public static Shooter m_shooter = null;
+	public static Telemetry m_telemetry = null;
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
@@ -41,6 +43,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_drivetrain = new Drivetrain();
 		m_shooter = new Shooter();
+		m_telemetry = new Telemetry();
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());

@@ -19,12 +19,19 @@ import frc.robot.RobotMap;
 public class Shooter extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
+
+	// Solenoids
 	DoubleSolenoid pitchSolenoid = null;
+
+	// Switches
 	DigitalInput shooterSwitch = null;
 
 	public Shooter() {
+		// Solenoids
 		pitchSolenoid = new DoubleSolenoid(RobotMap.SHOOTER_PITCH_SOLENOID_DEPLOY,
 				RobotMap.SHOOTER_PITCH_SOLENOID_RETRACT);
+
+		// Switches
 		shooterSwitch = new DigitalInput(RobotMap.SHOOTER_SWITCH);
 	}
 

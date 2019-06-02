@@ -22,6 +22,7 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 
+	// Talons
 	Talon leftFrontTalon = null;
 	Talon leftBackTalon = null;
 	Talon rightFrontTalon = null;
@@ -29,9 +30,11 @@ public class Drivetrain extends Subsystem {
 
 	DifferentialDrive differentialDrive = null;
 
+	// Encoders
 	Encoder driveEncoder = null;
 
 	public Drivetrain() {
+		// Talons
 		leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
 		leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
 		rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
@@ -42,6 +45,7 @@ public class Drivetrain extends Subsystem {
 
 		differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
 
+		// Encoders
 		driveEncoder = new Encoder(RobotMap.DRIVETRAIN_DRIVE_ENCODER_A, RobotMap.DRIVETRAIN_DRIVE_ENCODER_B);
 	}
 
