@@ -7,7 +7,7 @@ For more info [click here](https://wpilib.screenstepslive.com/s/currentCS/m/7983
 
 To see the Eclipse specific tutorial (no longer updated) switch to the [Eclipse branch](https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/eclipse)
 
-## This reposiotry includes:
+## This repository includes:
 
 - A [PDF](https://github.com/FRCTeam3255/FRC-Java-Tutorial/raw/master/FRC%20Programming%20Tutorial%20VSC.pdf) of the tutorial
 
