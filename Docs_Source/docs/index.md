@@ -4,8 +4,6 @@
 
 The unoffical FIRST Robotics Competition Java Programming Tutorial
 
-Updated for the 2019 Season on 11/10/18
-
 ## Powered by
 
 <a href="https://SuperNURDs.com/" target="_blank">![sn_banner](assets/images/sn_banner.png)</a>

@@ -23,9 +23,7 @@ Making FRC Programming Easy
 - In the code, a command based robot is made up of 3 **packages** (**folders**) labeled robot, commands, and subsystems
 - There are other types of robots but we will use Command Based
 
-***
-
-## Subsystems
+### Subsystems
 
 - A **subsystem** is a special template class made by FRC. 
 - In robotics, subsystems are sections of the whole robot.
@@ -62,7 +60,7 @@ Making FRC Programming Easy
 
 ***
 
-## Commands
+### Commands
 
 - A **command** is a special template class (file) made by FRC.
 - In robotics, commands are actions you want a robot to do (just like a real life command).
@@ -90,6 +88,9 @@ Making FRC Programming Easy
 		robot.drivetrain.setSpeed(1.0);
 	}
   	```
+
+#### Default Command Structure
+
 - The template for FRC commands actually come with some pre-defined methods that have special properties for FRC robots, they are:
     - `initialize()` - Methods in here are called just before this Command runs the first time.
     - `execute()` - Methods in here are called repeatedly when this Command is scheduled to run
@@ -100,3 +101,33 @@ Making FRC Programming Easy
 	It is good practice to call `end()` in `interrupted()`
 
 ***
+
+### Overview of execution
+
+- In FRC programming our main class is **Robot.java** and all other classes (command files and subsystem files) must be loaded from **Robot.java** either directly or indirectly 
+    - !!! Example
+        **Robot.java** loads **OI.java**, **OI.java** loads **DriveForward.java**.
+- All **subsystem** files must be added to **Robot.java**’s auto-created `robotInit()` method.
+    - This loads our **subsystems** into the code and allow its public methods to be useable by other files such as commands later by typing `Robot.nameOfSubsystem.desiredMethod();`
+
+***
+
+### New Project Files
+
+- When creating a new command based robot project, the following classes (files) will be created:
+    - **Robot.java** - The main class of the robot which is run when a robot boots up. 
+    - **OI.java** - This class binds our **commands** to a physical operator interface such as a
+    - joystick or controller.
+        - This file is already in `robotInit()` by default so classes called here will also be loaded by the program
+    - **RobotMap.java** - This class is used to hold all the ports or ID numbers of sensors or devices connected to the robot and assign them a variable name.
+        - This provides flexibility changing wiring, makes checking the wiring easier and significantly reduces the number of magic numbers floating around.
+    - **ExampleSubsystem.java** and **ExampleCommand.java** are auto-created examples.
+
+## Summary
+
+- Command based robots are broken down into **subsystems** and **commands**
+- **Subsystems** define what the robot is made of and what it can do while **commands** actually tell the robot to do those things
+- All classes must directly or indirectly connect to **Robot.java**.
+    - All **Subsystems** must be added to **Robot.java**’s `robotInit()` 
+- **RobotMap.java** holds port numbers and IDs accessible throughout the program by typing: `RobotMap.NameOfMotor()`
+- **OI.java** connects our commands to physical controllers

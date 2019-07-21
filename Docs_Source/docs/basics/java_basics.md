@@ -4,7 +4,6 @@ Learning What's What
 
 ![Java](../assets/images/java.png)
 
-
 ## Overview
 
 - Objects, variables, and classes (in Java) make up our programs. We define, modify, use these variables and objects to make our programs run.
@@ -28,15 +27,47 @@ Learning What's What
 - Classes are made up of variables and methods and are often used to separate and organize your code.
 - Classes can also **call** (use) variables or methods of other classes if those have been set to public.
 
-***
-
-## Constructors
+### Constructors
 
 - Classes can also have a ***constructor*** which is a special type of **method** that has the **same name (case sensitive)** as the class file
     - Constructors are always called when the class is loaded into the program for the first time. This is often the only time they are called.
     - Constructors are called when trying to access the class in other files.
     - They can be called again if the class is programmed to be unloaded (destroyed) and reloaded.
     - Calls to methods, and assignment of values, within the constructor will run as soon as the class is called (loaded) in the code.
+
+***
+
+## Methods
+
+- Methods, also known as functions, can be thought of as subprograms or routines that run inside of your main program.
+- Methods are used when you want to run the same code multiple times. Copying and pasting code is ***BAD!*** Use methods instead!
+- Methods are also useful to access only certain parts or functions of another class.
+- Methods can also have their own variables (**local**) or use variables available throughout the whole class (**global variables**), this will be explained more in the [scope section](#scope).
+- Methods can call (use) other methods, even multiple times.
+
+!!! example
+	```java
+	int value;
+    void increment(){
+		value++;
+	}
+	```
+
+### Parameters
+
+- Parameters are variables that are passed (sent) to a method for it to use.
+- You can pass more than one parameter but order matters when calling the method.
+
+!!! example
+	```java
+    // Example of a method with a parameter
+    double half(int num1){ 
+        double multiplier = 0.5;
+        return num1*multiplier; 
+    }
+
+    int newNumber = half(12); // <---- Method being called (used) in code
+	```
 
 ***
 
@@ -57,27 +88,7 @@ Learning What's What
 
 - Most non-static variables can have their values assigned or assigned at any point elsewhere in your program
   
-***
-
-## Methods
-
-- Methods, also known as functions, can be thought of as subprograms or routines that run inside of your main program.
-- Methods are used when you want to run the same code multiple times. Copying and pasting code is ***BAD!*** Use methods instead!
-- Methods are also useful to access only certain parts or functions of another class.
-- Methods can also have their own variables (local) or use variables available throughout the whole class (global variables), this will be explained more in the scope section.
-- Methods can call (use) other methods, even multiple times.
-
-!!! example
-	```java
-	int value;
-    void increment(){
-		value++;
-	}
-	```
-
-***
-
-## Scope
+### Scope
 
 - When creating a variable, where you create it matters. This is known as the scope of a variable.
 - The scope is where a variable can be seen within a class
@@ -102,25 +113,6 @@ Learning What's What
         return example
     }
 	```
-
-***
-
-## Parameters
-
-- Parameters are variables that are passed (sent) to a method for it to use.
-- You can pass more than one parameter but order matters when calling the method.
-
-!!! example
-	```java
-    // Example of a method with a parameter
-    double half(int num1){ 
-        double multiplier = 0.5;
-        return num1*multiplier; 
-    }
-
-    int newNumber = half(12); // <---- Method being called (used) in code
-	```
-
 ***
 
 ## Comments
@@ -160,7 +152,7 @@ Learning What's What
 
 ***
 
-### Conventions
+## Conventions
 
 - There are also many different conventions when programming, this ensures that programs are readable between different people.
 - A common naming convention:
