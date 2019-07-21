@@ -1,12 +1,10 @@
 {
 	"default": true,
-	"MD007": {
-		"indent": 4
-	},
 	"line-length": false,
 	"no-hard-tabs": false,
 	"no-space-in-code": false,
 	"blanks-around-fences": false,
 	"MD005": false,
+	"MD007": false,
 	"MD009": false
 }

@@ -23,7 +23,6 @@ markdown_extensions:
   - pymdownx.superfences
   - toc:
         permalink: "#"
-        separator: "_"
 
 # Navigation
 nav:
@@ -36,4 +35,5 @@ nav:
 # - Dev Enviroment Setup:
 #   - 'setup/install_software.md'
 - Programming an FRC Robot:
+  - 'programming/new_project.md'
   - 'programming/driving_robot.md'
