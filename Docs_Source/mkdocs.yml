@@ -32,17 +32,6 @@ nav:
   - 'basics/roboRIO.md'
   - 'basics/sensors.md'
   - 'basics/java_basics.md'
-  - 'WPILib Programming Basics': 'missing.md'
-- Dev Enviroment Setup:
-  - 'Software Installation and Setup': 'missing.md'
-  - 'Imaging the roboRIO': 'missing.md'
-  - 'Setting-up the Robot Radio': 'missing.md'
-- Programming an FRC Robot:
-  - 'Part 1: Basic Driving Robot': 'missing.md'
-  - 'Part 2: Pneumatics': 'missing.md'
-  - 'Part 3: Sensors and Switches': 'missing.md'
-  - 'Part 4: Dashboards': 'missing.md'
-  - 'Part 5: RobotPreferences': 'missing.md'
-  - 'Part 6: Autonomous Command': 'missing.md'
-  - 'Part 7: PID': 'missing.md'
-- 'More pages coming soon': 'missing.md'
+  - 'basics/wpilib.md'
+# - Dev Enviroment Setup:
+# - Programming an FRC Robot:
