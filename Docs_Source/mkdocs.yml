@@ -37,3 +37,4 @@ nav:
 - Programming an FRC Robot:
   - 'programming/new_project.md'
   - 'programming/driving_robot.md'
+- 'contributing.md'
