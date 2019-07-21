@@ -1,0 +1,11 @@
+{
+	"default": true,
+	"MD007": {
+		"indent": 4
+	},
+	"line-length": false,
+	"no-hard-tabs": false,
+	"no-space-in-code": false,
+	"MD005": false,
+	"MD009": false
+}

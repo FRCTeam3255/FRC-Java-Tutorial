@@ -1,0 +1,11 @@
+{
+	"restructuredtext.confPath": "${workspaceFolder}/docs/source",
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/site": true
+	}
+}
