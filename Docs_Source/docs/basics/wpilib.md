@@ -73,3 +73,30 @@ Making FRC Programming Easy
 	**Subsystems** define what the robot is made of and what it can do while **commands** actually tell the robot to do those things
 - Using a dog as an example we can tell the dog to blink by creating a **BlinkEyes** command
     - The command would call the method, **closeEyes()** then the method **openEyes()**
+    - !!! example "BlinkEyes Command"
+    	```java
+		//This command will continuously run the two methods in execute
+		protected void execute() {
+        	dog.head.closeEyes();
+        	dog.head.openEyes();
+        }
+    	```
+- A robot example of a **DriveForward** command would call (use) the **setSpeed** methods that we created in the **Drivetrain** subsystem
+- **DriveForward**, when executed, will tell our robot to drive forward using the **Drivetrain** subsystem
+- !!! example "DriveForward Command"
+  	```java
+    //This command tells the robot to drive forward full speed
+	protected void initialize(){
+		robot.drivetrain.setSpeed(1.0);
+	}
+  	```
+- The template for FRC commands actually come with some pre-defined methods that have special properties for FRC robots, they are:
+    - `initialize()` - Methods in here are called just before this Command runs the first time.
+    - `execute()` - Methods in here are called repeatedly when this Command is scheduled to run
+    - `isFinished()` - When this returns true, the Command stops running execute() 
+    - `end()` - Methods in here are called once after isFinished returns true
+    - `interrupted()` - Methods in here are called when another command which requires one or more of the same subsystems is scheduled to run
+- !!! Tip
+	It is good practice to call `end()` in `interrupted()`
+
+***
