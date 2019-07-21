@@ -1,4 +1,4 @@
-# Contributing
+# **WIP** Contributing
 
 Helping out with the project!
 
