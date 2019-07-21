@@ -32,9 +32,16 @@ nav:
   - 'basics/sensors.md'
   - 'basics/java_basics.md'
   - 'basics/wpilib.md'
-# - Dev Enviroment Setup:
-#   - 'setup/install_software.md'
+- Dev Enviroment Setup:
+  - 'setup/install_software.md'
 - Programming an FRC Robot:
   - 'programming/new_project.md'
   - 'programming/driving_robot.md'
+  - 'programming/pneumatics.md'
+  - 'programming/using_sensors.md'
+  - 'programming/shuffleboard.md'
+  - 'programming/robotpreferences.md'
+  - 'programming/autonomous.md'
+  - 'programming/pid.md'
+  - 'programming/super_core.md'
 - 'contributing.md'
