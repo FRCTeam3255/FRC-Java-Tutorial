@@ -40,7 +40,7 @@ Making FRC Programming Easy
     - Some variables (parts) would be: **leftEye**, **rightEye**, **nose**, **leftEar**, **rightEar**.
     - Some example methods would be **closeEyes** or **openEyes** since these are things the dog are capable of.
         - These methods would use both the **leftEye** and **rightEye** and close them.
-    - !!! example
+    - ??? example
     	```java
     	//This method closes the dog eyes
         public void closeEyes(){
@@ -49,7 +49,7 @@ Making FRC Programming Easy
     	```
 - A robot example of a **Drivetrain** subsystem would have **leftMotor**, and **rightMotor** as variables and **setSpeed** as a method telling it how to set the speed of those motor controllers.
 - Having the **setSpeed** method tells our program that our **Drivetrain** subsystem can set its speed.
-    - !!! example
+    - ??? example
     	```java
 		//This method sets the speed of the drivetrain
 		public void setSpeed(double speed){
@@ -71,7 +71,7 @@ Making FRC Programming Easy
 	**Subsystems** define what the robot is made of and what it can do while **commands** actually tell the robot to do those things
 - Using a dog as an example we can tell the dog to blink by creating a **BlinkEyes** command
     - The command would call the method, **closeEyes()** then the method **openEyes()**
-    - !!! example "BlinkEyes Command"
+    - ??? example "BlinkEyes Command"
     	```java
 		//This command will continuously run the two methods in execute
 		protected void execute() {
@@ -81,7 +81,7 @@ Making FRC Programming Easy
     	```
 - A robot example of a **DriveForward** command would call (use) the **setSpeed** methods that we created in the **Drivetrain** subsystem
 - **DriveForward**, when executed, will tell our robot to drive forward using the **Drivetrain** subsystem
-- !!! example "DriveForward Command"
+- ??? example "DriveForward Command"
   	```java
     //This command tells the robot to drive forward full speed
 	protected void initialize(){

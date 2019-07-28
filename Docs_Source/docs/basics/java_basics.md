@@ -45,7 +45,7 @@ Learning What's What
 - Methods can also have their own variables (**local**) or use variables available throughout the whole class (**global variables**), this will be explained more in the [scope section](#scope).
 - Methods can call (use) other methods, even multiple times.
 
-!!! example
+??? example
 	```java
 	int value;
     void increment(){
@@ -58,7 +58,7 @@ Learning What's What
 - Parameters are variables that are passed (sent) to a method for it to use.
 - You can pass more than one parameter but order matters when calling the method.
 
-!!! example
+??? example
 	```java
     // Example of a method with a parameter
     double half(int num1){ 
@@ -96,7 +96,7 @@ Learning What's What
     - A variable created outside a method can be seen in all methods of that class (file). This is a global variable.
         - It is good practice to put them all at the top before your first method.
 
-!!! example "Example of a Local Variable"
+??? example "Example of a Local Variable"
 	```java
     public int testMethod() {
         int example = 12; // Instide of method
@@ -105,7 +105,7 @@ Learning What's What
     }
 	```    
 
-!!! example "Example of a Public Variable"
+??? example "Example of a Public Variable"
 	```java
     int example = 12; // Outside of method
     public void testMethod() {
@@ -121,7 +121,7 @@ Learning What's What
 - Comments do not affect what the code does.
 - Comments are often used to leave notes or explanations of what methods or classes are doing so that it is easier to understand the code.
 
-!!! example "Example: Single Line Comments"
+??? example "Example: Single Line Comments"
 	```java
     // This is what a single line comment looks like
 
@@ -129,7 +129,7 @@ Learning What's What
     // single line comments in a row
     ```
 
-!!! example "Example: Multi Line Comments"
+??? example "Example: Multi Line Comments"
 	```java
     /* 
     This is what a
@@ -138,7 +138,7 @@ Learning What's What
     */
     ```
 
-!!! example "Example: Doc Comments"
+??? example "Example: Doc Comments"
 	```java
     /**
      * This is a doc comment

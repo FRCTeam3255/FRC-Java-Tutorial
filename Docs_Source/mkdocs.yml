@@ -21,6 +21,7 @@ markdown_extensions:
   - admonition
   - pymdownx.superfences
   - pymdownx.critic
+  - pymdownx.details
   - pymdownx.betterem
   - pymdownx.tasklist
   - pymdownx.extra

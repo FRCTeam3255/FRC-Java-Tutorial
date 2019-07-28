@@ -15,7 +15,7 @@ Before we can start progrmming a robot, we must create a new project in Visual S
 ## Creating a New Project
 
 !!! summary ""
-	1) Select the W icon from the tab bar or use the shortcut by holding down **Ctrl+Shift+P** at the same time. (Replace ctrl with cmd on macOS)  
+	1) Select the **W icon** from the tab bar or use the shortcut by holding down **Ctrl+Shift+P** at the same time. (Replace ctrl with command on macOS)  
 	
 	![](../assets/images/new_project/project/step_1.png)
 
@@ -53,25 +53,26 @@ Before we can start progrmming a robot, we must create a new project in Visual S
 ## Creating a New Subsystem
 
 !!! summary ""
-	1) Double click on the src folder to expand it.  
-	2) Do the same for subsystems
+	1) Double click on the **src** folder to expand it.  
+	2) Do the same for **subsystems**
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/subsystem/step_1.png)
 
 !!! summary ""
-	3) Right click on subsystems and select Create a new class/ command.
+	3) Right click on **subsystems** and select **Create a new class/ command.**
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/subsystem/step_2.png)
 	
 !!! summary ""
-	4) Select Subsystem and type your DesiredSubsystemName (i.e. Drivetrain) for the name and hit enter on your keyboard.
+	4) Select **Subsystem** and type your **DesiredSubsystemName** (i.e. **Drivetrain**) for the name and hit enter on your keyboard.
 	
-	![1](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/subsystem/step_3.png)  
+	![](../assets/images/new_project/subsystem/step_4.png)
 
 !!! summary ""
-	5) Click on the newly create **Desired_Subsystem_Name.java** (or **Drivetrain.java** if you named it that)
+	5) Click on the newly create **DesiredSubsystemName.java** (or **Drivetrain.java** if you named it that)
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/subsystem/step_5.png)
 
 ***
 
@@ -112,25 +113,26 @@ Now when we use this subsystem in commands, we must call `#!java Robot.m_desired
 ## Creating a New Command
 
 !!! summary ""
-	1) Double click on the src folder to expand it.  
-	2) Do the same for commands
+	1) Double click on the **src** folder to expand it.  
+	2) Do the same for **commands**
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/command/step_1.png)
 
 !!! summary ""
-  	3) Right click on commands and select Create a new class/ command.  
+  	3) Right click on **commands** and select **Create a new class/ command.**  
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/command/step_2.png)
 
 !!! summary ""
-	4) Select Command and type DriveArcade for the name and hit enter on your keyboard.  
+	4) Select **Command** and type **DesiredCommandName** (i.e. DriveArcade) for the name and hit enter on your keyboard.  
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/command/step_3.png)  
+	![](../assets/images/new_project/command/step_4.png)
 
 !!! summary ""
-    5) Click on the newly create DriveArcade.java  
+    5) Click on the newly create **DesiredCommandName.java** (or **DriveArcade.java** if you named it that)
 	
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/command/step_5.png)
 
 ### Default Command Contents
 
@@ -142,5 +144,43 @@ Now when we use this subsystem in commands, we must call `#!java Robot.m_desired
 - **End** - Called ***ONCE*** after isFinished returns true
 - **Interrupted** - Called when ***another command*** which requires one or more of the same subsystems is scheduled to run
 
-!!! Example  
-    ![](../assets/images/new_project/new_command.png)
+??? Example
+    ```java
+  	package frc.robot.commands;
+
+    import edu.wpi.first.wpilibj.command.Command;
+
+    public class ArcadeDrive extends Command {
+      public ArcadeDrive() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+      }
+
+      // Called just before this Command runs the first time
+      @Override
+      protected void initialize() {
+      }
+
+      // Called repeatedly when this Command is scheduled to run
+      @Override
+      protected void execute() {
+      }
+
+      // Make this return true when this Command no longer needs to run execute()
+      @Override
+      protected boolean isFinished() {
+        return false;
+      }
+
+      // Called once after isFinished returns true
+      @Override
+      protected void end() {
+      }
+
+      // Called when another command which requires one or more of the same
+      // subsystems is scheduled to run
+      @Override
+      protected void interrupted() {
+      }
+    }
+	```
