@@ -21,7 +21,7 @@ Alternatively you could create a pull request and clone the repository
 
 You can help the project by making new pages. Any pages you make will become live once they are approved.  
 
-[Click here to create a new page](https://github.com/FRCTeam3255/FRC-Java-Tutorial/new/remaster/Docs_Source/docs)
+[Click here to create a new page](https://github.com/FRCTeam3255/FRC-Java-Tutorial/new/remaster/Docs_Source/docs){target=_blank}
 
 Alternatively you could create a pull request and clone the repository
 

@@ -13,8 +13,8 @@ Last updated: MM/DD/YY
 
 ## Contributors
 
-|               Name                |                            Team                            | Team Role |
-| :-------------------------------: | :--------------------------------------------------------: | :-------: |
-| [Tayler Uva](https://Tayler.Tech) | <a href="https://SuperNURDs.com/" target="_blank">3255</a> |  Mentor   |
-|          Isaac Sayasane           | <a href="https://SuperNURDs.com/" target="_blank">3255</a> |  Alumni   |
-|           Sharon Riggs            |   <a href="https://frc6995.org" target="_blank">6995</a>   |  Mentor   |
+|                       Name                       |                      Team                      | Team Role |
+| :----------------------------------------------: | :--------------------------------------------: | :-------: |
+| [Tayler Uva](https://Tayler.Tech){target=_blank} | [3255](https://SuperNURDs.com/){target=_blank} |  Mentor   |
+|                  Isaac Sayasane                  | [3255](https://SuperNURDs.com/){target=_blank} |  Alumni   |
+|                   Sharon Riggs                   |   [6995](https://frc6995.org){target=_blank}   |  Mentor   |
