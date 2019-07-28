@@ -9,7 +9,7 @@ Making FRC Programming Easy
 - The WPI Robotics library (WPILib) is a set of software classes that interfaces with the hardware and software in your FRC RoboRIO.
     - There are classes to handle sensors, motor speed controllers, the driver station, and a number of other utility functions.
 - Documentation is available at <http://first.wpi.edu/FRC/roborio/release/docs/java>
-- WPILib adds those sensors and controllers as additional data types (like `int` or `double`) and classes.
+- WPILib adds those sensors and controllers as additional data types (like `#!java int` or `#!java double`) and classes.
     - !!!example "Examples" 
   		`Talon`, `Solenoid`, `Encoder`...
 
@@ -92,11 +92,11 @@ Making FRC Programming Easy
 #### Default Command Structure
 
 - The template for FRC commands actually come with some pre-defined methods that have special properties for FRC robots, they are:
-    - `initialize()` - Methods in here are called just before this Command runs the first time.
-    - `execute()` - Methods in here are called repeatedly when this Command is scheduled to run
-    - `isFinished()` - When this returns true, the Command stops running execute() 
-    - `end()` - Methods in here are called once after isFinished returns true
-    - `interrupted()` - Methods in here are called when another command which requires one or more of the same subsystems is scheduled to run
+    - `#!java void initialize()` - Methods in here are called just before this Command runs the first time.
+    - `#!java void execute()` - Methods in here are called repeatedly when this Command is scheduled to run
+    - `#!java boolean isFinished()` - When this returns true, the Command stops running execute() 
+    - `#!java void end()` - Methods in here are called once after isFinished returns true
+    - `#!java void interrupted()` - Methods in here are called when another command which requires one or more of the same subsystems is scheduled to run
 - !!! Tip
 	It is good practice to call `end()` in `interrupted()`
 
@@ -107,8 +107,8 @@ Making FRC Programming Easy
 - In FRC programming our main class is **Robot.java** and all other classes (command files and subsystem files) must be loaded from **Robot.java** either directly or indirectly 
     - !!! Example
         **Robot.java** loads **OI.java**, **OI.java** loads **DriveForward.java**.
-- All **subsystem** files must be added to **Robot.java**’s auto-created `robotInit()` method.
-    - This loads our **subsystems** into the code and allow its public methods to be useable by other files such as commands later by typing `Robot.nameOfSubsystem.desiredMethod();`
+- All **subsystem** files must be added to **Robot.java**’s auto-created `#!java robotInit()` method.
+    - This loads our **subsystems** into the code and allow its public methods to be useable by other files such as commands later by typing `#!java Robot.nameOfSubsystem.desiredMethod();`
 
 ***
 
@@ -118,7 +118,7 @@ Making FRC Programming Easy
     - **Robot.java** - The main class of the robot which is run when a robot boots up. 
     - **OI.java** - This class binds our **commands** to a physical operator interface such as a
     - joystick or controller.
-        - This file is already in `robotInit()` by default so classes called here will also be loaded by the program
+        - This file is already in `#!java robotInit()` by default so classes called here will also be loaded by the program
     - **RobotMap.java** - This class is used to hold all the ports or ID numbers of sensors or devices connected to the robot and assign them a variable name.
         - This provides flexibility changing wiring, makes checking the wiring easier and significantly reduces the number of magic numbers floating around.
     - **ExampleSubsystem.java** and **ExampleCommand.java** are auto-created examples.
@@ -128,6 +128,6 @@ Making FRC Programming Easy
 - Command based robots are broken down into **subsystems** and **commands**
 - **Subsystems** define what the robot is made of and what it can do while **commands** actually tell the robot to do those things
 - All classes must directly or indirectly connect to **Robot.java**.
-    - All **Subsystems** must be added to **Robot.java**’s `robotInit()` 
-- **RobotMap.java** holds port numbers and IDs accessible throughout the program by typing: `RobotMap.NameOfMotor()`
+    - All **Subsystems** must be added to **Robot.java**’s `#!java robotInit()` 
+- **RobotMap.java** holds port numbers and IDs accessible throughout the program by typing: `#!java RobotMap.NameOfMotor()`
 - **OI.java** connects our commands to physical controllers

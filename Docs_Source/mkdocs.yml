@@ -19,8 +19,13 @@ use_directory_urls: false
 # Extensions
 markdown_extensions:
   - admonition
-  - codehilite
   - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.betterem
+  - pymdownx.tasklist
+  - pymdownx.extra
+  - pymdownx.inlinehilite
+  - pymdownx.highlight
   - toc:
         permalink: "#"
 
@@ -32,6 +37,7 @@ nav:
   - 'basics/sensors.md'
   - 'basics/java_basics.md'
   - 'basics/wpilib.md'
+  - 'basics/vscode.md'
 - Dev Enviroment Setup:
   - 'setup/install_software.md'
 - Programming an FRC Robot:

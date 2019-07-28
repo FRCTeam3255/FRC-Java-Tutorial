@@ -3,7 +3,7 @@
 Lets get moving
 
 ![Image Title](../assets/images/kitbot.jpg)
-> <a href="http://ljrobotics.org/games/power-up-2018/" target="_blank">Picture source: Team 2984</a>
+> [Picture source: Team 2984](http://ljrobotics.org/games/power-up-2018/){target=_blank}
 
 ## Overview
 
@@ -18,4 +18,3 @@ In this section we will be going over:
 ***
 
 ## Creating the Drivetrain Subsystem
-

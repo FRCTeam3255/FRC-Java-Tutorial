@@ -8,10 +8,10 @@ Learning What's What
 
 - Objects, variables, and classes (in Java) make up our programs. We define, modify, use these variables and objects to make our programs run.
 - Programs use key words to define characteristics of variables or objects. Basic keywords:
-    - `public` - an object accessible by other classes (files)
-    - `private` - an object only accessible by its containing class (file).
-    - `protected` - like private but can be seen by subclasses
-    - `return` - value to return or give back after method execution (run). void - a method that returns no value
+    - `#!java public` - an object accessible by other classes (files)
+    - `#!java private` - an object only accessible by its containing class (file).
+    - `#!java protected` - like private but can be seen by subclasses
+    - `#!java return` - value to return or give back after method execution (run). void - a method that returns no value
 
 !!! Warning "IMPORTANT NOTE"
 	Java is case sensitive, meaning capitalization matters!
@@ -77,13 +77,13 @@ Learning What's What
 - Variables are assigned names and data types on creation
     - Names can be anything with the exception of pre-existing keywords such as `public` or `int`
 - Data types define what type of data is being stored in the variables:
-    - `int` - integers (whole numbers)
-    - `double` - double precision floating point (fractional/decimal values) 
-    - `boolean` - true or false (true = 1 or false = 0) values.
-    - `string` - text values contained in parentheses
-    - !!! Example "Example: `int sum;`"
+    - `#!java int` - integers (whole numbers)
+    - `#!java double` - double precision floating point (fractional/decimal values) 
+    - `#!java boolean` - true or false (true = 1 or false = 0) values.
+    - `#!java string` - text values contained in parentheses
+    - !!! Example "Example: `#!java int sum;`"
     	A variable that can hold whole number values
-	- !!! Example "Example: `boolean isFull = true;`"
+	- !!! Example "Example: `#!java boolean isFull = true;`"
     	A variable can either hold a true or false value and is being assigned a true value
 
 - Most non-static variables can have their values assigned or assigned at any point elsewhere in your program

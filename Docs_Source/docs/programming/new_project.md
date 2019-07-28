@@ -48,6 +48,8 @@ Before we can start progrmming a robot, we must create a new project in Visual S
 	
 	![6](../assets/images/new_prod/new_prod_6.png)
 
+### Default Project Contents
+
 ## Creating a New Subsystem
 
 !!! summary ""
@@ -82,23 +84,63 @@ Before we can start progrmming a robot, we must create a new project in Visual S
 	!!! danger "***We must do this for EVERY subsystem we create***"
 
 !!! summary ""
-	1) In Robot.java we will create a new **global** variable of type `DesiredSubsystemName` (i.e. `Drivetrain`) named `m_desiredSubsystemName` (`i.e. m_drivetrain`) and set its value to `null`.  
+	1) In Robot.java we will create a new **global** variable of type `DesiredSubsystemName` (i.e. `Drivetrain`) named `#!java m_desiredSubsystemName` (`i.e. m_drivetrain`) and set its value to `null`.  
     
 	![1](../assets/images/new_prod/new_prod_1.png)
 
 !!! summary ""
-	2) In the `robotInit()` method add: `m_desiredSubsystemName = new DesiredSubsystemName();` (i.e. `m_drivetrain = new Drivetrain();`)
+	2) In the `robotInit()` method add: `#!java m_desiredSubsystemName = new DesiredSubsystemName();` (i.e. `#!java m_drivetrain = new Drivetrain();`)
     
 	!!! warning "Important"
     	This must always be done above **OI** and **Telemetry/SmartDashboard** (if present).
 
 	![1](../assets/images/new_prod/new_prod_1.png)
 	
-Now when we use this subsystem in commands, we must call `Robot.m_desiredSubsystemName.` to get access to it and its methods. (i.e. `Robot.m_drivetrain.someMethod()`)
+Now when we use this subsystem in commands, we must call `#!java Robot.m_desiredSubsystemName.` to get access to it and its methods. (i.e. `#!java Robot.m_drivetrain.someMethod()`)
+
+### Default Subsytem Contents
+
+- Newly created subsystems are empty with the exception of the initDefaultCommand.
+- We will create a constructor ourselves later.
+- initDefaultCommand - a command that will run automatically every time the subsystem is called.
+    - When another command that requires the same subsystem is called, the initDefaultCommand will stop and restart after the new command has finished.
+        - This process calls the interrupted method of the command being called initDefaultCommand
+
+!!! Example  
+    ![1](../assets/images/new_prod/new_subsystem.png)
 
 ## Creating a New Command
-<!-- TODO: Work in progress -->
-Click on the src folder to expand it. Do the same for commands  
-Right click on commands and select Create a new class/ command.  
-Select Command and type DriveArcade for the name and hit enter on your keyboard.  
-Click on the newly create DriveArcade.java  
+
+!!! summary ""
+	1) Double click on the src folder to expand it.  
+	2) Do the same for commands
+	
+	![1](../assets/images/new_prod/new_prod_1.png)
+
+!!! summary ""
+  	3) Right click on commands and select Create a new class/ command.  
+	
+	![1](../assets/images/new_prod/new_prod_1.png)
+
+!!! summary ""
+	4) Select Command and type DriveArcade for the name and hit enter on your keyboard.  
+	
+	![1](../assets/images/new_prod/new_prod_1.png)
+
+!!! summary ""
+    5) Click on the newly create DriveArcade.java  
+	
+	![1](../assets/images/new_prod/new_prod_1.png)
+
+### Default Command Contents
+
+- **Constructor** - Called when the robot program is ***FIRST*** loaded.
+    - Subsystem dependencies are declared here.
+- **Initialize** - Called ***ONCE*** just before this Command runs the first time.
+- **Execute** - Called ***REPEATEDLY*** when this Command is scheduled to run
+- **isFinished** - Make this return ***TRUE*** when this Command no longer needs to run `execute()` (initialize always runs once regardless). 
+- **End** - Called ***ONCE*** after isFinished returns true
+- **Interrupted** - Called when ***another command*** which requires one or more of the same subsystems is scheduled to run
+
+!!! Example  
+    ![1](../assets/images/new_prod/new_command.png)
