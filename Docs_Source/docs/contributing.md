@@ -1,4 +1,4 @@
-# **WIP** Contributing
+# Contributing
 
 Helping out with the project!
 
@@ -13,7 +13,10 @@ If you make documentation changes please contribute changes that reflect this in
 ### Editing Pages
 
 On each page there is an option to edit the page. Any changes you make through this option will be submitted and become live once they are approved.  
-This icon looks like this: 
+
+> This icon looks like this:
+> 
+> ![](assets/images/contributing/edit_icon.png)
 
 Alternatively you could create a pull request and clone the repository
 
