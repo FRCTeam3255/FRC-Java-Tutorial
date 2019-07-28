@@ -2,7 +2,7 @@
 
 The Brains of the Bot!
 
-![roboRIO](../assets/images/roboRio.jpg)
+![roboRIO](../assets/images/roboRIO/roboRio.jpg)
 
 ## The roboRIO Basics
 
@@ -22,4 +22,4 @@ The Brains of the Bot!
 - **MXP** used for functionality expansion
 - Check the roboRIO [user manual](http://www.ni.com/pdf/manuals/375274a.pdf){target=_blank} for more details
 
-![roboRIO IO](../assets/images/roboRIO_io.png)
+![roboRIO IO](../assets/images/roboRIO/roboRIO_io.png)

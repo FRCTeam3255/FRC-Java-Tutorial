@@ -1,6 +1,6 @@
 # Introductions
 
-[![FIRST](assets/images/first.png)](https://www.firstinspires.org/robotics/frc/){target=_blank}
+[![FIRST](assets/images/logos/first.png)](https://www.firstinspires.org/robotics/frc/){target=_blank}
 
 The unoffical FIRST Robotics Competition Java Programming Tutorial
 
@@ -9,7 +9,7 @@ Last updated: MM/DD/YY
 
 ## Powered by
 
-[![sn_banner](assets/images/sn_banner.png)](https://SuperNURDs.com/){target=_blank}
+[![sn_banner](assets/images/logos/sn_banner.png)](https://SuperNURDs.com/){target=_blank}
 
 ## Contributors
 

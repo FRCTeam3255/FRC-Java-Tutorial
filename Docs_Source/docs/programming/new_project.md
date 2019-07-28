@@ -2,7 +2,7 @@
 
 Lets get started
 
-![VSCode](../assets/images/code.png)
+![VSCode](../assets/images/logos/code.png){height=150px}	![](../assets/images/logos/wpilib.png){height=150px}
 
 ## Overview
 

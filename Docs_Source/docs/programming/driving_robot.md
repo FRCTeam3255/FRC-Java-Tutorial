@@ -2,7 +2,7 @@
 
 Lets get moving
 
-![Image Title](../assets/images/kitbot.jpg)
+![Image Title](../assets/images/driving_robot/kitbot.jpg)
 > [Picture source: Team 2984](http://ljrobotics.org/games/power-up-2018/){target=_blank}
 
 ## Overview

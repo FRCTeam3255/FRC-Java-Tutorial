@@ -2,9 +2,9 @@
 
 Lets get started
 
-![NI](../assets/images/ni.png)
-![Java](../assets/images/java_logo.png)
-![VSCode](../assets/images/code.png)
+![NI](../assets/images/logos/ni.png)
+![Java](../assets/images/logos/java_logo.png)
+![VSCode](../assets/images/logos/code.png)
 
 ## National Instruments
 

@@ -2,7 +2,7 @@
 
 Learning What's What
 
-![Java](../assets/images/java.png)
+![Java](../assets/images/logos/java.png)
 
 ## Overview
 

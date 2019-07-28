@@ -2,7 +2,7 @@
 
 Making life easier
 
-![Image Title](../assets/images/code.png)
+![Image Title](../assets/images/logos/code.png)
 
 <!-- ## Section One
 

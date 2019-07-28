@@ -2,7 +2,7 @@
 
 Making FRC Programming Easy
 
-![WPI Lib](../assets/images/wpilib.png)
+![WPI Lib](../assets/images/logos/wpilib.png)
 
 ## What is WPILib
 
