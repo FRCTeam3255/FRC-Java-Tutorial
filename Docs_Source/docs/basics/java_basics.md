@@ -28,7 +28,7 @@ Learning What's What
 - Classes can also **call** (use) variables or methods of other classes if those have been set to public.
 
 ### Constructors
-
+<!-- TODO: Add info about keyword new -->
 - Classes can also have a ***constructor*** which is a special type of **method** that has the **same name (case sensitive)** as the class file
     - Constructors are always called when the class is loaded into the program for the first time. This is often the only time they are called.
     - Constructors are called when trying to access the class in other files.
@@ -72,7 +72,7 @@ Learning What's What
 ***
 
 ## Variables
-
+<!-- TODO: Add note about constants -->
 - Variables are objects that contain data, they are characterized by data types
 - Variables are assigned names and data types on creation
     - Names can be anything with the exception of pre-existing keywords such as `public` or `int`
