@@ -6,5 +6,6 @@
 	"blanks-around-fences": false,
 	"MD005": false,
 	"MD007": false,
-	"MD009": false
+	"MD009": false,
+	"MD045": false
 }
