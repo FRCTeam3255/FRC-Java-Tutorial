@@ -8,5 +8,10 @@
 		"**/.DS_Store": true,
 		"**/site": true
 	},
-	"MarkdownPaste.path": "${workspaceRoot}/docs/assets/images/${fileBasenameNoExtension}"
+	"MarkdownPaste.path": "${workspaceRoot}/docs/assets/images/${fileBasenameNoExtension}",
+	"cSpell.words": [
+		"Grayhill",
+		"robo",
+		"wpilibj"
+	]
 }

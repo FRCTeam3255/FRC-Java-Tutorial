@@ -6,7 +6,7 @@ Lets get started
 
 ## Overview
 
-Before we can start progrmming a robot, we must create a new project in Visual Studio Code (VSCode). This section will go over:
+Before we can start programing a robot, we must create a new project in Visual Studio Code (VSCode). This section will go over:
 
 - [Creating a New Project](#creating-a-new-project)
 - [Creating a New Subsystem](#creating-a-new-subsystem)

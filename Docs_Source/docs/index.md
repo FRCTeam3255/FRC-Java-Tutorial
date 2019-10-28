@@ -2,7 +2,7 @@
 
 [![FIRST](assets/images/logos/first.png)](https://www.firstinspires.org/robotics/frc/){target=_blank}
 
-The unoffical FIRST Robotics Competition Java Programming Tutorial
+The unofficial FIRST Robotics Competition Java Programming Tutorial
 
 <!-- TODO: Update -->
 Updated for the YYYY Season  

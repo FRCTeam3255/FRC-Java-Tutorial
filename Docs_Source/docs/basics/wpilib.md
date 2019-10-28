@@ -18,7 +18,7 @@ Making FRC Programming Easy
 ## Command Based Robot
 
 - For our programming tutorial we will be creating a Command based robot
-- Command Based Robots are much like Legos, with very basic pieces you can make something **simple** like a house or **complicated** like a replica Star Wars Millennium Falcon
+- Command Based Robots are much like Lego, with very basic pieces you can make something **simple** like a house or **complicated** like a replica Star Wars Millennium Falcon
 - A command based robot is broken down into **subsystem** classes and **command** classes.
 - In the code, a command based robot is made up of 3 **packages** (**folders**) labeled robot, commands, and subsystems
 - There are other types of robots but we will use Command Based

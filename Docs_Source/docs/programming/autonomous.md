@@ -1,4 +1,4 @@
-# **WIP** Creating an Autonomouc Command
+# **WIP** Creating an Autonomous Command
 
 This page is currently a work in progress. Check back later
 
