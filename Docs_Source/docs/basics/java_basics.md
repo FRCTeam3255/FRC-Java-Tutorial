@@ -99,7 +99,7 @@ Learning What's What
 ??? example "Example of a Local Variable"
 	```java
     public int testMethod() {
-        int example = 12; // Instide of method
+        int example = 12; // Inside of method
         example = example + 1;
         return example
     }

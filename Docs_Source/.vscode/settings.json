@@ -11,6 +11,8 @@
 	"MarkdownPaste.path": "${workspaceRoot}/docs/assets/images/${fileBasenameNoExtension}",
 	"cSpell.words": [
 		"Grayhill",
+		"Sayasane",
+		"kitbot",
 		"robo",
 		"wpilibj"
 	]

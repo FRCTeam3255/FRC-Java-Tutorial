@@ -99,7 +99,7 @@ Before we can start programing a robot, we must create a new project in Visual S
 	
 Now when we use this subsystem in commands, we must call `#!java Robot.m_desiredSubsystemName.` to get access to it and its methods. (i.e. `#!java Robot.m_drivetrain.someMethod()`)
 
-### Default Subsytem Contents
+### Default Subsystem Contents
 
 - Newly created subsystems are empty with the exception of the initDefaultCommand.
 - We will create a constructor ourselves later.

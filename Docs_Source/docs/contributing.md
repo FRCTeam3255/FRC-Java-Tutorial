@@ -4,7 +4,7 @@ Helping out with the project!
 
 ## Example Project Code
 
-If you make Example Project Code changes please contribute changes that reflect this in the Documention. This will make it easier for us and more likely that your contribution will be approved.
+If you make Example Project Code changes please contribute changes that reflect this in the Documentation. This will make it easier for us and more likely that your contribution will be approved.
 
 ## Documentation
 
@@ -29,7 +29,7 @@ You can help the project by making new pages. Any pages you make will become liv
 Alternatively you could create a pull request and clone the repository
 
 !!! Warning
-    Make sure all documention files end in `.md`
+    Make sure all documentation files end in `.md`
 
 !!! Tip
     You can add to a certain subdirectory by appending `/director_name/` to the file name

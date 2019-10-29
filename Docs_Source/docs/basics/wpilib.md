@@ -71,14 +71,14 @@ Making FRC Programming Easy
 	**Subsystems** define what the robot is made of and what it can do while **commands** actually tell the robot to do those things
 - Using a dog as an example we can tell the dog to blink by creating a **BlinkEyes** command
     - The command would call the method, **closeEyes()** then the method **openEyes()**
-    - ??? example "BlinkEyes Command"
-    	```java
-		//This command will continuously run the two methods in execute
-		protected void execute() {
-        	dog.head.closeEyes();
-        	dog.head.openEyes();
-        }
-    	```
+- ??? example "BlinkEyes Command"
+  	```java
+    //This command will continuously run the two methods in execute
+    protected void execute() {
+      	dog.head.closeEyes();
+      	dog.head.openEyes();
+    }
+  	```
 - A robot example of a **DriveForward** command would call (use) the **setSpeed** methods that we created in the **Drivetrain** subsystem
 - **DriveForward**, when executed, will tell our robot to drive forward using the **Drivetrain** subsystem
 - ??? example "DriveForward Command"
