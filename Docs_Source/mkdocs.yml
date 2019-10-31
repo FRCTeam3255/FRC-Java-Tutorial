@@ -1,5 +1,5 @@
 site_name: FRC Java Programming
-repo_name: Example Project
+repo_name: Tutorial Bot
 repo_url: https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/remaster
 edit_uri: https://github.com/FRCTeam3255/FRC-Java-Tutorial/edit/remaster/Docs_Source/docs/
 site_author: Tayler Uva
@@ -12,7 +12,12 @@ theme:
     icon: 'laptop'
   feature:
     tabs: false
+  palette:
+    primary: 'blue'
+    accent: 'light blue'
 extra_css: 
+  # - assets/css/dark_theme.css
+  # - assets/css/codehilite.css
   - assets/css/sn.css
 use_directory_urls: false
 
@@ -26,7 +31,8 @@ markdown_extensions:
   - pymdownx.tasklist
   - pymdownx.extra
   - pymdownx.inlinehilite
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      css_class: 'codehilite'
   - toc:
         permalink: "#"
 
@@ -39,7 +45,7 @@ nav:
   - 'basics/java_basics.md'
   - 'basics/wpilib.md'
   - 'basics/vscode.md'
-- Dev Enviroment Setup:
+- Dev Environment Setup:
   - 'setup/install_software.md'
 - Programming an FRC Robot:
   - 'programming/new_project.md'

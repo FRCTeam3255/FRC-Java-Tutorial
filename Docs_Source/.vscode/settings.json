@@ -10,10 +10,20 @@
 	},
 	"MarkdownPaste.path": "${workspaceRoot}/docs/assets/images/${fileBasenameNoExtension}",
 	"cSpell.words": [
+		"CTRE",
+		"Driverstation",
 		"Grayhill",
 		"Sayasane",
+		"betterem",
+		"codehilite",
+		"drivestation",
+		"inlinehilite",
 		"kitbot",
+		"pymdownx",
 		"robo",
+		"robotpreferences",
+		"superfences",
+		"tasklist",
 		"wpilibj"
 	]
 }
