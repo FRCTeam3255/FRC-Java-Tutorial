@@ -6,8 +6,9 @@ Lets get started
 ![Java](../assets/images/logos/java_logo.png)
 ![VSCode](../assets/images/logos/code.png)
 
-
 ## Overview
+
+Before we can start programing a robot we must install the necessary software for programming and driving the robot. This section will go over:
 
 - [Installing Development Tools: VSCode and Java](#installing-java-development-tools)
 - [Installing the FRC Update Suite: Driverstation Software and roboRIO imaging tool](#installing-the-frc-update-suite)
