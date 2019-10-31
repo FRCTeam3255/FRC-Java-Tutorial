@@ -1,4 +1,4 @@
-# **WIP** Creating Project Files
+# Creating Project Files
 
 Lets get started
 
@@ -50,10 +50,33 @@ Before we can start programing a robot, we must create a new project in Visual S
 
 ### Default Project Contents
 
+Newly created projects have many files within them. We only care about the contents within the **src/main/java/frc/robot/** folder. Everything else can be ignored at this point in the tutorial.
+
+**Files in the robot folder:**
+
+- **ExampleCommand.java**
+    - An example Command
+- **ExampleSubsystem.java**
+    - An example SubSystem
+- **Main.java**
+    - Used for advanced programming 
+    - Will be ignored/left as is for this tutorial
+- **OI.java**
+    - Used to create a connection between commands and Operator Interfaces (OI) such as Joysticks or buttons
+- **Robot.java**
+    - Used to declare our subsystem
+    - Used to run special methods in the init and period phases of the auto, teleop, and disabled states
+- **RobotMap.java**
+    - Used to map physical ports (digital if using the CAN bus) to variables in the code
+
+??? Example 
+    ![](../assets/images/new_project/default_contents.png)
+***
+
 ## Creating a New Subsystem
 
 !!! summary ""
-	1) Double click on the **src** folder to expand it.  
+	1) Click on the **src** folder to expand it.  
 	2) Do the same for **subsystems**
 	
 	![](../assets/images/new_project/subsystem/step_1.png)
@@ -87,7 +110,7 @@ Before we can start programing a robot, we must create a new project in Visual S
 !!! summary ""
 	1) In Robot.java we will create a new **global** variable of type `DesiredSubsystemName` (i.e. `Drivetrain`) named `#!java m_desiredSubsystemName` (`i.e. m_drivetrain`) and set its value to `null`.  
     
-	![](../assets/images/new_project/project/step_1.png)
+	![](../assets/images/new_project/subsystem/step_6.png)
 
 !!! summary ""
 	2) In the `robotInit()` method add: `#!java m_desiredSubsystemName = new DesiredSubsystemName();` (i.e. `#!java m_drivetrain = new Drivetrain();`)
@@ -95,25 +118,44 @@ Before we can start programing a robot, we must create a new project in Visual S
 	!!! warning "Important"
     	This must always be done above **OI** and **Telemetry/SmartDashboard** (if present).
 
-	![](../assets/images/new_project/project/step_1.png)
-	
+	![](../assets/images/new_project/subsystem/step_7.png)
+
 Now when we use this subsystem in commands, we must call `#!java Robot.m_desiredSubsystemName.` to get access to it and its methods. (i.e. `#!java Robot.m_drivetrain.someMethod()`)
 
 ### Default Subsystem Contents
 
-- Newly created subsystems are empty with the exception of the initDefaultCommand.
-- We will create a constructor ourselves later.
-- initDefaultCommand - a command that will run automatically every time the subsystem is called.
+Newly created subsystems are empty with the exception of the initDefaultCommand.
+
+- Currently there is no constructor, we will create a constructor ourselves later.
+- **initDefaultCommand** - a command that will run automatically every time the subsystem is called.
     - When another command that requires the same subsystem is called, the initDefaultCommand will stop and restart after the new command has finished.
         - This process calls the interrupted method of the command being called initDefaultCommand
 
-!!! Example  
-    ![](../assets/images/new_project/new_subsystem.png)
+??? Example  
+    ```java
+    package frc.robot.subsystems;
+
+    import edu.wpi.first.wpilibj.command.Subsystem;
+
+    /**
+     * Add your docs here.
+     */
+    public class Drivetrain extends Subsystem {
+      // Put methods for controlling this subsystem
+      // here. Call these from Commands.
+
+      @Override
+      public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+      }
+    }
+	```
 
 ## Creating a New Command
 
 !!! summary ""
-	1) Double click on the **src** folder to expand it.  
+	1) Click on the **src** folder to expand it (if it isn't already).  
 	2) Do the same for **commands**
 	
 	![](../assets/images/new_project/command/step_1.png)
@@ -136,13 +178,15 @@ Now when we use this subsystem in commands, we must call `#!java Robot.m_desired
 
 ### Default Command Contents
 
+Newly created commands have some predefined methods in them specific for a command based robot.
+
 - **Constructor** - Called when the robot program is ***FIRST*** loaded.
     - Subsystem dependencies are declared here.
-- **Initialize** - Called ***ONCE*** just before this Command runs the first time.
-- **Execute** - Called ***REPEATEDLY*** when this Command is scheduled to run
-- **isFinished** - Make this return ***TRUE*** when this Command no longer needs to run `execute()` (initialize always runs once regardless). 
-- **End** - Called ***ONCE*** after isFinished returns true
-- **Interrupted** - Called when ***another command*** which requires one or more of the same subsystems is scheduled to run
+- **initialize()** - Called ***ONCE*** just before this Command runs the first time.
+- **execute()** - Called ***REPEATEDLY*** when this Command is scheduled to run
+- **isFinished()** - Make this return ***TRUE*** when this Command no longer needs to run `execute()` (initialize always runs once regardless). 
+- **end()** - Called ***ONCE*** after isFinished returns true
+- **interrupted()** - Called when ***another command*** which requires one or more of the same subsystems is scheduled to run
 
 ??? Example
     ```java

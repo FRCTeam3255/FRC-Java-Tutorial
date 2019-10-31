@@ -2,11 +2,14 @@
 
 [![FIRST](assets/images/logos/first.png)](https://www.firstinspires.org/robotics/frc/){target=_blank}
 
-The unofficial FIRST Robotics Competition Java Programming Tutorial
+The unofficial FIRST Robotics Competition Java Programming Tutorial.
 
 <!-- TODO: Update -->
-Updated for the YYYY Season  
-Last updated: MM/DD/YY
+!!! Info
+	Updated for the YYYY Season  
+	Last updated: MM/DD/YY
+
+	**Disclaimer:** Some screenshots may have different colors, icons, more/less folders/files than you due to themes or personal settings. This is normal and should not impact the tutorial. If you still have any questions please contact us.
 
 ## Powered by
 

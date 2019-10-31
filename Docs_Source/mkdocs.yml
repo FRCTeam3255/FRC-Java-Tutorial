@@ -44,7 +44,8 @@ nav:
   - 'basics/sensors.md'
   - 'basics/java_basics.md'
   - 'basics/wpilib.md'
-  - 'basics/vscode.md'
+  # - 'basics/vscode_tips.md'
+  # - 'basics/driverstation_tips.md'
 - Dev Environment Setup:
   - 'setup/install_software.md'
 - Programming an FRC Robot:
