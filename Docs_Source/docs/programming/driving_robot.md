@@ -249,5 +249,3 @@ Since each subsystem has its own components with their own ports, it is easy to 
 
 	!!! Warning
       	Remember to use the values for **YOUR** specific robot or you could risk damaging it!
-
-<!-- TODO: maybe add lets code along -->
