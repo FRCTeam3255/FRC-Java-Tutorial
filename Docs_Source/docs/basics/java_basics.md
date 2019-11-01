@@ -12,6 +12,7 @@ Learning What's What
     - `#!java private` - an object only accessible by its containing class (file).
     - `#!java protected` - like private but can be seen by subclasses
     - `#!java return` - value to return or give back after method execution (run). void - a method that returns no value
+    - `#!java null` - a value that means empty or nothing
 
 !!! Warning "IMPORTANT NOTE"
 	Java is case sensitive, meaning capitalization matters!
@@ -29,6 +30,7 @@ Learning What's What
 
 ### Constructors
 <!-- TODO: Add info about keyword new -->
+
 - Classes can also have a ***constructor*** which is a special type of **method** that has the **same name (case sensitive)** as the class file
     - Constructors are always called when the class is loaded into the program for the first time. This is often the only time they are called.
     - Constructors are called when trying to access the class in other files.
@@ -73,6 +75,7 @@ Learning What's What
 
 ## Variables
 <!-- TODO: Add note about constants -->
+
 - Variables are objects that contain data, they are characterized by data types
 - Variables are assigned names and data types on creation
     - Names can be anything with the exception of pre-existing keywords such as `public` or `int`
@@ -86,7 +89,16 @@ Learning What's What
 	- !!! Example "Example: `#!java boolean isFull = true;`"
     	A variable can either hold a true or false value and is being assigned a true value
 
-- Most non-static variables can have their values assigned or assigned at any point elsewhere in your program
+### Constants
+
+Most variables can have their values assigned or reassigned at any point elsewhere in your program. To avoid having a variable change its value during runtime you can make it a **constant**
+
+- In Java you can create constants using the `#!java static final` keywords together in front of the data type of the variable
+    - The static modifier causes the variable to be available without loading an the class where it is defined. 
+    - The final modifier causes the variable to be unchangeable.
+    - Java constants are normally declared in ALL CAPS. Words in Java constants are normally separated by underscores.
+    - !!! Example "Example: `#!java public static final double PI_VALUE = 3.14159;`"
+        A variable that cannot be modified during code run time.
   
 ### Scope
 

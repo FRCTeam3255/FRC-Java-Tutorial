@@ -123,6 +123,8 @@ Making FRC Programming Easy
         - This provides flexibility changing wiring, makes checking the wiring easier and significantly reduces the number of magic numbers floating around.
     - **ExampleSubsystem.java** and **ExampleCommand.java** are auto-created examples.
 
+***
+
 ## Summary
 
 - Command based robots are broken down into **subsystems** and **commands**

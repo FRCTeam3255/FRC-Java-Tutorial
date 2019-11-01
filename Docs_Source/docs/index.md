@@ -4,10 +4,9 @@
 
 The unofficial FIRST Robotics Competition Java Programming Tutorial.
 
-<!-- TODO: Update -->
 !!! Info
-	Updated for the YYYY Season  
-	Last updated: MM/DD/YY
+	Updated for the 2019 Season  
+	Last updated: 10/31/19
 
 	**Disclaimer:** Some screenshots may have different colors, icons, more/less folders/files than you due to themes or personal settings. This is normal and should not impact the tutorial. If you still have any questions please contact us.
 
