@@ -52,6 +52,8 @@ Before we can start programing a robot, we must create a new project in Visual S
 
 ### Default Project Contents
 
+<!-- TODO: Maybe remove this or combine it with the WPILib section -->
+
 Newly created projects have many files within them. We only care about the contents within the **src/main/java/frc/robot/** folder. Everything else can be ignored at this point in the tutorial.
 
 **Files in the robot folder:**

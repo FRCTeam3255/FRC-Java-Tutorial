@@ -1,6 +1,8 @@
 # **WIP** Creating a Basic Driving Robot
 
-Lets get moving
+<!-- TODO: Maybe split this into different pages -->
+
+Lets get moving!
 
 ![Image Title](../assets/images/driving_robot/kitbot.jpg)
 > [Picture source: Team 2984](http://ljrobotics.org/games/power-up-2018/){target=_blank}
@@ -86,11 +88,12 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
       }
     }
 	```
+<!-- TODO: Generalize this more -->
 
 ??? Warning "If an error occurs (red squiggles)"
 	1. Click the word Talon
 	![](../assets/images/driving_robot/e1.png)
-	2. 💡 Click the light bulb 
+	2. 💡 Click the light bulb  
 	![](../assets/images/driving_robot/e2.png)
 	3. Select "Import 'Talon' (edu.wpi.first.wpilibj)"
 	![](../assets/images/driving_robot/e3.png)
@@ -162,10 +165,15 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
 
 ### Using RobotMap
 
+<!-- TODO: Link this as example where robot map mentioned -->
+
 Since each subsystem has its own components with their own ports, it is easy to lose track of which ports are being used and for what. To counter this you can use a class called **RobotMap** to hold all these values in a single location.
 
 !!! summary ""
-    **1)** To use RobotMap, instead of putting `0` for the port on the Talon type: `#!java RobotMap.DRIVETRAIN_LEFT_FRONT_TALON`.
+    **1)** To use RobotMap, instead of putting `0` for the port on the Talon type: 
+	```java
+	RobotMap.DRIVETRAIN_LEFT_FRONT_TALON
+	```
    
     - Names should follow the pattern SUBSYSTEM_NAME_OF_COMPONENT
     - The name is all caps since it is a **constant** ([more info on constants](../basics/java_basics.md#constants){target=_blank}).
@@ -173,16 +181,23 @@ Since each subsystem has its own components with their own ports, it is easy to 
 !!! summary ""
     **2)** Click on the underlined text 
 	![](../assets/images/driving_robot/robotmap/step_1.png)
+
+!!! summary ""
 	**3)** Click on the 💡light bulb and select “create constant…”
 	![](../assets/images/driving_robot/robotmap/step_2.png)
+	
+!!! summary ""
 	**4)** Click on RobotMap.java tab that just popped up
-	![](../assets/images/driving_robot/robotmap/step_3.png)
+	![](../assets/images/driving_robot/robotmap/step_3.png)  
+	
+!!! summary ""
 	**5)** Change the `0` to the correct port for that motor controller on your robot/roboRIO
 	![](../assets/images/driving_robot/robotmap/step_4.png)
 	
 	!!! Danger
 		***If you set this to the wrong value, you could damage your robot when it tries to move!***
    
+!!! summary ""
 	**6)** Repeat these steps for the remaining Talons.
 
 	!!! Tip
@@ -249,3 +264,67 @@ Since each subsystem has its own components with their own ports, it is easy to 
 
 	!!! Warning
       	Remember to use the values for **YOUR** specific robot or you could risk damaging it!
+
+## Making our robot controllable
+
+<!-- TODO: Decide on order of this -->
+
+In order to drive our robot, it needs to know what will be controlling it. To do so we will create a new joystick in OI.java
+
+!!! summary ""
+    **1)** Open OI.java
+
+    **2)** Type: 
+	```java 
+	public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+	```
+
+	<!-- TODO: Change this to a general fix imports -->
+
+	- Import any classes if necessary such as: `#!java import edu.wpi.first.wpilibj.Joystick;` 
+    - A variable `driverController` of type Joystick pointing to a joystick on port `OI_DRIVER_CONTROLLER` from **RobotMap**
+
+	**3)** Click the 💡 light bulb to create a new **CONSTANT** and set the value to the port number the joystick uses on the laptop (this can be found in the Driverstation software).
+
+<!-- TODO: add details on how to find joystick port in driverstation tips -->
+
+??? Example
+
+	The code you type should be this:
+
+    ```java
+    public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+    ```
+
+	Your full **OI.java** should look like this:
+
+    ```java
+    package frc.robot;
+
+    import edu.wpi.first.wpilibj.Joystick;
+
+    /**
+     * This class is the glue that binds the controls on the physical operator
+     * interface to the commands and command groups that allow control of the robot.
+     */
+    public class OI {
+      public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+    }
+	```
+
+	Your full **RobotMap.java** should look similar to this:	
+
+    ```java
+    package frc.robot;
+
+    public class RobotMap {
+	  // Talons
+      public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+      public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+      public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+      public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
+
+	  // Joysticks
+      public static final int OI_DRIVER_CONTROLLER = 0;
+    }
+	```

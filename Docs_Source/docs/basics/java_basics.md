@@ -74,7 +74,6 @@ Learning What's What
 ***
 
 ## Variables
-<!-- TODO: Add note about constants -->
 
 - Variables are objects that contain data, they are characterized by data types
 - Variables are assigned names and data types on creation
