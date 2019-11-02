@@ -265,8 +265,6 @@ Since each subsystem has its own components with their own ports, it is easy to 
 	!!! Warning
       	Remember to use the values for **YOUR** specific robot or you could risk damaging it!
 
-<!-- TODO: Decide on order of this -->
-
 ### Creating the arcade drive
 
 #### What is the Drive Class
@@ -484,7 +482,7 @@ Now it’s time to make an arcadeDrive from our differentialDrive!
 
 ## Making our robot controllable
 
-<!-- TODO: Decide on order of this -->
+### Creating the Joystick
 
 In order to drive our robot, it needs to know what will be controlling it. To do so, we will create a new joystick in OI.java
 
@@ -545,3 +543,153 @@ In order to drive our robot, it needs to know what will be controlling it. To do
       public static final int OI_DRIVER_CONTROLLER = 0;
     }
 	```
+
+### Creating the DriveArcade Command
+
+- Remember that **methods** tell the robot what it can do but in order to make it do these things we must give it a **command**. See [Command Based Robot](../basics/wpilib.md#command-based-robot){target=_blank}
+- Now that we have created the method, we need to create a command to call and use that method.
+- Let’s create a new command called **DriveArcade** that calls arcadeDrive method we just created!
+
+Before we begin we must create the class file for the DriveArcade command. See [Creating a New Command](new_project.md#creating-a-new-command){target=_blank} for info on how to do this and info on what each pre-created method does.
+
+#### In the constructor
+
+!!! summary ""
+    **1)** In the constructor `#!java DriveArcade()` type:
+
+    ```java
+    requires(Robot.m_drivetrain);
+    ```
+   
+    - This means, this command will end all other commands currently using drivetrain and will run instead when executed.
+    - It also means, other commands that require drivetrain will stop this command and run instead when executed.
+
+    !!! Warning
+        If you use the light bulb to import ‘Robot’. Be sure to import the one with “frc.robot”
+
+#### In the execute method
+
+!!! summary ""
+    **1)** In the execute method we will create 2 variables of type double called moveSpeed and rotateSpeed.
+
+    - We want these variables to be the value of the axis of the controller we are using to drive the robot. So we will set them equal to that by using the joystick getRawAxis method.
+    - Controllers return an axis value between 1 and -1 to indicate how far the joystick is pushed up or down. Our personal controller returns up as -1 so we want to invert it.
+        - In Java you can put a negative “ - “in front of a numeric value to invert it (value * -1)
+        - The joystick’s getRawAxis method will get the position value of the axis as you move it. The method takes parameter “axis number.” (This can be found in the Driverstation software and we will store it in RobotMap).
+
+    In the execute() method type:
+
+    ```java
+    double moveSpeed = -Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
+    double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
+    ```
+
+    !!! Tip
+        Remember to use the light bulb for importing and creating constants!
+
+!!! summary ""
+    **2)** Also in the execute method we will we want to call the **arcadeDrive** method we created in **Drivetrain** and give it the variables **moveSpeed** and **rotateSpeed** we created as parameters.
+
+    In the execute() method below rotateSpeed type:
+
+    ```java
+    Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+    ```
+
+#### In the isFinished method
+
+Since we will be using this command to control the robot we want it to run indefinitely.
+
+!!! summary ""
+    **1)** To do this we are going to continue having isFinished return false, meaning the command will never finish. 
+    
+    (We don't need to change anything as this is the default)
+
+    !!! Tip
+        - If we did want a command to finish, we make this return true.
+          - This can be done by replacing false with true to make it finish instantly
+          - Alternatively we can make a condition which can return true
+              - For example `(timePassed > 10)` will return true after 10 seconds but return false anytime before 10 seconds have passed.
+
+#### In the end method
+
+!!! summary ""
+    **1)** We will call the arcadeDrive method and give it 0 and 0 as the parameters. 
+
+    In the end() method type:
+
+    ```java
+    Robot.m_drivetrain.arcadeDrive(0, 0);
+    ```
+
+    - This make the motors stop running when the command ends by setting the movement speed to zero and rotation speed to zero.
+
+#### In the interrupted method
+
+!!! summary ""
+    **1)** We will make it call end. 
+
+    In the interrupted() method type:
+
+    ```java
+    end();
+    ```
+
+    - This makes the end method get called if the command gets interrupted. (No reason to re-write code, call end() to use what we already have!)
+
+#### Completed Example
+
+??? Example
+
+	Your full **DriveArcade.java** should look like this:
+
+    ```java
+    package frc.robot.commands;
+
+    import edu.wpi.first.wpilibj.command.Command;
+    import frc.robot.Robot;
+    import frc.robot.RobotMap;
+
+    public class DriveArcade extends Command {
+      public DriveArcade() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(Robot.m_drivetrain);
+      }
+
+      // Called just before this Command runs the first time
+      @Override
+      protected void initialize() {
+      }
+
+      // Called repeatedly when this Command is scheduled to run
+      @Override
+      protected void execute() {
+        double moveSpeed = -Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
+        double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
+
+        Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+      }
+
+      // Make this return true when this Command no longer needs to run execute()
+      @Override
+      protected boolean isFinished() {
+        return false;
+      }
+
+      // Called once after isFinished returns true
+      @Override
+      protected void end() {
+        Robot.m_drivetrain.arcadeDrive(0, 0);
+      }
+
+      // Called when another command which requires one or more of the same
+      // subsystems is scheduled to run
+      @Override
+      protected void interrupted() {
+        end();
+      }
+    }
+	```
+
+<!-- TODO: Put example for RobotMap -->
