@@ -51,6 +51,7 @@ nav:
 - Programming an FRC Robot:
   - 'programming/new_project.md'
   - 'programming/driving_robot.md'
+  - 'programming/deploying.md'
   # - 'programming/pneumatics.md'
   # - 'programming/using_sensors.md'
   # - 'programming/shuffleboard.md'

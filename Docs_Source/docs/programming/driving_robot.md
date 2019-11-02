@@ -1,4 +1,4 @@
-# **WIP** Creating a Basic Driving Robot
+# Creating a Basic Driving Robot
 
 <!-- TODO: Maybe split this into different pages -->
 
