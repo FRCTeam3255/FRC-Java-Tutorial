@@ -47,6 +47,6 @@ For **Windows ONLY:**
 <!-- [Official 2020 FRC installation guide (Windows, macOS, or Linux)](https://docs.wpilib.org/en/latest/docs/getting-started/getting-started-frc-control-system/frc-update-suite.html) -->
 
 !!! Warning "IMPORTANT NOTE"
-	These tools only allow you to drive the robot and image/update a roboRIO. They do not allow you to program the robot the robot. To accomplish those tasks you must install the [Java Development Tools](#installing-java-development-tools).
+	These tools only allow you to drive the robot and image/update a roboRIO. They do not allow you to program the robot. To accomplish those tasks you must install the [Java Development Tools](#installing-java-development-tools).
 
 ***

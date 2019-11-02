@@ -29,7 +29,7 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
 
 - A Drivetrain needs motor controllers. In our case we will use 4 Talon SRs (a brand of controller for motors).
     - You could use other motor controllers such as Victor SPs or Talon SRXs but we will be using Talon SRs
-      - If you are, replace Talon with TalonSRX, Victor, or VictorSP in the code you write depending on the type you use.
+      - If you are using other motor controllers, replace Talon with TalonSRX, Victor, or VictorSP in the code you write depending on the type you use.
     - You can use 2 motors (left and right), but for this tutorial we will use 4.
 
 !!! Tip
@@ -565,7 +565,7 @@ Before we begin we must create the class file for the DriveArcade command. See [
     - It also means, other commands that require drivetrain will stop this command and run instead when executed.
 
     !!! Warning
-        If you use the light bulb to import ‘Robot’. Be sure to import the one with “frc.robot”
+        If you use the light bulb to import ‘Robot', be sure to import the one with “frc.robot”
 
 #### In the execute method
 

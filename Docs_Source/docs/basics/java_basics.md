@@ -6,12 +6,13 @@ Learning What's What
 
 ## Overview
 
-- Objects, variables, and classes (in Java) make up our programs. We define, modify, use these variables and objects to make our programs run.
+- Objects, variables, and classes (in Java) make up our programs. We define, modify, and use these variables and objects to make our programs run.
 - Programs use key words to define characteristics of variables or objects. Basic keywords:
     - `#!java public` - an object accessible by other classes (files)
     - `#!java private` - an object only accessible by its containing class (file).
     - `#!java protected` - like private but can be seen by subclasses
-    - `#!java return` - value to return or give back after method execution (run). void - a method that returns no value
+    - `#!java return` - value to return or give back after method execution (run). 
+    - `#!java void` - a method that returns no value
     - `#!java null` - a value that means empty or nothing
 
 !!! Warning "IMPORTANT NOTE"
@@ -116,7 +117,7 @@ Most variables can have their values assigned or reassigned at any point elsewhe
     }
 	```    
 
-??? example "Example of a Public Variable"
+??? example "Example of a Global Variable"
 	```java
     int example = 12; // Outside of method
     public void testMethod() {

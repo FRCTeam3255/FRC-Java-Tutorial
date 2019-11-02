@@ -116,11 +116,10 @@ Making FRC Programming Easy
 
 - When creating a new command based robot project, the following classes (files) will be created:
     - **Robot.java** - The main class of the robot which is run when a robot boots up. 
-    - **OI.java** - This class binds our **commands** to a physical operator interface such as a
-    - joystick or controller.
+    - **OI.java** - This class binds our **commands** to a physical operator interface such as a joystick or controller.
         - This file is already in `#!java robotInit()` by default so classes called here will also be loaded by the program
     - **RobotMap.java** - This class is used to hold all the ports or ID numbers of sensors or devices connected to the robot and assign them a variable name.
-        - This provides flexibility changing wiring, makes checking the wiring easier and significantly reduces the number of magic numbers floating around.
+        - This provides flexibility for changing wiring, makes checking the wiring easier, and significantly reduces the number of magic numbers floating around.
     - **ExampleSubsystem.java** and **ExampleCommand.java** are auto-created examples.
 
 ***

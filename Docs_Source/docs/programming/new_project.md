@@ -98,7 +98,7 @@ Newly created projects have many files within them. We only care about the conte
 	![](../assets/images/new_project/subsystem/step_4.png)
 
 !!! summary ""
-	**5)** Click on the newly create **DesiredSubsystemName.java** (or **Drivetrain.java** if you named it that)
+	**5)** Click on the newly created **DesiredSubsystemName.java** (or **Drivetrain.java** if you named it that)
 	
 	![](../assets/images/new_project/subsystem/step_5.png)
 
@@ -177,7 +177,7 @@ Newly created subsystems are empty with the exception of the initDefaultCommand.
 	![](../assets/images/new_project/command/step_4.png)
 
 !!! summary ""
-    **5)** Click on the newly create **DesiredCommandName.java** (or **DriveArcade.java** if you named it that)
+    **5)** Click on the newly created **DesiredCommandName.java** (or **DriveArcade.java** if you named it that)
 	
 	![](../assets/images/new_project/command/step_5.png)
 
