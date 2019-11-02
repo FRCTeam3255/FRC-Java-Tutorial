@@ -585,7 +585,7 @@ Before we begin we must create the class file for the DriveArcade command. See [
     ```
 
     !!! Tip
-        Remember to use the light bulb for importing and creating constants!
+        Remember to use the light bulb for importing and creating constants if needed!
 
 !!! summary ""
     **2)** Also in the execute method we will we want to call the **arcadeDrive** method we created in **Drivetrain** and give it the variables **moveSpeed** and **rotateSpeed** we created as parameters.
@@ -641,6 +641,25 @@ Since we will be using this command to control the robot we want it to run indef
 
 ??? Example
 
+	Your full **RobotMap.java** should look similar to this:	
+
+    ```java
+    package frc.robot;
+
+    public class RobotMap {
+  	  // Talons
+      public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+      public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+      public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+      public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
+
+  	  // Joysticks
+      public static final int OI_DRIVER_CONTROLLER = 0;
+      public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1; // Change for your controller
+      public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 2; // Change for your controller
+    }
+	```
+
 	Your full **DriveArcade.java** should look like this:
 
     ```java
@@ -692,4 +711,83 @@ Since we will be using this command to control the robot we want it to run indef
     }
 	```
 
-<!-- TODO: Put example for RobotMap -->
+### Setting initDefaultCommand
+
+- Commands within this method run when the robot is enabled.
+- They also run if no other commands using the subsystem are running.
+    - This is why we write **requires(Robot.m_subsystemName)** in the commands we create, it ends currently running commands using that subsystem to allow a new command is run.
+  
+!!! summary ""
+    **1)** Back in **Drivetrain.java** in the initDefaultCommand() method we will put our newly created command
+
+    In the initDefaultCommand() method type:
+
+    ```java
+    setDefaultCommand(new DriveArcade());
+    ```
+
+    !!! Tip
+        Remember to use the light bulb for importing if needed!
+
+??? Example
+
+	The code you type should be this:
+
+    ```java
+    setDefaultCommand(new DriveArcade());
+    ```
+
+	Your full **Drivetrain.java** should look like this:
+
+    ```java
+    package frc.robot.subsystems;
+
+    import edu.wpi.first.wpilibj.SpeedControllerGroup;
+    import edu.wpi.first.wpilibj.Talon;
+    import edu.wpi.first.wpilibj.command.Subsystem;
+    import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+    import frc.robot.RobotMap;
+    import frc.robot.commands.DriveArcade;
+
+    /**
+     * Add your docs here.
+     */
+    public class Drivetrain extends Subsystem {
+      // Put methods for controlling this subsystem
+      // here. Call these from Commands.
+
+      Talon leftFrontTalon = null;
+      Talon leftBackTalon = null;
+      Talon rightFrontTalon = null;
+      Talon rightBackTalon = null;
+
+      SpeedControllerGroup leftMotors = null;
+      SpeedControllerGroup rightMotors = null;
+
+      DifferentialDrive differentialDrive = null;
+
+      public Drivetrain() {
+        // Talons
+        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
+        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
+        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
+        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+
+        leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+        rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+        differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+      }
+
+      public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+        differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+      }
+
+      @Override
+      public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new DriveArcade());
+      }
+    }
+	```
