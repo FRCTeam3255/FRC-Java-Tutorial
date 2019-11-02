@@ -90,7 +90,7 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
 	```
 <!-- TODO: Generalize this more -->
 
-??? Warning "If an error occurs (red squiggles)"
+??? fail "If an error occurs (red squiggles)"
 	1. Click the word Talon
 	![](../assets/images/driving_robot/e1.png)
 	2. 💡 Click the light bulb  
@@ -265,11 +265,228 @@ Since each subsystem has its own components with their own ports, it is easy to 
 	!!! Warning
       	Remember to use the values for **YOUR** specific robot or you could risk damaging it!
 
+<!-- TODO: Decide on order of this -->
+
+### Creating the arcade drive
+
+#### What is the Drive Class
+
+- The FIRST Drive class has many pre-configured methods available to us including DifferentialDrive, and many alterations of MecanumDrive.
+- DifferentialDrive contains subsections such as TankDrive and ArcadeDrive.
+    <!-- TODO: add back - For more information and details on drive bases see the WPILib documentation -->
+- For our tutorial we will be creating an ArcadeDrive
+- Arcade drives run by taking a moveSpeed and rotateSpeed. moveSpeed defines the forward and reverse speed and rotateSpeed defines the turning left and right speed.
+- To create an arcade drive we will be using our already existing Drivetrain class and adding to it.
+
+#### Programing a RobotDrive
+
+<!-- TODO: Add instructions for TalonSRX -->
+
+!!! summary ""
+    **1)** In the same place we created our talons (outside of the constructor) we will create a **DifferentialDrive** and **SpeedControllerGroups** for our left and right motor controllers.
+
+    Outside of the constructor type:
+  
+    ```java
+    SpeedControllerGroup leftMotors = null;
+    SpeedControllerGroup rightMotors = null;
+    
+    DifferentialDrive differentialDrive = null;
+    ```
+
+    - Since DifferentialDrive only takes 2 parameters we need to create speed controller groups to combine like motor controllers together.
+        - In this case we will combine the left motors together and the right motors together.
+
+    !!! Warning
+        You should only group motors that are spinning the same direction physically when positive power is being applied otherwise you could damage your robot.
+
+!!! summary ""
+    **2)** Now we must initialize the **SpeedControllerGroups** and **DifferentialDrive** like we did our talons. ...
+
+    In the constructor type:
+  
+    ```java
+    leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+    rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+    differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+    ```
+
+??? Example
+
+	The code you type outside the constructor should be this:
+
+    ```java
+    SpeedControllerGroup leftMotors = null;
+    SpeedControllerGroup rightMotors = null;
+    
+    DifferentialDrive differentialDrive = null;
+    ```
+
+	The code you type inside the constructor should be this:
+
+    ```java
+    leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+    rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+    differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+    ```
+
+	Your full **Drivetrain.java** should look like this:
+
+    ```java
+    package frc.robot.subsystems;
+
+    import edu.wpi.first.wpilibj.SpeedControllerGroup;
+    import edu.wpi.first.wpilibj.Talon;
+    import edu.wpi.first.wpilibj.command.Subsystem;
+    import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+    import frc.robot.RobotMap;
+
+    /**
+     * Add your docs here.
+     */
+    public class Drivetrain extends Subsystem {
+      // Put methods for controlling this subsystem
+      // here. Call these from Commands.
+
+      Talon leftFrontTalon = null;
+      Talon leftBackTalon = null;
+      Talon rightFrontTalon = null;
+      Talon rightBackTalon = null;
+
+      SpeedControllerGroup leftMotors = null;
+      SpeedControllerGroup rightMotors = null;
+
+      DifferentialDrive differentialDrive = null;
+
+      public Drivetrain() {
+        // Talons
+        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
+        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
+        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
+        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+
+        leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+        rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+        differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+      }
+
+      @Override
+      public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+      }
+    }
+	```
+
+#### Creating the arcadeDrive method
+
+Now it’s time to make an arcadeDrive from our differentialDrive!
+
+!!! summary ""
+    **1)** Let’s create a public void method called “arcadeDrive” with type “double” parameters moveSpeed and rotateSpeed.
+
+    Below the constructor type:
+
+    ```java
+    public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+
+    }
+    ```
+
+    !!! Tip
+        By putting something in the parentheses it makes the method require a parameter when it is used. When the method gets used and parameters are passed, they will be store in moveSpeed and rotateSpeed (in that order). See [parameters](../basics/java_basics.md#parameters){target=_blank} for more info.
+
+!!! summary ""
+    **2)** Now lets make our method call the differentialDrive's arcadeDrive method.
+
+    Inside our method type:
+
+    ```java
+    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+    ```
+
+    DifferentialDrive's arcadeDrive method takes parameters moveValue and rotateValue.
+
+    !!! Note
+        At this point you could instead create a tank drive, however implementation differs slightly.
+        To do so type `#!java differentialDrive.tankDrive(moveSpeed, rotateSpeed);` instead of `#!java differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);` and change the method name reflect this.
+
+    !!! Tip
+        If you want to limit the max speed you can multiple the speeds by a decimal (i.e. 0.5*moveSpeed will make the motors only move half of their maximum speed)
+
+        You may want to do this for initial testing to make sure everything is going the right direction.
+
+??? Example
+
+	The code you type should be this:
+
+    ```java
+    public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+      differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+    }
+    ```
+  
+	Your full **Drivetrain.java** should look like this:
+
+    ```java
+    package frc.robot.subsystems;
+
+    import edu.wpi.first.wpilibj.SpeedControllerGroup;
+    import edu.wpi.first.wpilibj.Talon;
+    import edu.wpi.first.wpilibj.command.Subsystem;
+    import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+    import frc.robot.RobotMap;
+
+    /**
+     * Add your docs here.
+     */
+    public class Drivetrain extends Subsystem {
+      // Put methods for controlling this subsystem
+      // here. Call these from Commands.
+
+      Talon leftFrontTalon = null;
+      Talon leftBackTalon = null;
+      Talon rightFrontTalon = null;
+      Talon rightBackTalon = null;
+
+      SpeedControllerGroup leftMotors = null;
+      SpeedControllerGroup rightMotors = null;
+
+      DifferentialDrive differentialDrive = null;
+
+      public Drivetrain() {
+        // Talons
+        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
+        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
+        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
+        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+
+        leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+        rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+        differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+      }
+
+      public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+        differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+      }
+
+      @Override
+      public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+      }
+    }
+	```
+
 ## Making our robot controllable
 
 <!-- TODO: Decide on order of this -->
 
-In order to drive our robot, it needs to know what will be controlling it. To do so we will create a new joystick in OI.java
+In order to drive our robot, it needs to know what will be controlling it. To do so, we will create a new joystick in OI.java
 
 !!! summary ""
     **1)** Open OI.java
