@@ -94,7 +94,7 @@ Learning What's What
 Most variables can have their values assigned or reassigned at any point elsewhere in your program. To avoid having a variable change its value during runtime you can make it a **constant**
 
 - In Java you can create constants using the `#!java static final` keywords together in front of the data type of the variable
-    - The static modifier causes the variable to be available without loading an the class where it is defined. 
+    - The static modifier causes the variable to be available without loading the class where it is defined. 
     - The final modifier causes the variable to be unchangeable.
     - Java constants are normally declared in ALL CAPS. Words in Java constants are normally separated by underscores.
     - !!! Example "Example: `#!java public static final double PI_VALUE = 3.14159;`"
