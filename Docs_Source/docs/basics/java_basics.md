@@ -30,13 +30,15 @@ Learning What's What
 - Classes can also **call** (use) variables or methods of other classes if those have been set to public.
 
 ### Constructors
-<!-- TODO: Add info about keyword new -->
 
 - Classes can also have a ***constructor*** which is a special type of **method** that has the **same name (case sensitive)** as the class file
     - Constructors are always called when the class is loaded into the program for the first time. This is often the only time they are called.
     - Constructors are called when trying to access the class in other files.
     - They can be called again if the class is programmed to be unloaded (destroyed) and reloaded.
     - Calls to methods, and assignment of values, within the constructor will run as soon as the class is called (loaded) in the code.
+    - The **new** operator creates an object of a type of class using a constructor
+    - !!! example
+    	classObject = new className();
 
 ***
 
