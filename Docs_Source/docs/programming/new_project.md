@@ -82,7 +82,7 @@ Newly created projects have many files within them. We only care about the conte
 
 !!! summary ""
 	**1)** Click on the **src** folder to expand it.  
-	**2)** Do the same for **subsystems**
+	**2)** Do the same for **java** then **subsystems**
 	
 	![](../assets/images/new_project/subsystem/step_1.png)
 
