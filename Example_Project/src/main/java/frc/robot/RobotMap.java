@@ -7,6 +7,10 @@ public class RobotMap {
   public static final int DRIVETRAIN_LEFT_BACK_TALON = 2;
   public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
 
+  // Solenoids
+  public static final int SHOOTER_PITCH_SOLENOID_DEPLOY = 0;
+  public static final int SHOOTER_PITCH_SOLENOID_RETRACT = 1;
+
   // Joysticks
   public static final int OI_DRIVER_CONTROLLER = 0;
   public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1; // Change for your controller
