@@ -26,5 +26,6 @@ public class OI {
   public OI() {
     D1.whenPressed(new ShooterUp());
     D2.whenPressed(new ShooterDown());
+    D3.whenPressed(new ShooterUpAuto());
   }
 }

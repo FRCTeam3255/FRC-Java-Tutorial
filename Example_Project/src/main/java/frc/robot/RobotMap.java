@@ -1,5 +1,7 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalSource;
+
 public class RobotMap {
   // Talons
   public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
@@ -10,6 +12,13 @@ public class RobotMap {
   // Solenoids
   public static final int SHOOTER_PITCH_SOLENOID_DEPLOY = 0;
   public static final int SHOOTER_PITCH_SOLENOID_RETRACT = 1;
+
+  // Digital Inputs
+  public static final int SHOOTER_SWITCH = 0;
+
+  // Encoders
+  public static final int DRIVETRAIN_ENCODER_A = 1;
+  public static final int DRIVETRAIN_ENCODER_B = 2;
 
   // Joysticks
   public static final int OI_DRIVER_CONTROLLER = 0;
