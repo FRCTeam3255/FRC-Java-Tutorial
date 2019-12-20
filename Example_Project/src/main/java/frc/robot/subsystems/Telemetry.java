@@ -15,6 +15,7 @@ public class Telemetry extends Subsystem {
   public Telemetry() {
     // Drivetrain
     SmartDashboard.putData("Reset Drive Encoder", new DriveResetEncoder());
+    SmartDashboard.putData("Drive Five Feet", new DriveDistance(60.0));
 
     // Shooter
     SmartDashboard.putData("Shooter Up", new ShooterUp());
