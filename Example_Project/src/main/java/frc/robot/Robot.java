@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
     m_drivetrain = new Drivetrain();
     m_shooter = new Shooter();
     m_oi = new OI();
-    m_telemetry = new Telemetry();
+    m_telemetry = new Telemetry(); // This must be intialized after all other robot subsystems
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);

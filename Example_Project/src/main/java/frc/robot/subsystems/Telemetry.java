@@ -25,6 +25,7 @@ public class Telemetry extends Subsystem {
   public void update() {
     // Drivetrain
     SmartDashboard.putNumber("Drive Encoder Count", Robot.m_drivetrain.getDriveEncoderCount());
+    SmartDashboard.putNumber("Drive Encoder Distance", Robot.m_drivetrain.getDriveEncoderDistance());
 
     // Shooter
     SmartDashboard.putBoolean("Shooter Switch", Robot.m_shooter.isShooterSwitchClosed());

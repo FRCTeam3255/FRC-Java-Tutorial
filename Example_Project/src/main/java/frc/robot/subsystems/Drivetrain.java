@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
+import frc.robot.RobotPreferences;
 import frc.robot.commands.DriveArcade;
 
 /**
@@ -52,6 +53,13 @@ public class Drivetrain extends Subsystem {
 
   public void resetDriveEncoder() {
     driveEncoder.reset();
+  }
+
+  /**
+   * @return The distance the robot has driven in inches
+   */
+  public double getDriveEncoderDistance() {
+    return (getDriveEncoderCount() / RobotPreferences.driveEncoderCountsPerFoot()) * 12;
   }
 
   @Override
