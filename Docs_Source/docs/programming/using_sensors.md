@@ -67,7 +67,7 @@ In this section we will be going over
     return shooterSwitch.get();
        '''
 
-<!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems -->
+    <!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems -->
 
    - Switches have 2 states: open and closed.
    - Depending on how they are wired or coded only one of the 2 states will return either true or false (booleans).

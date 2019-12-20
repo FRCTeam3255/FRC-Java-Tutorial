@@ -110,7 +110,9 @@ In this section we will be going over
     - This is because the **Telemetry** subsystem relies on methods that are created in other subsystems before it
     - It can be added before or after **OI** since they don’t use methods from each other
 
-<!-- TODO: Explain why we don't put it in robotPeriodic -->
+    <!-- TODO: Explain why we don't put it in robotPeriodic -->
+
+
 !!! summary ""
 
     **2)** It is **important** that we add the **update** method to **disabledPeriodic, autonomousPeriodic**, and **teleopPeriodic** so that the **Shuffleboard** is always being updated with information on our sensors.
