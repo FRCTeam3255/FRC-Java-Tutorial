@@ -1,7 +1,5 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DigitalSource;
-
 public class RobotMap {
   // Talons
   public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
