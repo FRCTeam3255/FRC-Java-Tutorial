@@ -112,6 +112,7 @@ In this section we will be going over
 
 <!-- TODO: Explain why we don't put it in robotPeriodic -->
 !!! summary ""
+
     **2)** It is **important** that we add the **update** method to **disabledPeriodic, autonomousPeriodic**, and **teleopPeriodic** so that the **Shuffleboard** is always being updated with information on our sensors.
 
 ??? Example
@@ -137,6 +138,7 @@ In this section we will be going over
 ## Testing Shuffleboard
 
 <!-- TODO: Add pictures for this section -->
+
 - After saving and deploying code, open the driver station
 - Click the gear on the left side and configure your team number and set the dashboard type to “ShuffleBoard”
 - If you are still connected to the robot you should see boxes for the buttons and data we added in Telemetry

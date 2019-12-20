@@ -68,6 +68,7 @@ In this section we will be going over
        '''
 
 <!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems -->
+
    - Switches have 2 states: open and closed.
    - Depending on how they are wired or coded only one of the 2 states will return either true or false (booleans).
    - Make sure you know which is true or false or you may have to invert the switch by rewiring or using the ! operator
@@ -210,7 +211,8 @@ In this section we will be going over
     return driveEncoder.get();
        '''
        
-    <!-- TODO: Explain why the method is a returning a double from an int -->   
+    <!-- TODO: Explain why the method is a returning a double from an int -->
+   
     - Encoders will return counts as an int
     - Depending which direction the encoder shaft rotates the value will increase or decrease
     
