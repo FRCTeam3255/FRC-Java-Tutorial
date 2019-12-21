@@ -10,7 +10,9 @@ In this section we will be going over
 2. Using RobotPreferences to quickly change our autonomous values
 3. Using an encoder to autonomously drive
 4. Creating a delay timer to pace our commands in autonomous
-5. Creating an autonomous status readout in shuffleboard to aid in debugging autonomous
+
+<!-- TODO: Implement and revamp autonomous status code from robot2018/2019? -->
+<!-- 5. Creating an autonomous status readout in shuffleboard to aid in debugging autonomous -->
 
 ***
 
@@ -21,20 +23,6 @@ In this section we will be going over
 - It's especially helpful to have if you don't have any cameras to drive the robot during a 
 "sandstorm" period (2019 game mechanic where the drivers couldn't see during the pre tele-op phase)
 - For this tutorial we will create an autonomous **command group** that makes the robot drive forward 5 feet, wait 5 seconds, and then pitch the shooter up during autonomous 
-
-## Creating An Auto Status Window
-
-- It will be useful for us to have data in the shuffleboard that tells us what phase of our autonomous command the robot is in for when we start debugging
-
-!!! summary ""
-	**1)** In **Telemetry.java** create a public **void** method called **setAutoStatus** with a **string** argument called **statusText**
-	
-!!! summary ""
-	**2)** Inside type
-	
-	'''java
-	SmartDashboard.putString("Auto Status", statusText);
-	   '''
 	
 ## Creating Commands For Autonomous
 
@@ -312,6 +300,6 @@ In this section we will be going over
   - You may also need to check if your **encoder** is working, if there are inversions, or if you are using the **getEncoderCount** method instead of the **getEncoderDistanceMethod**
 - If your robot doesn't move make sure you typed in the **RobotPreference** names exactly or check your talon IDs/Connection
 - If nothing happens after your robot is finished driving check your **autoDelay** preference and whether your **Shooter piston** is already actuated or if your solenoids are working
-- Reading the **autoStatus** window will be helpful in knowing where your autonomous stopped working
+
 
 	
