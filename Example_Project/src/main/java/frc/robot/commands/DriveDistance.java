@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotPreferences;
 
 public class DriveDistance extends Command {
 
@@ -17,18 +18,21 @@ public class DriveDistance extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_telemetry.setAutoStatus("Starting DriveDistance: " + distance);
     Robot.m_drivetrain.resetDriveEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_drivetrain.arcadeDrive(0.5, 0.0);
+    Robot.m_telemetry.setAutoStatus("Running DriveDistance: " + distance);
+    Robot.m_drivetrain.arcadeDrive(RobotPreferences.driveDistanceSpeed(), 0.0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    Robot.m_telemetry.setAutoStatus("Finishing DriveDistance: " + distance);
     return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
   }
 

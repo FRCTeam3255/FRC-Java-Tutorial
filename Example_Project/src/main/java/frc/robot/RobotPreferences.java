@@ -14,6 +14,10 @@ public class RobotPreferences {
         return Preferences.getInstance().getDouble("driveEncoderCountsPerFoot", 1.0);
     }
 
+    public static final double driveDistanceSpeed() {
+        return Preferences.getInstance().getDouble("driveDistanceSpeed", 0.5);
+    }
+
     // Autonomous
     public static double autoDelay() {
         return Preferences.getInstance().getDouble("autoDelay", 5.0);
