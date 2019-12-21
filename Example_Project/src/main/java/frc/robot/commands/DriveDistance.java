@@ -18,21 +18,18 @@ public class DriveDistance extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_telemetry.setAutoStatus("Starting DriveDistance: " + distance);
     Robot.m_drivetrain.resetDriveEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_telemetry.setAutoStatus("Running DriveDistance: " + distance);
     Robot.m_drivetrain.arcadeDrive(RobotPreferences.driveDistanceSpeed(), 0.0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    Robot.m_telemetry.setAutoStatus("Finishing DriveDistance: " + distance);
     return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
   }
 
