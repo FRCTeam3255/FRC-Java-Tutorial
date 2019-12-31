@@ -1,6 +1,7 @@
 # Contributing
 
 Helping out with the project!
+<!-- TODO: Add note about python install -->
 
 ## Example Project Code
 
