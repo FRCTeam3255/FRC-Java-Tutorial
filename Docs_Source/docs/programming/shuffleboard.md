@@ -1,12 +1,12 @@
 # **WIP** Using Shuffleboard
 
-<!-- ![Image Title](imageURL)
+<!-- ![Image Title](imageURL)  -->
 
 ## Overview
 
 In this section we will be going over
 
-1. Using and organzing the Shuffleboard
+1. Using and organizing the Shuffleboard
 2. Creating the Telemetry subsystem and adding buttons and data to be viewed in Shuffleboard
 
 ***
@@ -112,7 +112,6 @@ In this section we will be going over
 
     <!-- TODO: Explain why we don't put it in robotPeriodic -->
 
-
 !!! summary ""
 
     **2)** It is **important** that we add the **update** method to **disabledPeriodic, autonomousPeriodic**, and **teleopPeriodic** so that the **Shuffleboard** is always being updated with information on our sensors.
@@ -128,7 +127,7 @@ In this section we will be going over
 	The code you typed in **robotInit** should be this
 	
 	'''java
-	m_telemetry = new Telemetry(); //This must be intialized after all other robot subsystems
+	m_telemetry = new Telemetry(); //This must be initialized after all other robot subsystems
 	   '''
 	   
 	The code you typed in **disabledPeriodic, autonomousPeriodic**, and **teleopPeriodic** should be this
@@ -148,4 +147,3 @@ In this section we will be going over
 ## Using Shuffleboard
 
 <!-- TODO: Add information and pictures on how to use tabs, group widgets together, saving layouts, etc -->
-

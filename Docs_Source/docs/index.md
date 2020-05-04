@@ -6,7 +6,7 @@ The unofficial FIRST Robotics Competition Java Programming Tutorial.
 
 !!! Info
 	Updated for the 2019 Season  
-	Last updated: 11/1/19
+	Last updated: 5/3/20
 
 	**Disclaimer:** Some screenshots may have different colors, icons, more/less folders/files than you due to themes or personal settings. This is normal and should not impact the tutorial. If you still have any questions please contact us.
 
@@ -18,6 +18,6 @@ The unofficial FIRST Robotics Competition Java Programming Tutorial.
 
 |                       Name                       |                      Team                      | Team Role |
 | :----------------------------------------------: | :--------------------------------------------: | :-------: |
-| [Tayler Uva](https://Tayler.Tech){target=_blank} | [3255](https://SuperNURDs.com/){target=_blank} |  Mentor   |
+| [Tayler Uva](https://Tayler.Tech){target=_blank} | [3255](https://SuperNURDs.com/){target=_blank} |   Coach   |
 |                  Isaac Sayasane                  | [3255](https://SuperNURDs.com/){target=_blank} |  Alumni   |
 |                   Sharon Riggs                   |   [6995](https://frc6995.org){target=_blank}   |  Mentor   |

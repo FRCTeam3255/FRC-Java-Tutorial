@@ -2,7 +2,8 @@
 
 Lets get started
 
-![VSCode](../assets/images/logos/code.png){height=150px}	![](../assets/images/logos/wpilib.png){height=150px}
+![VSCode](../assets/images/logos/code.png){: style="height:150px"}
+![](../assets/images/logos/wpilib.png){: style="height:150px"}
 
 ## Overview
 
@@ -185,13 +186,13 @@ Newly created subsystems are empty with the exception of the initDefaultCommand.
 
 Newly created commands have some predefined methods in them specific for a command based robot.
 
-- **Constructor** - Called when the robot program is ***FIRST*** loaded.
+- **Constructor** - Called when the robot program is ___FIRST___ loaded.
     - Subsystem dependencies are declared here.
-- **initialize()** - Called ***ONCE*** just before this Command runs the first time.
-- **execute()** - Called ***REPEATEDLY*** when this Command is scheduled to run
-- **isFinished()** - Make this return ***TRUE*** when this Command no longer needs to run `execute()` (initialize always runs once regardless). 
-- **end()** - Called ***ONCE*** after isFinished returns true
-- **interrupted()** - Called when ***another command*** which requires one or more of the same subsystems is scheduled to run
+- **initialize()** - Called ___ONCE___ just before this Command runs the first time.
+- **execute()** - Called ___REPEATEDLY___ when this Command is scheduled to run
+- **isFinished()** - Make this return ___TRUE___ when this Command no longer needs to run `execute()` (initialize always runs once regardless). 
+- **end()** - Called ___ONCE___ after isFinished returns true
+- **interrupted()** - Called when ___another command___ which requires one or more of the same subsystems is scheduled to run
 
 ??? Example
     ```java

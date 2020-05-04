@@ -1,6 +1,6 @@
 # **WIP** Creating an Autonomous Command
 
-<!-- ![Image Title](imageURL)
+<!-- ![Image Title](imageURL)  -->
 
 ## Overview
 
@@ -36,7 +36,7 @@ In this section we will be going over
 !!! summary ""
     **2)** Before the constructor create a **double** called **distance**
     
-    - We will use this to tell the command to finish when the robot drives the inputed distance
+    - We will use this to tell the command to finish when the robot drives the inputted distance
     
 !!! summary ""
     **3)** In the **DriveDistance** constructor add a **double** parameter called **inches**
@@ -150,7 +150,7 @@ In this section we will be going over
 ## Creating the DoDelay Command
 
 - In order to add timing in between our **commands** in our **command groups** we will need to create a **DoDelay** command
-- Unlike regular **delays** the **DoDelay** command will not stall our robot, but wait a certain ammount of time before running a command
+- Unlike regular **delays** the **DoDelay** command will not stall our robot, but wait a certain amount of time before running a command
 
 !!! summary ""
 	**1)** Create a new command called **DoDelay**
@@ -168,12 +168,12 @@ In this section we will be going over
 	**5)** Create a protected **void** method called **startTimer**
 
 !!! summary ""
-	**6)** Inside set **expireTime** equal to **timeSinceintialized** + **timeout**
+	**6)** Inside set **expireTime** equal to **timeSinceInitialized** + **timeout**
 	
 	- This will let the robot know how much time will have passed since the command was initialized when it finishes
 	
 !!! summary ""
-	**7)** In **intialized** add our **startTimer** method
+	**7)** In **initialized** add our **startTimer** method
 	
 !!! summary ""
 	**8)** In **isFinished** return **timeSinceInitialized** is greater or equal to **expireTime**
@@ -300,6 +300,3 @@ In this section we will be going over
   - You may also need to check if your **encoder** is working, if there are inversions, or if you are using the **getEncoderCount** method instead of the **getEncoderDistanceMethod**
 - If your robot doesn't move make sure you typed in the **RobotPreference** names exactly or check your talon IDs/Connection
 - If nothing happens after your robot is finished driving check your **autoDelay** preference and whether your **Shooter piston** is already actuated or if your solenoids are working
-
-
-	

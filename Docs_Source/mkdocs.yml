@@ -8,10 +8,10 @@ site_author: Tayler Uva
 theme:
   name: 'material'
   custom_dir: 'theme'
-  logo:
-    icon: 'laptop'
-  feature:
-    tabs: false
+  icon:
+    logo: 'material/laptop'
+  features:
+    - 'tabs'
   palette:
     primary: 'blue'
     accent: 'light blue'
@@ -38,25 +38,28 @@ markdown_extensions:
 
 # Navigation
 nav:
-- 'index.md'
-- Learning the Basics:
+- Home:
+  - 'index.md'
+  - 'contributing.md'
+- Programming Basics:
   - 'basics/roboRIO.md'
   - 'basics/sensors.md'
   - 'basics/java_basics.md'
   - 'basics/wpilib.md'
   - 'basics/vscode_tips.md'
   # - 'basics/driverstation_tips.md'
-- Dev Environment Setup:
+- FRC Development Environment Setup:
   - 'setup/install_software.md'
-- Programming an FRC Robot:
+- FRC Programming:
   - 'programming/new_project.md'
   - 'programming/driving_robot.md'
   - 'programming/deploying.md'
-  # - 'programming/pneumatics.md'
-  # - 'programming/using_sensors.md'
-  # - 'programming/shuffleboard.md'
-  # - 'programming/robotpreferences.md'
-  # - 'programming/autonomous.md'
+  - 'programming/pneumatics.md'
+  - 'programming/using_sensors.md'
+  - 'programming/shuffleboard.md'
+  - 'programming/robotpreferences.md'
+  - 'programming/autonomous.md'
   # - 'programming/pid.md'
   # - 'programming/super_core.md'
-- 'contributing.md'
+- Version Control:
+  - 'version_control/github.md'

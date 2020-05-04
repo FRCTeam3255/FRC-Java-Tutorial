@@ -1,4 +1,4 @@
-# Using Pneumatics
+# **WIP** Using Pneumatics
 
 Check the air pressure
 <!-- Add a page image to make it pretty! -->
@@ -8,7 +8,7 @@ Check the air pressure
 
 In this section we will be going over:
 
-1. Creating a shooter subsystem that uses one pneumatic pistion
+1. Creating a shooter subsystem that uses one pneumatic piston
 2. Creating a double solenoid and changing its state to control the piston
 3. Mapping commands to joystick buttons
 
@@ -16,8 +16,8 @@ In this section we will be going over:
 
 ### What Are Pneumatics
 
-- You have probably heard of hydraulics before (which is based onwater pressure). Pneumatics are essentially the same but with air pressure.
-- Unlike motors and gears which are commonly infinitely positional, pneumatic cylinders are normally dual-positional or sometimes tripositional.
+- You have probably heard of hydraulics before (which is based on water pressure). Pneumatics are essentially the same but with air pressure.
+- Unlike motors and gears which are commonly infinitely positional, pneumatic cylinders are normally dual-positional or sometimes tri-positional.
 - Pneumatic cylinders are actuated through devices called solenoids.
 - Solenoids are used to control pneumatic pistons (air cylinders) similar to how Talons control motors.
 
@@ -81,7 +81,7 @@ In this section we will be going over:
 	
 	The code you typed in **Robot.java** should be this
 	
-	Oustide robotInit
+	Outside robotInit
 	'''java
 	public static Shooter m_shooter = null;
 	   '''
@@ -115,7 +115,7 @@ In this section we will be going over:
 	if you wanted multiple solenoids to deploy at the same time also have them do .set(Value.kForward);
    
 !!! summary ""   
-    **3)** Do the same for the **pitchDown** method but change **kFoward** to **kReverse**.
+    **3)** Do the same for the **pitchDown** method but change **kForward** to **kReverse**.
     
 ??? Example
     	
@@ -218,6 +218,8 @@ In this section we will be going over:
 	}
 	   '''
 
+<!-- TODO: make into new section -->
+
 ### Mapping Commands to Buttons
 
 ### Creating Joystick Buttons
@@ -309,7 +311,5 @@ In this section we will be going over:
    you can change your import at the top of the file from: 
    “import frc.robot.commands.ShooterUp;” to
    “import frc.robot.commands.*;”
-   - The asterisk makes it so all files in the .command package (folder) are imported. This way you only have to import once.
-	
 
-   
+   - The asterisk makes it so all files in the .command package (folder) are imported. This way you only have to import once.

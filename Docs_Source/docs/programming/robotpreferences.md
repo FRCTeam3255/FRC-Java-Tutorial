@@ -1,6 +1,6 @@
 # **WIP** Using RobotPreferences
 
-<!-- ![Image Title](imageURL)
+<!-- ![Image Title](imageURL)  -->
 
 ## Overview
 
@@ -37,7 +37,7 @@ In this section we will be going over
     - The format for creating a RobotPreference is
     
     	'''java
-	public static variableType prefernceName(){
+	public static variableType preferenceName(){
 	  return Preferences.getInstance().getVariableType("preferenceName", value);
 	   '''
 	   
@@ -138,5 +138,3 @@ In this section we will be going over
    
 !!! summary ""
     **7)** Hardcode this value in **RobotPreferences.java** in the **driveEncoderCountsPerFoot** method incase you cannot recover your **RobotPreferences** save
-    
-    

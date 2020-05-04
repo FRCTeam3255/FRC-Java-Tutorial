@@ -1,6 +1,6 @@
 # **WIP** Using Sensors and Switches
 
-<!-- ![Image Title](imageURL)
+<!-- ![Image Title](imageURL)  -->
 
 ## Overview 
 
@@ -104,7 +104,7 @@ In this section we will be going over
 !!! summary "" 
     **5)** In end add our **pitchUp** method
      
-    - we will not put end in interruped either because we only want to change the pitch of the shooter if the switch is closed
+    - we will not put end in interrupted either because we only want to change the pitch of the shooter if the switch is closed
     
 ??? Example
 
