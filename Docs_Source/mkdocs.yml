@@ -15,6 +15,7 @@ theme:
   palette:
     primary: 'blue'
     accent: 'light blue'
+    scheme: slate
 extra_css: 
   # - assets/css/dark_theme.css
   # - assets/css/codehilite.css
