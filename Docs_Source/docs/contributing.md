@@ -15,7 +15,7 @@ If you make documentation changes please contribute changes that reflect this in
 
 On each page there is an option to edit the page. Any changes you make through this option will be submitted and become live once they are approved.  
 
-> This icon looks like this:
+> The edit icon looks like this:
 > 
 > ![](assets/images/contributing/edit_icon.png)
 
@@ -27,13 +27,15 @@ You can help the project by making new pages. Any pages you make will become liv
 
 [Click here to create a new page](https://github.com/FRCTeam3255/FRC-Java-Tutorial/new/remaster/Docs_Source/docs){target=_blank}
 
-Alternatively you could create a pull request and clone the repository
+[Click here to see tips on creating markdown documents](https://www.markdownguide.org/cheat-sheet/)
 
 !!! Warning
     Make sure all documentation files end in `.md`
 
 !!! Tip
-    You can add to a certain subdirectory by appending `/director_name/` to the file name
+    You can add to a certain tab by appending `/tab_name/` to the file name
+
+Alternatively you could create a pull request and clone the repository
 
 #### Template
 
