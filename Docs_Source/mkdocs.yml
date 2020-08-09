@@ -37,6 +37,14 @@ markdown_extensions:
   - toc:
         permalink: "#"
 
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+  - git-revision-date
+
 # Navigation
 nav:
 - Home:
