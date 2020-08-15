@@ -68,7 +68,7 @@ nav:
   - 'programming/shuffleboard.md'
   - 'programming/robotpreferences.md'
   - 'programming/autonomous.md'
-  # - 'programming/pid.md'
+  - 'programming/pid.md'
   # - 'programming/super_core.md'
 - Version Control:
   - 'version_control/github.md'
