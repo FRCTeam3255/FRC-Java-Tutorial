@@ -35,6 +35,9 @@ You can help the project by making new pages. Any pages you make will become liv
 !!! Tip
     You can add to a certain tab by appending `/tab_name/` to the file name
 
+!!! Tip
+    Visit [Admonitions (call-out) references](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) for a list off call-outs like this one.
+
 Alternatively you could create a pull request and clone the repository
 
 #### Template
@@ -62,4 +65,7 @@ Subtitle
 
 - Info
 - Info 2
+
+!!! Tip
+    This is a tip.
 ```
