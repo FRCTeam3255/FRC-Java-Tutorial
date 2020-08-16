@@ -47,7 +47,7 @@ For **Windows ONLY:**
 
 ## Installing the FRC Radio Configuration Utility
 
-In order to enable wireless connectivity to the robot outside of FRC events or to allow connectivity to other network attached devices (i.e.Limelight Vision Camera), you must configure the robot's radio. Following the instructions linked below will get you set up with the Radio configuration Utility and how to program the radio.
+In order to enable wireless connectivity to the robot outside of FRC events or to allow connectivity to other network attached devices (i.e.Limelight Vision Camera), you must configure the robot's radio. Following the instructions linked below will get you set up with the Radio Configuration Utility and how to program the radio.
 
 ### Installing the Radio Configuration Utility and Programming the Radio
 
