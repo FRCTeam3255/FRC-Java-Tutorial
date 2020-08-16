@@ -2,6 +2,5 @@
 # pip install -r requirements.txt
 mkdocs
 mkdocs-material
-mkdocs-git-revision-date-plugin
 mkdocs-minify-plugin
 pymdown-extensions
