@@ -1,3 +1,32 @@
+# Navigation
+nav:
+- Home:
+  - 'index.md'
+  - 'contributing.md'
+- Programming Basics:
+  - 'basics/roboRIO.md'
+  - 'basics/sensors.md'
+  - 'basics/java_basics.md'
+  - 'basics/wpilib.md'
+  - 'basics/vscode_tips.md'
+  # - 'basics/driverstation_tips.md'
+- FRC Development Environment Setup:
+  - 'setup/install_software.md'
+- FRC Programming:
+  - 'programming/new_project.md'
+  - 'programming/driving_robot.md'
+  - 'programming/deploying.md'
+  - 'programming/pneumatics.md'
+  - 'programming/using_sensors.md'
+  - 'programming/shuffleboard.md'
+  - 'programming/robotpreferences.md'
+  - 'programming/autonomous.md'
+  - 'programming/pid.md'
+  # - 'programming/super_core.md'
+- Version Control:
+  - 'version_control/github.md'
+
+# Setup
 site_name: FRC Java Programming
 repo_name: Tutorial Bot
 repo_url: https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/remaster
@@ -11,7 +40,8 @@ theme:
   icon:
     logo: 'material/laptop'
   features:
-    - 'tabs'
+    - tabs
+    - instant
   palette:
     primary: 'blue'
     accent: 'light blue'
@@ -44,31 +74,3 @@ plugins:
       minify_html: true
       minify_js: true
   - git-revision-date
-
-# Navigation
-nav:
-- Home:
-  - 'index.md'
-  - 'contributing.md'
-- Programming Basics:
-  - 'basics/roboRIO.md'
-  - 'basics/sensors.md'
-  - 'basics/java_basics.md'
-  - 'basics/wpilib.md'
-  - 'basics/vscode_tips.md'
-  # - 'basics/driverstation_tips.md'
-- FRC Development Environment Setup:
-  - 'setup/install_software.md'
-- FRC Programming:
-  - 'programming/new_project.md'
-  - 'programming/driving_robot.md'
-  - 'programming/deploying.md'
-  - 'programming/pneumatics.md'
-  - 'programming/using_sensors.md'
-  - 'programming/shuffleboard.md'
-  - 'programming/robotpreferences.md'
-  - 'programming/autonomous.md'
-  - 'programming/pid.md'
-  # - 'programming/super_core.md'
-- Version Control:
-  - 'version_control/github.md'

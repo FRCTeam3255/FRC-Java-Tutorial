@@ -1,7 +1,6 @@
 # Contributing
 
 Helping out with the project!
-<!-- TODO: Add note about python install -->
 
 ## Example Project Code
 
@@ -10,6 +9,15 @@ If you make Example Project Code changes please contribute changes that reflect 
 ## Documentation
 
 If you make documentation changes please contribute changes that reflect this in the Example Project Code. This will make it easier for us and more likely that your contribution will be approved.
+
+There are a couple of ways to contribute to this project:
+
+- [Via the web](#via-the-web)
+- [Via local source](#via-local-source)
+
+***
+
+## Via the web
 
 ### Editing Pages
 
@@ -27,7 +35,9 @@ You can help the project by making new pages. Any pages you make will become liv
 
 [Click here to create a new page](https://github.com/FRCTeam3255/FRC-Java-Tutorial/new/remaster/Docs_Source/docs){target=_blank}
 
-[Click here to see tips on creating markdown documents](https://www.markdownguide.org/cheat-sheet/)
+Please use the [New Page Template](#new-page-template)
+
+[Click here to see tips on creating markdown documents](https://www.markdownguide.org/cheat-sheet/){target=_blank}
 
 !!! Warning
     Make sure all documentation files end in `.md`
@@ -38,9 +48,47 @@ You can help the project by making new pages. Any pages you make will become liv
 !!! Tip
     Visit [Admonitions (call-out) references](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) for a list off call-outs like this one.
 
-Alternatively you could create a pull request and clone the repository
+***
 
-#### Template
+## Via local source
+
+### Prerequisites
+
+1. [Install GitHub Desktop](https://desktop.github.com){target=_blank} (Beginner) or [Install Git](https://git-scm.com){target=_blank} (Expert)
+2. [Install Python](https://www.python.org){target=_blank}
+3. [Install pip requirements](https://raw.githubusercontent.com/FRCTeam3255/FRC-Java-Tutorial/remaster/Docs_Source/requirements.txt){target=_blank}
+      1. Run one of the following commands. Try each one in order until successful.
+         - `pip install -r requirements.txt` 
+         - `python -m pip install -r requirements.txt` 
+         - `py -m pip install -r requirements.txt`
+
+### Creating local edits
+
+1. Visit <https://github.com/FRCTeam3255/FRC-Java-Tutorial/tree/remaster/> and fork the repository.
+2. Clone your the newly created fork to your machine
+3. Change the repository to the remaster branch.
+4. Open the `Docs_Source` folder for source code of the documentation
+5. From the `Docs_Source` directory, Run the command `mkdocs serve` to open up a live local version of the project in your browser
+   - If `mkdocs serve` does not work on its own, try each one in order until successful:
+     - `python -m mkdocs serve` 
+     - `py -m mkdocs serve`
+6. Make your changes or additions in the `docs` directory.
+   - Please maintain the organizational folder structure.
+7. If added a new page, add the relative url to the `mkdocs.yml` file in the `# Navigation` (`nav:`) section.
+   1. For new pages please use the [New Page Template](#new-page-template)
+   2. [Click here to see tips on creating markdown documents](https://www.markdownguide.org/cheat-sheet/){target=_blank}
+
+### Pushing your local edits to the web
+
+1. Commit your changes
+2. Push your changes to GitHub
+3. Back on the webpage for your fork of the project select Pull Request
+   1. Create a new pull request
+4. Wait for the pull request to be approved.
+
+***
+
+## New Page Template
 
 Please copy this code as a template to create your new page
 
