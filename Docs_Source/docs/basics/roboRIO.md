@@ -2,7 +2,7 @@
 
 The Brains of the Bot!
 
-![roboRIO](../assets/images/roboRIO/roboRio.jpg)
+![roboRIO](../assets/images/roboRIO/roboRio.png)
 
 ## The roboRIO Basics
 
