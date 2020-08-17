@@ -4,18 +4,14 @@
 
 Lets get moving!
 
-![Image Title](../assets/images/driving_robot/kitbot.jpg)
+![Drive base](../assets/images/driving_robot/kitbot.jpg)
 > [Picture source: Team 2984](http://ljrobotics.org/games/power-up-2018/){target=_blank}
 
 ## Overview
 
-In this section we will be going over:
+This section is designed to help you program a basic driving robot, start to finish.
 
-1. Creating the basic Drivetrain subsystem
-2. Adding subsystems to Robot.java, the main file that the robot runs and all other files must be in some way connected to.
-3. Creating joysticks and using their axes to control the robot.
-4. Creating and using DifferentialDrive and ArcadeDrive to make controlling the robot’s motors an easy process.
-5. Deploying code to the roboRIO
+**See table of contents for a breakdown of this section.**
 
 ***
 
@@ -479,6 +475,8 @@ Now it’s time to make an arcadeDrive from our differentialDrive!
       }
     }
 	```
+
+***
 
 ## Making our robot controllable
 

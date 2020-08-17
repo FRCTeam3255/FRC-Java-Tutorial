@@ -1,5 +1,17 @@
 # Deploying Robot Code
 
+Bring your creation to life!
+
+![roboRIO](../assets/images/roboRIO/roboRio.png)
+
+## Overview
+
+This section will help you learn to deploy code to your robot.
+
+**See table of contents for a breakdown of this section.**
+
+***
+
 ## How to deploy
 
 ### Hardware
@@ -31,6 +43,8 @@ To deploy code, first make sure your computer is  connected to the robot in **ON
 		- Use **Shift+F5** at any time to deploy. (you may also need to hold fn depending on your computer configuration)
 		- Right-click on the build.gradle file in the project hierarchy and select "Build Robot Code”
 		- Open the shortcut menu indicated by the ellipses in the top right corner of the VS Code window and select "Build Robot Code"
+
+***
 
 ## Testing
 

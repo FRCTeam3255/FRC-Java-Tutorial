@@ -9,10 +9,13 @@ Lets get started
 
 ## Overview
 
-Before we can start programing a robot we must install the necessary software for programming and driving the robot.
+Before we can start programing a robot we must install the necessary software for programming and driving the robot. 
+
+**See table of contents for a breakdown of this section.**
 
 !!! tip
 	You can install both the **Development Tools** and the **FRC Game Tools** on the same computer or separate computers. However many teams (3255 included) have a development laptop (with both) and a dedicated driverstation laptop (with only the FRC Game Tools) that often stays disconnected from the internet.
+
 ***
 
 ## Installing Java Development Tools
