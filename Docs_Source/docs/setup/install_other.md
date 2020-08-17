@@ -1,4 +1,4 @@
-# Installing Necessary Software
+# Installing Other Software
 
 ## Overview
 
@@ -20,27 +20,24 @@ For **Windows ONLY:**
 
 ***
 
-## Installing Spark Max tuner
+## Installing Spark Max Client
 
-If all you are doing is driving an already programmed robot or imaging/updating the roboRIO all you need is the FRC Game Tools. Following the instructions linked below will get you set up with the tools to **drive** the robot and **image/update** the roboRIO.
+If you are using Spark Max motor controllers on your robot, the Spark Max tuner software is a must have. It allows you to deploy software updates, debug/test your Spark maxes, and name/organize your Spark Maxes.
 
-### Installing the Driverstation software and roboRIO imaging tool
+### Installing the Spark Max Client
 
 For **Windows ONLY:**
 
-[Official FRC installation guide (Windows only)](https://docs.wpilib.org/en/stable/docs/getting-started/getting-started-frc-control-system/frc-game-tools.html){target=_blank}
-
-!!! Warning "IMPORTANT NOTE"
-	These tools only allow you to drive the robot and image/update a roboRIO. They do not allow you to program the robot. To accomplish those tasks you must install the [Java Development Tools](#installing-java-development-tools).
+[Download Spark Max Client (click 'Download Latest SPARK MAX Client)](https://www.revrobotics.com/sparkmax-software/){target=_blank}
 
 ***
 
-## Installing the FRC Radio Configuration Utility
+## Installing PathPlanner
 
-In order to enable wireless connectivity to the robot outside of FRC events or to allow connectivity to other network attached devices (i.e.Limelight Vision Camera), you must configure the robot's radio. Following the instructions linked below will get you set up with the Radio Configuration Utility and how to program the radio.
+In order to utilize motion profiling on a drivetrain, it is extremely helpful to have a tool such as Pathplanner. Pathplanner allows for seamless creation and deployment of motion profiles from your laptop to your robot, and has a nice interface for doing so. There are other available tools we may add in the future if pathplanner does not suit your needs, but we at 3255 found it comprehensive for our motion profiling needs (note, this software is only for driving in autonomous, it is likely not useful for other mechanisms).
 
-### Installing the Radio Configuration Utility and Programming the Radio
+### Installing Pathplanner
 
 For **Windows ONLY:**
 
-[Official FRC Radio Configuration Utility and Use guide (Windows only)](https://docs.wpilib.org/en/stable/docs/getting-started/getting-started-frc-control-system/radio-programming.html){target=_blank}
+[Pathplanner Github (to install, click on the latest version under releases on the right)](https://github.com/mjansen4857/PathPlanner){target=_blank}
