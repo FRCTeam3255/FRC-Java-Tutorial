@@ -12,6 +12,7 @@ nav:
   # - 'basics/driverstation_tips.md'
 - FRC Development Environment Setup:
   - 'setup/install_software.md'
+  - 'setup/install_other.md'
   - 'setup/imaging_roboRIO.md'
 - FRC Programming:
   - 'programming/new_project.md'
