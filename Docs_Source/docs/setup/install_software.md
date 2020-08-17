@@ -3,8 +3,6 @@
 Lets get started
 
 ![NI](../assets/images/logos/ni.png){: style="height:150px"}
-![Wi-Fi](../assets/images/install_software/wifi.png){: style="height:150px"}
-![Java](../assets/images/logos/java_logo.png){: style="height:150px"}
 ![VSCode](../assets/images/logos/code.png){: style="height:150px"}
 
 ## Overview
