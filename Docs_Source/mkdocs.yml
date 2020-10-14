@@ -42,8 +42,8 @@ theme:
   icon:
     logo: 'material/laptop'
   features:
-    - tabs
-    - instant
+    - navigation.tabs
+    - navigation.instant
   palette:
     primary: 'blue'
     accent: 'light blue'
