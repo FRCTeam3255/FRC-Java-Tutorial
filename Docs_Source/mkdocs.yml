@@ -3,6 +3,7 @@ nav:
 - Home:
   - 'index.md'
   - 'contributing.md'
+  - 'why_software.md'
 - Programming Basics:
   - 'basics/roboRIO.md'
   - 'basics/sensors.md'
