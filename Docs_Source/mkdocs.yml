@@ -7,8 +7,8 @@ nav:
 - Programming Basics:
   - 'basics/roboRIO.md'
   - 'basics/sensors.md'
-  - 'basics/java_basics.md'
   - 'basics/wpilib.md'
+  - 'basics/java_basics.md'
   - 'basics/vscode_tips.md'
   # - 'basics/driverstation_tips.md'
 - FRC Development Environment Setup:
