@@ -61,16 +61,17 @@ Newly created projects have many files within them. We only care about the conte
     - An example Command
 - **ExampleSubsystem.java**
     - An example SubSystem
+- **Constants.java** (new in 2020, replaces RobotMap.java)
+    - Used to map physical ports (digital if using the CAN bus) to variables in the code
+    - Can also be used to store generic constant values as variables in the code
 - **Main.java**
     - Used for advanced programming 
     - Will be ignored/left as is for this tutorial
-- **OI.java**
+- **RobotContainer.java** (new in 2020, replaces OI.java)
+    - Used to declare our subsystem
     - Used to create a connection between commands and Operator Interfaces (OI) such as Joysticks or buttons
 - **Robot.java**
-    - Used to declare our subsystem
     - Used to run special methods in the init and period phases of the auto, teleop, and disabled states
-- **RobotMap.java**
-    - Used to map physical ports (digital if using the CAN bus) to variables in the code
 
 ??? Example 
     ![](../assets/images/new_project/default_contents.png)
@@ -91,7 +92,7 @@ Newly created projects have many files within them. We only care about the conte
 	![](../assets/images/new_project/subsystem/step_2.png)
 	
 !!! summary ""
-	**4)** Select **Subsystem** and type your **DesiredSubsystemName** (i.e. **Drivetrain**) for the name and hit enter on your keyboard.
+	**4)** Select **Subsystem (New)** and type your **DesiredSubsystemName** (i.e. **Drivetrain**) for the name and hit enter on your keyboard.
 	
 	![](../assets/images/new_project/subsystem/step_3.png)  
 	![](../assets/images/new_project/subsystem/step_4.png)
@@ -101,55 +102,49 @@ Newly created projects have many files within them. We only care about the conte
 	
 	![](../assets/images/new_project/subsystem/step_5.png)
 
-### Adding the Subsystem to Robot.java
+### Adding the Subsystem to RobotContainer.java
 
 !!! warning "Do not forget this step!"
-	When a robot program runs on the roboRIO it only runs the main file Robot.java and anything Robot.java links to.  
-	We have created a new subsystem but we have not yet linked it to Robot.java.  
+	When a robot program runs on the roboRIO it only runs the main file Robot.java and anything Robot.java links to such as RobotContainer.java.  
+	We have created a new subsystem but we have not yet linked it to Robot.java through RobotContainer.java.  
 
 	!!! danger "***We must do this for EVERY subsystem we create***"
 
 !!! summary ""
-	**1)** In Robot.java we will create a new **global** variable of type `DesiredSubsystemName` (i.e. `Drivetrain`) named `#!java m_desiredSubsystemName` (`i.e. m_drivetrain`) and set its value to `null`.  
-    
+	**1)** In RobotContainer.java we will create a new **public** **global** **constant** variable of type `DesiredSubsystemName` (i.e. `Drivetrain`):  
+    `#!java public static final m_desiredSubsystemName = new DesiredSubsystemName();`  
+    (i.e. `#!java public static final m_drivetrain = new Drivetrain();`)
+
 	![](../assets/images/new_project/subsystem/step_6.png)
 
-!!! summary ""
-	**2)** In the `robotInit()` method add: `#!java m_desiredSubsystemName = new DesiredSubsystemName();` (i.e. `#!java m_drivetrain = new Drivetrain();`)
-    
-	!!! warning "Important"
-    	This must always be done above **OI** and **Telemetry/SmartDashboard** (if present).
-
-	![](../assets/images/new_project/subsystem/step_7.png)
-
-Now when we use this subsystem in commands, we must call `#!java Robot.m_desiredSubsystemName.` to get access to it and its methods. (i.e. `#!java Robot.m_drivetrain.someMethod()`)
+Now when we use this subsystem in commands, we must call `#!java RobotContainer.m_desiredSubsystemName.` to get access to it and its methods. (i.e. `#!java RobotContainer.m_drivetrain.someMethod()`)
 
 ### Default Subsystem Contents
 
-Newly created subsystems are empty with the exception of the initDefaultCommand.
+Newly created subsystems are empty with the exception of the periodic.
 
 - Currently there is no constructor, we will create a constructor ourselves later.
-- **initDefaultCommand** - a command that will run automatically every time the subsystem is called.
-    - When another command that requires the same subsystem is called, the initDefaultCommand will stop and restart after the new command has finished.
-        - This process calls the interrupted method of the command being called initDefaultCommand
+- **periodic** - a method that will be called periodically (once per robot scheduler run)
+    - Useful for adding/updating data to Driverstation dashboard
+    - Useful updating variables that need to always up to date
 
 ??? Example  
     ```java
     package frc.robot.subsystems;
 
-    import edu.wpi.first.wpilibj.command.Subsystem;
+    import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-    /**
-     * Add your docs here.
-     */
-    public class Drivetrain extends Subsystem {
-      // Put methods for controlling this subsystem
-      // here. Call these from Commands.
+    public class Drivetrain extends SubsystemBase {
+      /**
+       * Creates a new Drivetrain.
+       */
+      public Drivetrain() {
+
+      }
 
       @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+      public void periodic() {
+        // This method will be called once per scheduler run
       }
     }
 	```
@@ -170,7 +165,7 @@ Newly created subsystems are empty with the exception of the initDefaultCommand.
 	![](../assets/images/new_project/command/step_2.png)
 
 !!! summary ""
-	**4)** Select **Command** and type **DesiredCommandName** (i.e. DriveArcade) for the name and hit enter on your keyboard.  
+	**4)** Select **Command (New)** and type **DesiredCommandName** (i.e. DriveArcade) for the name and hit enter on your keyboard.  
 	
 	![](../assets/images/new_project/command/step_3.png)  
 	![](../assets/images/new_project/command/step_4.png)
@@ -188,47 +183,42 @@ Newly created commands have some predefined methods in them specific for a comma
     - Subsystem dependencies are declared here.
 - **initialize()** - Called ___ONCE___ just before this Command runs the first time.
 - **execute()** - Called ___REPEATEDLY___ when this Command is scheduled to run
+- **end()** - Called ___ONCE___ after isFinished returns true or when ___another command___ which requires one or more of the same subsystems is scheduled to run
 - **isFinished()** - Make this return ___TRUE___ when this Command no longer needs to run `execute()` (initialize always runs once regardless). 
-- **end()** - Called ___ONCE___ after isFinished returns true
-- **interrupted()** - Called when ___another command___ which requires one or more of the same subsystems is scheduled to run
 
 ??? Example
     ```java
   	package frc.robot.commands;
 
-    import edu.wpi.first.wpilibj.command.Command;
+    import edu.wpi.first.wpilibj2.command.CommandBase;
 
-    public class ArcadeDrive extends Command {
-      public ArcadeDrive() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public class DriveArcade extends CommandBase {
+      /**
+       * Creates a new DriveArcade.
+       */
+      public DriveArcade() {
+        // Use addRequirements() here to declare subsystem dependencies.
       }
 
-      // Called just before this Command runs the first time
+      // Called when the command is initially scheduled.
       @Override
-      protected void initialize() {
+      public void initialize() {
       }
 
-      // Called repeatedly when this Command is scheduled to run
+      // Called every time the scheduler runs while the command is scheduled.
       @Override
-      protected void execute() {
+      public void execute() {
       }
 
-      // Make this return true when this Command no longer needs to run execute()
+      // Called once the command ends or is interrupted.
       @Override
-      protected boolean isFinished() {
+      public void end(boolean interrupted) {
+      }
+
+      // Returns true when the command should end.
+      @Override
+      public boolean isFinished() {
         return false;
-      }
-
-      // Called once after isFinished returns true
-      @Override
-      protected void end() {
-      }
-
-      // Called when another command which requires one or more of the same
-      // subsystems is scheduled to run
-      @Override
-      protected void interrupted() {
       }
     }
 	```
