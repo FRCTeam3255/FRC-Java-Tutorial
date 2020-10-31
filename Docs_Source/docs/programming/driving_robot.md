@@ -43,7 +43,7 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
     **2)** Next assign their values to `#!java null` ([more info on `null`](../basics/java_basics.md#overview){target=_blank}).
    
     - We do this to make sure it is empty at this point. 
-    - When we assign these variables a value, we will be getting the motor controller's port numbers out of RobotMap
+    - When we assign these variables a value, we will be getting the motor controller's port numbers out of Constants
         - This means we cannot assign them at the global level
 
 ??? Example
@@ -78,9 +78,8 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
       Talon rightBackTalon = null;
 
       @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+      public void periodic() {
+        // This method will be called once per scheduler run
       }
     }
 	```
@@ -152,23 +151,21 @@ In the Drivetrain class we will tell the subsystem what type of components it wi
       }
 
       @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+      public void periodic() {
+        // This method will be called once per scheduler run
       }
-    }
 	```
 
-### Using RobotMap
+### Using Constants
 
 <!-- TODO: Link this as example where robot map mentioned -->
 
-Since each subsystem has its own components with their own ports, it is easy to lose track of which ports are being used and for what. To counter this you can use a class called **RobotMap** to hold all these values in a single location.
+Since each subsystem has its own components with their own ports, it is easy to lose track of which ports are being used and for what. To counter this you can use a class called **Constants** to hold all these values in a single location.
 
 !!! summary ""
-    **1)** To use RobotMap, instead of putting `0` for the port on the Talon type: 
+    **1)** To use Constants, instead of putting `0` for the port on the Talon type: 
 	```java
-	RobotMap.DRIVETRAIN_LEFT_FRONT_TALON
+	Constants.DRIVETRAIN_LEFT_FRONT_TALON
 	```
    
     - Names should follow the pattern SUBSYSTEM_NAME_OF_COMPONENT
@@ -176,19 +173,19 @@ Since each subsystem has its own components with their own ports, it is easy to 
 
 !!! summary ""
     **2)** Click on the underlined text 
-	![](../assets/images/driving_robot/robotmap/step_1.png)
+	![](../assets/images/driving_robot/constants/step_1.png)
 
 !!! summary ""
 	**3)** Click on the 💡light bulb and select “create constant…”
-	![](../assets/images/driving_robot/robotmap/step_2.png)
+	![](../assets/images/driving_robot/constants/step_2.png)
 	
 !!! summary ""
-	**4)** Click on RobotMap.java tab that just popped up
-	![](../assets/images/driving_robot/robotmap/step_3.png)  
+	**4)** Click on Constants.java tab that just popped up
+	![](../assets/images/driving_robot/constants/step_3.png)  
 	
 !!! summary ""
 	**5)** Change the `0` to the correct port for that motor controller on your robot/roboRIO
-	![](../assets/images/driving_robot/robotmap/step_4.png)
+	![](../assets/images/driving_robot/constants/step_4.png)
 	
 	!!! Danger
 		***If you set this to the wrong value, you could damage your robot when it tries to move!***
@@ -197,14 +194,14 @@ Since each subsystem has its own components with their own ports, it is easy to 
 	**6)** Repeat these steps for the remaining Talons.
 
 	!!! Tip
-    	Remember to save both **Drivetrain.java** and **RobotMap.java**
+    	Remember to save both **Drivetrain.java** and **Constants.java**
 
 ??? Example
 
 	The code you type should be this:
 
     ```java
-    leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
+    leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
     ```
 
 	Your full **Drivetrain.java** should look like this:
@@ -214,7 +211,7 @@ Since each subsystem has its own components with their own ports, it is easy to 
 
     import edu.wpi.first.wpilibj.Talon;
     import edu.wpi.first.wpilibj.command.Subsystem;
-    import frc.robot.RobotMap;
+    import frc.robot.Constants;
 
     /**
      * Add your docs here.
@@ -230,26 +227,25 @@ Since each subsystem has its own components with their own ports, it is easy to 
 
       public Drivetrain() {
         // Talons
-        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
-        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
-        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
-        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+        leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
+        leftBackTalon = new Talon(Constants.DRIVETRAIN_LEFT_BACK_TALON);
+        rightFrontTalon = new Talon(Constants.DRIVETRAIN_RIGHT_FRONT_TALON);
+        rightBackTalon = new Talon(Constants.DRIVETRAIN_RIGHT_BACK_TALON);
       }
 
       @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+      public void periodic() {
+        // This method will be called once per scheduler run
       }
     }
 	```
 
-	Your full **RobotMap.java** should look similar to this:	
+	Your full **Constants.java** should look similar to this:	
 
     ```java
     package frc.robot;
 
-    public class RobotMap {
+    public class Constants {
 	  // Talons
       public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
       public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
@@ -335,7 +331,7 @@ Since each subsystem has its own components with their own ports, it is easy to 
     import edu.wpi.first.wpilibj.Talon;
     import edu.wpi.first.wpilibj.command.Subsystem;
     import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-    import frc.robot.RobotMap;
+    import frc.robot.Constants;
 
     /**
      * Add your docs here.
@@ -356,10 +352,10 @@ Since each subsystem has its own components with their own ports, it is easy to 
 
       public Drivetrain() {
         // Talons
-        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
-        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
-        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
-        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+        leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
+        leftBackTalon = new Talon(Constants.DRIVETRAIN_LEFT_BACK_TALON);
+        rightFrontTalon = new Talon(Constants.DRIVETRAIN_RIGHT_FRONT_TALON);
+        rightBackTalon = new Talon(Constants.DRIVETRAIN_RIGHT_BACK_TALON);
 
         leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
         rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
@@ -368,9 +364,8 @@ Since each subsystem has its own components with their own ports, it is easy to 
       }
 
       @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+      public void periodic() {
+        // This method will be called once per scheduler run
       }
     }
 	```
@@ -432,7 +427,7 @@ Now it’s time to make an arcadeDrive from our differentialDrive!
     import edu.wpi.first.wpilibj.Talon;
     import edu.wpi.first.wpilibj.command.Subsystem;
     import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-    import frc.robot.RobotMap;
+    import frc.robot.Constants;
 
     /**
      * Add your docs here.
@@ -453,10 +448,10 @@ Now it’s time to make an arcadeDrive from our differentialDrive!
 
       public Drivetrain() {
         // Talons
-        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
-        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
-        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
-        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+        leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
+        leftBackTalon = new Talon(Constants.DRIVETRAIN_LEFT_BACK_TALON);
+        rightFrontTalon = new Talon(Constants.DRIVETRAIN_RIGHT_FRONT_TALON);
+        rightBackTalon = new Talon(Constants.DRIVETRAIN_RIGHT_BACK_TALON);
 
         leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
         rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
@@ -469,9 +464,8 @@ Now it’s time to make an arcadeDrive from our differentialDrive!
       }
 
       @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+      public void periodic() {
+        // This method will be called once per scheduler run
       }
     }
 	```
@@ -482,20 +476,20 @@ Now it’s time to make an arcadeDrive from our differentialDrive!
 
 ### Creating the Joystick
 
-In order to drive our robot, it needs to know what will be controlling it. To do so, we will create a new joystick in OI.java
+In order to drive our robot, it needs to know what will be controlling it. To do so, we will create a new joystick in RobotContainer.java
 
 !!! summary ""
-    **1)** Open OI.java
+    **1)** Open RobotContainer.java
 
     **2)** Type: 
 	```java 
-	public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+	public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
 	```
 
 	<!-- TODO: Change this to a general fix imports -->
 
 	- Import any classes if necessary such as: `#!java import edu.wpi.first.wpilibj.Joystick;` 
-    - A variable `driverController` of type Joystick pointing to a joystick on port `OI_DRIVER_CONTROLLER` from **RobotMap**
+    - A variable `driverController` of type Joystick pointing to a joystick on port `DRIVER_CONTROLLER` from **Constants**
 
 	**3)** Click the 💡 light bulb to create a new **CONSTANT** and set the value to the port number the joystick uses on the laptop (this can be found in the Driverstation software).
 
@@ -506,10 +500,10 @@ In order to drive our robot, it needs to know what will be controlling it. To do
 	The code you type should be this:
 
     ```java
-    public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+    public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
     ```
 
-	Your full **OI.java** should look like this:
+	Your full **RobotContainer.java** should look like this:
 
     ```java
     package frc.robot;
@@ -517,20 +511,24 @@ In order to drive our robot, it needs to know what will be controlling it. To do
     import edu.wpi.first.wpilibj.Joystick;
 
     /**
-     * This class is the glue that binds the controls on the physical operator
-     * interface to the commands and command groups that allow control of the robot.
+     * This class is where the bulk of the robot should be declared. Since
+     * Command-based is a "declarative" paradigm, very little robot logic should
+     * actually be handled in the {@link Robot} periodic methods (other than the
+     * scheduler calls). Instead, the structure of the robot (including subsystems,
+     * commands, and button mappings) should be declared here.
      */
-    public class OI {
-      public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+    public class RobotContainer {
+      // The robot's subsystems and commands are defined here...
+      public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
     }
 	```
 
-	Your full **RobotMap.java** should look similar to this:	
+	Your full **Constants.java** should look similar to this:	
 
     ```java
     package frc.robot;
 
-    public class RobotMap {
+    public class Constants {
 	  // Talons
       public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
       public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
@@ -538,7 +536,7 @@ In order to drive our robot, it needs to know what will be controlling it. To do
       public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
 
 	  // Joysticks
-      public static final int OI_DRIVER_CONTROLLER = 0;
+      public static final int DRIVER_CONTROLLER = 0;
     }
 	```
 
@@ -556,7 +554,7 @@ Before we begin we must create the class file for the DriveArcade command. See [
     **1)** In the constructor `#!java DriveArcade()` type:
 
     ```java
-    requires(Robot.m_drivetrain);
+    addRequirements(RobotContainer.m_drivetrain);
     ```
    
     - This means, this command will end all other commands currently using drivetrain and will run instead when executed.
@@ -573,13 +571,13 @@ Before we begin we must create the class file for the DriveArcade command. See [
     - We want these variables to be the value of the axis of the controller we are using to drive the robot. So we will set them equal to that by using the joystick getRawAxis method.
     - Controllers return an axis value between 1 and -1 to indicate how far the joystick is pushed up or down. Our personal controller returns up as -1 so we want to invert it.
         - In Java you can put a negative “ - “in front of a numeric value to invert it (value * -1)
-        - The joystick’s getRawAxis method will get the position value of the axis as you move it. The method takes parameter “axis number.” (This can be found in the Driverstation software and we will store it in RobotMap).
+        - The joystick’s getRawAxis method will get the position value of the axis as you move it. The method takes parameter “axis number.” (This can be found in the Driverstation software and we will store it in Constants).
 
     In the execute() method type:
 
     ```java
-    double moveSpeed = -Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
-    double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
+    double moveSpeed = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_MOVE_AXIS);
+    double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);
     ```
 
     !!! Tip
@@ -591,7 +589,7 @@ Before we begin we must create the class file for the DriveArcade command. See [
     In the execute() method below rotateSpeed type:
 
     ```java
-    Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+    RobotContainer.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
     ```
 
 #### In the isFinished method
@@ -617,34 +615,21 @@ Since we will be using this command to control the robot we want it to run indef
     In the end() method type:
 
     ```java
-    Robot.m_drivetrain.arcadeDrive(0, 0);
+    RobotContainer.m_drivetrain.arcadeDrive(0, 0);
     ```
 
     - This make the motors stop running when the command ends by setting the movement speed to zero and rotation speed to zero.
-
-#### In the interrupted method
-
-!!! summary ""
-    **1)** We will make it call end. 
-
-    In the interrupted() method type:
-
-    ```java
-    end();
-    ```
-
-    - This makes the end method get called if the command gets interrupted. (No reason to re-write code, call end() to use what we already have!)
 
 #### Completed Example
 
 ??? Example
 
-	Your full **RobotMap.java** should look similar to this:	
+	Your full **Constants.java** should look similar to this:	
 
     ```java
     package frc.robot;
 
-    public class RobotMap {
+    public class Constants {
   	  // Talons
       public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
       public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
@@ -652,7 +637,7 @@ Since we will be using this command to control the robot we want it to run indef
       public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
 
   	  // Joysticks
-      public static final int OI_DRIVER_CONTROLLER = 0;
+      public static final int DRIVER_CONTROLLER = 0;
       public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1; // Change for your controller
       public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 2; // Change for your controller
     }
@@ -664,14 +649,13 @@ Since we will be using this command to control the robot we want it to run indef
     package frc.robot.commands;
 
     import edu.wpi.first.wpilibj.command.Command;
-    import frc.robot.Robot;
-    import frc.robot.RobotMap;
+    import frc.robot.RobotContainer;
+    import frc.robot.Constants;
 
     public class DriveArcade extends Command {
       public DriveArcade() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(Robot.m_drivetrain);
+        // Use addRequirements() here to declare subsystem dependencies.
+        addRequirements(RobotContainer.m_drivetrain);
       }
 
       // Called just before this Command runs the first time
@@ -682,10 +666,16 @@ Since we will be using this command to control the robot we want it to run indef
       // Called repeatedly when this Command is scheduled to run
       @Override
       protected void execute() {
-        double moveSpeed = -Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
-        double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
+        double moveSpeed = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_MOVE_AXIS);
+        double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);
 
-        Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+        RobotContainer.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+      }
+
+      // Called once the command ends or is interrupted.
+      @Override
+      protected void end(boolean interrupted) {
+        Robot.m_drivetrain.arcadeDrive(0, 0);
       }
 
       // Make this return true when this Command no longer needs to run execute()
@@ -693,35 +683,22 @@ Since we will be using this command to control the robot we want it to run indef
       protected boolean isFinished() {
         return false;
       }
-
-      // Called once after isFinished returns true
-      @Override
-      protected void end() {
-        Robot.m_drivetrain.arcadeDrive(0, 0);
-      }
-
-      // Called when another command which requires one or more of the same
-      // subsystems is scheduled to run
-      @Override
-      protected void interrupted() {
-        end();
-      }
     }
 	```
 
-### Setting initDefaultCommand
+### Using setDefaultCommand
 
-- Commands within this method run when the robot is enabled.
+- Commands passed to this method will run when the robot is enabled.
 - They also run if no other commands using the subsystem are running.
-    - This is why we write **requires(Robot.m_subsystemName)** in the commands we create, it ends currently running commands using that subsystem to allow a new command is run.
+    - This is why we write **addRequirements(Robot.m_subsystemName)** in the commands we create, it ends currently running commands using that subsystem to allow a new command is run.
   
 !!! summary ""
-    **1)** Back in **Drivetrain.java** in the initDefaultCommand() method we will put our newly created command
+    **1)** Back in **RobotContainer.java** in the constructor we will call the `setDefaultCommand` of `m_drivetrain` and pass it the `DriveArcade` command
 
-    In the initDefaultCommand() method type:
+    In the **RobotContainer.java** constructor type:
 
     ```java
-    setDefaultCommand(new DriveArcade());
+    m_drivetrain.setDefaultCommand(new DriveArcade());
     ```
 
     !!! Tip
@@ -729,63 +706,60 @@ Since we will be using this command to control the robot we want it to run indef
 
 ??? Example
 
-	The code you type should be this:
+	Your full **RobotContainer.java** should look like this:
 
     ```java
-    setDefaultCommand(new DriveArcade());
-    ```
+    package frc.robot;
 
-	Your full **Drivetrain.java** should look like this:
-
-    ```java
-    package frc.robot.subsystems;
-
-    import edu.wpi.first.wpilibj.SpeedControllerGroup;
-    import edu.wpi.first.wpilibj.Talon;
-    import edu.wpi.first.wpilibj.command.Subsystem;
-    import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-    import frc.robot.RobotMap;
-    import frc.robot.commands.DriveArcade;
+    import edu.wpi.first.wpilibj.Joystick;
+    import frc.robot.commands.*;
+    import frc.robot.subsystems.*;
+    import edu.wpi.first.wpilibj2.command.Command;
 
     /**
-     * Add your docs here.
+     * This class is where the bulk of the robot should be declared.  Since Command-based is a
+     * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
+     * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
+     * (including subsystems, commands, and button mappings) should be declared here.
      */
-    public class Drivetrain extends Subsystem {
-      // Put methods for controlling this subsystem
-      // here. Call these from Commands.
+    public class RobotContainer {
+      // The robot's subsystems and commands are defined here...
+      public static final Drivetrain m_drivetrain = new Drivetrain();
+      private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-      Talon leftFrontTalon = null;
-      Talon leftBackTalon = null;
-      Talon rightFrontTalon = null;
-      Talon rightBackTalon = null;
+      private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-      SpeedControllerGroup leftMotors = null;
-      SpeedControllerGroup rightMotors = null;
+      public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
 
-      DifferentialDrive differentialDrive = null;
+      /**
+       * The container for the robot.  Contains subsystems, OI devices, and commands.
+       */
+      public RobotContainer() {
+        // Configure the button bindings
+        configureButtonBindings();
 
-      public Drivetrain() {
-        // Talons
-        leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
-        leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
-        rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
-        rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
-
-        leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
-        rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
-
-        differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+        // Set default commands on subsystems
+        m_drivetrain.setDefaultCommand(new DriveArcade());
       }
 
-      public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-        differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+      /**
+       * Use this method to define your button->command mappings.  Buttons can be created by
+       * instantiating a {@link GenericHID} or one of its subclasses ({@link
+       * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
+       * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
+       */
+      private void configureButtonBindings() {
       }
 
-      @Override
-      public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new DriveArcade());
+
+      /**
+       * Use this to pass the autonomous command to the main {@link Robot} class.
+       *
+       * @return the command to run in autonomous
+       */
+      public Command getAutonomousCommand() {
+        // An ExampleCommand will run in autonomous
+        return m_autoCommand;
       }
     }
 	```

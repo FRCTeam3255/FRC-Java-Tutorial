@@ -104,6 +104,7 @@ Newly created projects have many files within them. We only care about the conte
 
 ### Adding the Subsystem to RobotContainer.java
 
+<!-- TODO: Make import note -->
 !!! warning "Do not forget this step!"
 	When a robot program runs on the roboRIO it only runs the main file Robot.java and anything Robot.java links to such as RobotContainer.java.  
 	We have created a new subsystem but we have not yet linked it to Robot.java through RobotContainer.java.  
