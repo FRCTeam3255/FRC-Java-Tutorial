@@ -16,12 +16,12 @@ In this section we will be going over
 - There are different types of sensors that give feedback on different things (Ex: Encoders measure distance, switches detect touch, gyros give orientation).
 - Most of these interface with the roboRIO through either the DIO, analog input, or custom electronics port.
 
-## What Are Encoders
+### What Are Encoders
 
 - Encoders are sensors that are able to measure the amount has rotated by using a laser or a shaft.
 - Unlike potentiometers their shafts can continuously rotate and count infinitely* positive or negative.
 
-## Setting Up Switches
+### Setting Up Switches
 
 !!! summary ""
     **1)** For this tutorial we are going to add a **switch** to the **shooter subsystem** to automatically change the pitch of the shooter
@@ -36,36 +36,36 @@ In this section we will be going over
 
 	The code you typed should be this
 	
-	'''java
+	```java
 	DigitalInput shooterSwitch = null;
-	   '''
+	```
 	   
 	In the constructor
 	
-	'''java
+	```java
 	shooterSwitch = new DigitalInput(RobotMap.SHOOTER_SWITCH)
-	   '''
+	```
 	   
 	In **RobotMap.Java**
 	
-	'''java
+	```java
 	// Digital Inputs
   	public static final int SHOOTER_SWITCH = 0;
-	   '''
+    ```
 	
 ## Creating isShooterSwitchClosed Method
 
-!!! summary ''
+!!! summary ""
     **1)** Create a **public boolean** method called **isShooterSwitchClosed**
     
     - This method will tell us when the shooter switch is pressed
 
-!!! summary ''
+!!! summary ""
     **2)** Inside type:
    
-    '''java
+    ```java
     return shooterSwitch.get();
-       '''
+    ```
 
     <!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems -->
 
@@ -77,11 +77,11 @@ In this section we will be going over
 	
 	Your **isShooterSwitchClosed()** should look like this
 	
-	'''java
+	```java
 	public boolean isShooterSwitchClosed() {
    	   return shooterSwitch.get();
   	}
-	   '''
+	```
 	   
 ## Creating ShooterUpAuto Command
 
@@ -110,7 +110,7 @@ In this section we will be going over
 
     Your full **ShooterUpAuto.java** should look like this
     
-    '''java
+    ```java
     package frc.robot.commands;
 
     import edu.wpi.first.wpilibj.command.Command;
@@ -151,6 +151,7 @@ In this section we will be going over
       protected void interrupted() {
       }
     }
+    ```
 
 ### Mapping ShooterAutoUpCommand
 	
@@ -162,15 +163,15 @@ In this section we will be going over
 
 	The code you typed should be this
 	
-	'''java
+	```java
 	D3.whenPressed(new ShooterUpAuto());
-	   '''
+    ```
 	   
 	Or this
 	
-	'''java
+	```java
 	D3.whileHeld(new ShooterUpAuto());
-	   '''
+	```
 	   
 ## Programming Encoders
 
@@ -189,15 +190,15 @@ In this section we will be going over
 
 	The code you typed outside the constructor should be this
 	
-	'''java
+	```java
 	Encoder driveEncoder = null;
-	   '''
+	```
 	   
 	Inside the constructor
 	
-	'''java
+	```java
 	driveEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_A, RobotMap.DRIVETRAIN_ENCODER_B);
-	   '''
+	```
 	   
 ## Creating Drive Encoder Methods
 
@@ -207,9 +208,9 @@ In this section we will be going over
 !!! summary ""
     **2)** Inside type: 
     
-    '''java
+    ```java
     return driveEncoder.get();
-       '''
+    ```
        
     <!-- TODO: Explain why the method is a returning a double from an int -->
    
@@ -222,9 +223,9 @@ In this section we will be going over
 !!! summary ""
     **4)** Inside type:
     
-    '''java
+    ```java
     driveEncoder.reset();
-       '''
+    ```
     
     - This method will reset the drive encoder to zero which is useful for autonomous or when we use the robot as a ruler
  
@@ -232,7 +233,7 @@ In this section we will be going over
 	
 	The code you typed should be this
 	
-	'''java
+	```java
 	public double getDriveEncoderCount() {
     	  return driveEncoder.get();
   	}
@@ -240,7 +241,7 @@ In this section we will be going over
   	public void resetDriveEncoder() {
     	  driveEncoder.reset();
   	}
-	   '''
+	```
 	   
 ## Creating ResetDriveEncoder InstantCommand
 
@@ -260,7 +261,7 @@ In this section we will be going over
 
 	Your full **DriveResetEncoder** command should look like this
 	
-	'''java
+	```java
 	package frc.robot.commands;
 
 	import edu.wpi.first.wpilibj.command.InstantCommand;
@@ -285,5 +286,5 @@ In this section we will be going over
   	 protected void initialize() {
     	   Robot.m_drivetrain.resetDriveEncoder();
   	 }
-
 	}
+    ```
