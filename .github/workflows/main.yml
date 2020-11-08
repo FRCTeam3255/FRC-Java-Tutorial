@@ -2,7 +2,7 @@ name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-      - remaster
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,6 +12,4 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install -r requirements.txt
-        working-directory: ./Docs_Source
       - run: mkdocs gh-deploy --force
-        working-directory: ./Docs_Source

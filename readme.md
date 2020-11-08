@@ -1,8 +1,7 @@
-# Note about using project
+# FRC Java Tutorial
 
-- Use VSCode
-- Open folders separately
-  - Open Docs Source to edit documentation
-  - Open Example_Project to build and run robot code
+A tutorial on how to program a robot for use in the FIRST Robotics Competition.
 
-Docs are viewable at <https://frcteam3255.github.io/FRC-Java-Tutorial/>
+Updated for 2021
+
+Viewable at <https://frcteam3255.github.io/FRC-Java-Tutorial/>
