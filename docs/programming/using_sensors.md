@@ -6,31 +6,27 @@
 
 In this section we will be going over
 
-1. Creating and using a switch in the shooter subsystem
-2. Creating an encoder in the drivetrain subsystem
+1. Creating and using a switch in a shooter subsystem
+      1. Create this subsystem now. (See [Creating a New Subsystem](new_project.md#creating-a-new-subsystem))
+2. Creating an encoder in the [drivetrain subsystem](driving_robot.md) (See creating a driving robot)
 
 ***
 
 ## What Are Sensors
 
-- There are different types of sensors that give feedback on different things (Ex: Encoders measure distance, switches detect touch, gyros give orientation).
+- There are different types of sensors that give feedback on different things (i.e. **Encoders** measure distance, **switches** detect contact, **gyros** give orientation).
 - Most of these interface with the roboRIO through either the DIO, analog input, or custom electronics port.
 
-### What Are Encoders
-
-- Encoders are sensors that are able to measure the amount has rotated by using a laser or a shaft.
-- Unlike potentiometers their shafts can continuously rotate and count infinitely* positive or negative.
-
-### Setting Up Switches
+## Programming Switches (i.e. Limit Switches)
 
 !!! summary ""
-    **1)** For this tutorial we are going to add a **switch** to the **shooter subsystem** to automatically change the pitch of the shooter
+    **1)** For this tutorial we are going to add a **switch** to a **shooter subsystem** to automatically change the pitch of the shooter
     
     - Inside the shooter subsystem we are going to create a **switch** called **shooterSwitch**
     - It will be created as a **DigitalInput**
-    - The **DigitalInput** constructor only takes 1 parameter - (new DigitalInput(port)
+    - The **DigitalInput** constructor only takes 1 parameter - DigitalInput(port)
     - The port refers to the port numbers on the RoboRIO’s DIO
-    - Store the port in **RobotMap**
+    - Store the port in **Constants**
     
 ??? Example
 
@@ -43,17 +39,17 @@ In this section we will be going over
 	In the constructor
 	
 	```java
-	shooterSwitch = new DigitalInput(RobotMap.SHOOTER_SWITCH)
+	shooterSwitch = new DigitalInput(Constants.SHOOTER_SWITCH);
 	```
 	   
-	In **RobotMap.Java**
+	In **Constants.Java**
 	
 	```java
 	// Digital Inputs
   	public static final int SHOOTER_SWITCH = 0;
     ```
-	
-## Creating isShooterSwitchClosed Method
+
+### Creating isShooterSwitchClosed Method
 
 !!! summary ""
     **1)** Create a **public boolean** method called **isShooterSwitchClosed**
@@ -67,10 +63,9 @@ In this section we will be going over
     return shooterSwitch.get();
     ```
 
-    <!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems -->
-
    - Switches have 2 states: open and closed.
-   - Depending on how they are wired or coded only one of the 2 states will return either true or false (booleans).
+    <!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems -->
+   <!-- TODO: Make note about normally open/close which to choose and why. talk about how we do one and invert the code so if the switch becomes unplugged it defaults to closed (off)  -->
    - Make sure you know which is true or false or you may have to invert the switch by rewiring or using the ! operator
    
 ??? Example
@@ -82,8 +77,38 @@ In this section we will be going over
    	   return shooterSwitch.get();
   	}
 	```
-	   
-## Creating ShooterUpAuto Command
+
+??? Example "Full Shooter.java Example"
+
+    ```java
+    package frc.robot.subsystems;
+
+    import edu.wpi.first.wpilibj.DigitalInput;
+    import edu.wpi.first.wpilibj2.command.SubsystemBase;
+    import frc.robot.Constants;
+
+    public class Shooter extends SubsystemBase {
+      /**
+       * Creates a new Shooter.
+       */
+      DigitalInput shooterSwitch = null;
+
+      public Shooter() {
+        shooterSwitch = new DigitalInput(Constants.SHOOTER_SWITCH);
+      }
+
+      public boolean isShooterSwitchClosed() {
+        return shooterSwitch.get();
+      }
+
+      @Override
+      public void periodic() {
+        // This method will be called once per scheduler run
+      }
+    }
+    ```  
+
+### Creating ShooterUpAuto Command
 
 - We will create a **command** that gives an example of how a Shooter switch may be used
 
@@ -153,7 +178,7 @@ In this section we will be going over
     }
     ```
 
-### Mapping ShooterAutoUpCommand
+#### Mapping ShooterAutoUpCommand
 	
 - To be able to test our command right now we can map it to a joystick button like we did our other Shooter commands
 - It would be best to make it a whenPressed or whileHeld button
@@ -184,7 +209,7 @@ In this section we will be going over
     - It will be created as an Encoder
     - The Encoder constructor takes 2 parameters - (new Encoder(port1,port2))
     - These are DIO ports on the RoboRIO
-    - Store ports in RobotMap as DRIVE_ENCODER_A and B
+    - Store ports in Constants as DRIVE_ENCODER_A and B
     
 ??? Example 
 
@@ -197,10 +222,10 @@ In this section we will be going over
 	Inside the constructor
 	
 	```java
-	driveEncoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_A, RobotMap.DRIVETRAIN_ENCODER_B);
+	driveEncoder = new Encoder(Constants.DRIVETRAIN_ENCODER_A, Constants.DRIVETRAIN_ENCODER_B);
 	```
 	   
-## Creating Drive Encoder Methods
+### Creating Drive Encoder Methods
 
 !!! summary ""
     **1)** Create a public double method called **getDriveEncoderCount**
@@ -243,7 +268,7 @@ In this section we will be going over
   	}
 	```
 	   
-## Creating ResetDriveEncoder InstantCommand
+### Creating ResetDriveEncoder InstantCommand
 
 - We need to create a command to use the **resetDriveEncoder** method since it’s a **void** method
 - We will create a **InstantCommand** since we will only use it to reset the drive encoder

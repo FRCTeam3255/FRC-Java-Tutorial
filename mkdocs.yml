@@ -76,3 +76,7 @@ plugins:
   - minify:
       minify_html: true
       minify_js: true
+
+google_analytics:
+  - UA-47256977-4
+  - auto
