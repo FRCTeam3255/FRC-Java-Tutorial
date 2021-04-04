@@ -26,6 +26,11 @@ nav:
   - 'programming/autonomous.md'
   - 'programming/pid.md'
   # - 'programming/super_core.md'
+- Example Subsystems:
+  - 'examples/basic_elevator.md'
+  - 'examples/basic_shooter.md'
+  - 'examples/pid_elevator.md'
+  - 'examples/pid_shooter.md'
 - Version Control:
   - 'version_control/github.md'
 

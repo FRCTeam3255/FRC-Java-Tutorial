@@ -52,3 +52,5 @@ To deploy code, first make sure your computer is  connected to the robot in **ON
 2. Enable the robot
 3. Try moving the joysticks on your controller when enabled.
       1. If it doesn’t, check your port numbers for your controller, axes, and motor controllers
+
+<!-- TODO: make note about reading error log. resource allocation and robots don't quit -->
