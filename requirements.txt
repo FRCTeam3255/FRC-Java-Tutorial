@@ -1,6 +1,7 @@
 # Install requirements:
 # pip install -r requirements.txt
-mkdocs
-mkdocs-material
-mkdocs-minify-plugin
-pymdown-extensions
+mkdocs>=1.1.2,<2.0.0
+mkdocs-material>=7.1.1,<8.0.0
+pymdown-extensions>=8.0.1,<9.0.0
+# Missing 1.0.0 Release
+mkdocs-minify-plugin>=0.3.0<1.0.0
