@@ -106,21 +106,15 @@ Making FRC Programming Easy
 
 - In FRC programming our main class is **Robot.java** and all other classes (command files and subsystem files) must be loaded from **Robot.java** either directly or indirectly 
     - !!! Example
-        **Robot.java** loads **OI.java**, **OI.java** loads **DriveForward.java**.
-- All **subsystem** files must be added to **Robot.java**’s auto-created `#!java robotInit()` method.
-    - This loads our **subsystems** into the code and allow its public methods to be useable by other files such as commands later by typing `#!java Robot.nameOfSubsystem.desiredMethod();`
+        **Robot.java** loads **RobotContainer.java**, **RobotContainer.java** loads **DriveForward.java**.
+- All **subsystem** files must be added to **RobotContainer.java**.
+    - This loads our **subsystems** into the code and allow its public methods to be useable by other files such as commands later by typing `#!java RobotContainer.nameOfSubsystem.desiredMethod();`
 
 ***
 
 ### New Project Files
 
-- When creating a new command based robot project, the following classes (files) will be created:
-    - **Robot.java** - The main class of the robot which is run when a robot boots up. 
-    - **OI.java** - This class binds our **commands** to a physical operator interface such as a joystick or controller.
-        - This file is already in `#!java robotInit()` by default so classes called here will also be loaded by the program
-    - **RobotMap.java** - This class is used to hold all the ports or ID numbers of sensors or devices connected to the robot and assign them a variable name.
-        - This provides flexibility for changing wiring, makes checking the wiring easier, and significantly reduces the number of magic numbers floating around.
-    - **ExampleSubsystem.java** and **ExampleCommand.java** are auto-created examples.
+See [Default Project Contents](../programming/new_project.md#default-project-contents)
 
 ***
 
@@ -129,6 +123,6 @@ Making FRC Programming Easy
 - Command based robots are broken down into **subsystems** and **commands**
 - **Subsystems** define what the robot is made of and what it can do while **commands** actually tell the robot to do those things
 - All classes must directly or indirectly connect to **Robot.java**.
-    - All **Subsystems** must be added to **Robot.java**’s `#!java robotInit()` 
+    - All **Subsystems** must be added to **RobotContainer.java** 
 - **RobotMap.java** holds port numbers and IDs accessible throughout the program by typing: `#!java RobotMap.NameOfMotor()`
-- **OI.java** connects our commands to physical controllers
+- **RobotContainer.java** contains our publicly accessible instances of our subsystems. It also connects our commands to physical controllers.

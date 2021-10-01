@@ -51,8 +51,6 @@ Before we can start programing a robot, we must create a new project in Visual S
 
 ### Default Project Contents
 
-<!-- TODO: Maybe remove this or combine it with the WPILib section -->
-
 Newly created projects have many files within them. We only care about the contents within the **src/main/java/frc/robot/** folder. Everything else can be ignored at this point in the tutorial.
 
 **Files in the robot folder:**
@@ -62,7 +60,8 @@ Newly created projects have many files within them. We only care about the conte
 - **ExampleSubsystem.java**
     - An example SubSystem
 - **Constants.java** (new in 2020, replaces RobotMap.java)
-    - Used to map physical ports (digital if using the CAN bus) to variables in the code
+    - Used to map physical ports (digital if using the CAN bus) of sensors or devices connected to the robot and assign them a variable name to be used in other parts of the code.
+        - This provides flexibility for changing wiring, makes checking the wiring easier, and significantly reduces the number of magic numbers floating around.
     - Can also be used to store generic constant values as variables in the code
 - **Main.java**
     - Used for advanced programming 
@@ -71,6 +70,7 @@ Newly created projects have many files within them. We only care about the conte
     - Used to declare our subsystem
     - Used to create a connection between commands and Operator Interfaces (OI) such as Joysticks or buttons
 - **Robot.java**
+    - The main class of the robot which is run when a robot boots up.
     - Used to run special methods in the init and period phases of the auto, teleop, and disabled states
 
 ??? Example 
