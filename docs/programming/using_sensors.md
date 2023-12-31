@@ -1,4 +1,4 @@
-# **WIP** Using Sensors and Switches
+# [WIP] Using Sensors and Switches
 
 <!-- ![Image Title](imageURL)  -->
 

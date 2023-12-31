@@ -1,4 +1,4 @@
-# **WIP** Using GitHub
+# [WIP] Using GitHub
 
 This page is currently a work in progress. Check back later
 

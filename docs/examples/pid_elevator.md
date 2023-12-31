@@ -1,4 +1,4 @@
-# **WIP** PID Driven Elevator
+# [WIP] PID Driven Elevator
 <!-- This page was contributed by:  -->
 
 Subtitle

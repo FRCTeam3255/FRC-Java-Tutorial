@@ -1,4 +1,4 @@
-# **WIP** Getting started with PID
+# [WIP] Getting started with PID
 
 This page is currently a work in progress. Check back later
 
