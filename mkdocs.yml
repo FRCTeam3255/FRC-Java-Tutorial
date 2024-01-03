@@ -31,7 +31,6 @@ nav:
   - 'examples/pid_elevator.md'
   - 'examples/pid_shooter.md'
 - Version Control:
-  - 'version_control/git_definitions.md'
   - 'version_control/github.md'
 - Improve the Documentation:
   - 'contributing.md'
