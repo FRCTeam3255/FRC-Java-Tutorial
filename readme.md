@@ -4,4 +4,4 @@ A tutorial on how to program a robot for use in the FIRST Robotics Competition.
 
 Updated for 2021
 
-Viewable at <https://frcteam3255.github.io/FRC-Java-Tutorial/>
+Viewable at [https://frcteam3255.github.io/FRC-Java-Tutorial/](https://frcteam3255.github.io/FRC-Java-Tutorial/)

@@ -1,4 +1,4 @@
-# **WIP** Basic Shooting Subsystem
+# [WIP] Basic Shooting Subsystem
 <!-- This page was contributed by:  -->
 
 Subtitle

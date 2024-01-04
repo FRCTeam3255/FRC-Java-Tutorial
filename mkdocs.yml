@@ -2,7 +2,6 @@
 nav:
 - Home:
   - 'index.md'
-  - 'contributing.md'
   - 'why_software.md'
 - Programming Basics:
   - 'basics/roboRIO.md'
@@ -33,6 +32,8 @@ nav:
   - 'examples/pid_shooter.md'
 - Version Control:
   - 'version_control/github.md'
+- Improve the Documentation:
+  - 'contributing.md'
 
 # Setup
 site_name: FRC Java Programming
@@ -43,22 +44,10 @@ site_author: Tayler Uva
 
 # Theme
 theme:
-  name: 'material'
-  custom_dir: 'theme'
+  name: 'readthedocs'
   favicon: assets/favicon.png
   icon:
-    logo: 'material/laptop'
-  features:
-    - navigation.tabs
-    - navigation.instant
-  palette:
-    primary: 'blue'
-    accent: 'light blue'
-    scheme: slate
-extra_css: 
-  # - assets/css/dark_theme.css
-  # - assets/css/codehilite.css
-  - assets/css/sn.css
+    logo: assets/favicon.png
 use_directory_urls: false
 
 # Extensions

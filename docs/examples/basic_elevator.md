@@ -1,4 +1,4 @@
-# **WIP** Basic Elevator Subsystem
+# [WIP] Basic Elevator Subsystem
 <!-- This page was contributed by:  -->
 
 Subtitle
