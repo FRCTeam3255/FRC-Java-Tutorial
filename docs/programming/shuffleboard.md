@@ -35,9 +35,9 @@ In this section we will be going over
 !!! summary ""
     **3)** Inside type: 
     
-    '''java
+    ```java
     SmartDashboard.putData(“Reset Drive Encoder”, new DriveResetEncoder());
-       '''
+    ```
        
 !!! summary ""
     **4)** Create a public method called update
@@ -47,9 +47,9 @@ In this section we will be going over
 !!! summary "" 
     **5)** Inside type: 
     
-    '''java 
+    ```java 
     SmartDashboard.putNumber(“Drivetrain Encoder Count”, Robot.m_drivetrain.getDriveEncoderCount());
-       '''
+    ```
        
 !!! summary ""
     **6)** Do the same for the **getDriveEncoderDistance** method
@@ -61,7 +61,7 @@ In this section we will be going over
 
 	Your full **Telemetry.java** should look like this
 	
-	'''java
+	```java
 	package frc.robot.subsystems;
 
 	import edu.wpi.first.wpilibj.command.Subsystem;
@@ -100,7 +100,7 @@ In this section we will be going over
     	    // setDefaultCommand(new MySpecialCommand());
   	  }
 	}
-  	   '''
+  	```
 	   
 ## Adding The Telemetry Subsystem to Robot.java
 
@@ -120,21 +120,21 @@ In this section we will be going over
 
 	The code you typed before **robotInit** should be this
 	
-	'''java
+	```java
 	public static Telemetry m_telemetry; 
-	   '''
+	```
 	  
 	The code you typed in **robotInit** should be this
 	
-	'''java
+	```java
 	m_telemetry = new Telemetry(); //This must be initialized after all other robot subsystems
-	   '''
+	```
 	   
 	The code you typed in **disabledPeriodic, autonomousPeriodic**, and **teleopPeriodic** should be this
 	
-	'''java
+	```java
 	Robot.m_telemetry.update();
-	   '''
+	```
 	   
 ## Testing Shuffleboard
 

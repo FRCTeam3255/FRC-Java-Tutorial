@@ -44,9 +44,9 @@ In this section we will be going over
 !!! summary ""
     **4)** Inside type:
     
-        '''java
-        distance = inches;
-           '''
+	```java
+	distance = inches;
+	```
         
 !!! summary ""
     **5)** In **initialize** add our **resetDriveEncoder** method
@@ -61,74 +61,74 @@ In this section we will be going over
 !!! summary ""
     **7)** In **isFinished** type:
     
-        '''java
-        return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
-           '''
+	```java
+	return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
+	```
 !!! summary ""
     **8)** In **end** stop the **Drivetrain** and call **end** in **interrupted**
     
 ??? Example
     
-        Your full **DriveDistance.java** should look like this
-        
-        '''java
-        package frc.robot.commands;
+	Your full **DriveDistance.java** should look like this
+	
+	```java
+	package frc.robot.commands;
 
-        import edu.wpi.first.wpilibj.command.Command;
-        import frc.robot.Robot;
-        import frc.robot.RobotPreferences;
+	import edu.wpi.first.wpilibj.command.Command;
+	import frc.robot.Robot;
+	import frc.robot.RobotPreferences;
 
-        public class DriveDistance extends Command {
+	public class DriveDistance extends Command {
 
-  		  private double distance;
+		private double distance;
 
-  		  public DriveDistance(double inches) {
-    		// Use requires() here to declare subsystem dependencies
-    		// eg. requires(chassis);
-    		requires(Robot.m_drivetrain);
-    		distance = inches;
-  		  }
-
-  		  // Called just before this Command runs the first time
-  		  @Override
-  		  protected void initialize() {
-    		Robot.m_drivetrain.resetDriveEncoder();
-  		  }
-
-  		  // Called repeatedly when this Command is scheduled to run
-  		  @Override
-  		  protected void execute() {
-    		Robot.m_drivetrain.arcadeDrive(RobotPreferences.driveDistanceSpeed(), 0.0);
-  		  }
-
-  		  // Make this return true when this Command no longer needs to run execute()
-  		  @Override
- 	 	  protected boolean isFinished() {
-    		return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
-  		  }
-
-  		  // Called once after isFinished returns true
-  		  @Override
-  		  protected void end() {
-    		Robot.m_drivetrain.arcadeDrive(0.0, 0.0);
-  		  }
-
-  		  // Called when another command which requires one or more of the same
-  		  // subsystems is scheduled to run
-  		  @Override
-  		  protected void interrupted() {
-    		end();
-  		  }
+		public DriveDistance(double inches) {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		requires(Robot.m_drivetrain);
+		distance = inches;
 		}
-		   '''
+
+		// Called just before this Command runs the first time
+		@Override
+		protected void initialize() {
+		Robot.m_drivetrain.resetDriveEncoder();
+		}
+
+		// Called repeatedly when this Command is scheduled to run
+		@Override
+		protected void execute() {
+		Robot.m_drivetrain.arcadeDrive(RobotPreferences.driveDistanceSpeed(), 0.0);
+		}
+
+		// Make this return true when this Command no longer needs to run execute()
+		@Override
+		protected boolean isFinished() {
+		return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
+		}
+
+		// Called once after isFinished returns true
+		@Override
+		protected void end() {
+		Robot.m_drivetrain.arcadeDrive(0.0, 0.0);
+		}
+
+		// Called when another command which requires one or more of the same
+		// subsystems is scheduled to run
+		@Override
+		protected void interrupted() {
+		end();
+		}
+	}
+	```
 		   
-		The code you typed in **RobotPreferences.java** should be this
-		
-		'''java
-		public static final double driveDistanceSpeed() {
-          return Preferences.getInstance().getDouble("driveDistanceSpeed", 0.5);
-    	}
-		   '''
+	The code you typed in **RobotPreferences.java** should be this
+	
+	```java
+	public static final double driveDistanceSpeed() {
+		return Preferences.getInstance().getDouble("driveDistanceSpeed", 0.5);
+	}
+	```
 
 ## Creating The Autonomous Command
 
@@ -140,10 +140,10 @@ In this section we will be going over
 !!! summary ""
  	**2)** In the constructor type
 	
-		'''java
-		addSequential(new DriveDistance(RobotPreferences.autoDriveDistance()));
-		addSequential(new ShooterUp());
-		   '''
+	```java
+	addSequential(new DriveDistance(RobotPreferences.autoDriveDistance()));
+	addSequential(new ShooterUp());
+	```
 		   
 	- To add a **command** to run in a **command group** use **addSequential** to execute commands in order
 	
@@ -182,55 +182,55 @@ In this section we will be going over
 
 	Your full **DoDelay.java** should look like this
 	
-		'''java
-		package frc.robot.commands;
+	```java
+	package frc.robot.commands;
 
-		import edu.wpi.first.wpilibj.command.Command;
+	import edu.wpi.first.wpilibj.command.Command;
 
-		public class DoDelay extends Command {
+	public class DoDelay extends Command {
 
-  		private double expireTime;
-  		private double timeout;
+	private double expireTime;
+	private double timeout;
 
-  		  public DoDelay(double seconds) {
-    		// Use requires() here to declare subsystem dependencies
-    		// eg. requires(chassis);
-    		timeout = seconds;
-  		  }
-
-  		  protected void startTimer() {
-    		expireTime = timeSinceInitialized() + timeout;
-  		  }
-
-  		  // Called just before this Command runs the first time
-  		  @Override
-  		  protected void initialize() {
-    		startTimer();
-  		  }
-
-  		  // Called repeatedly when this Command is scheduled to run
-  		  @Override
- 	 	  protected void execute() {
-  		  }
-
-  		  // Make this return true when this Command no longer needs to run execute()
-  		  @Override
-  		  protected boolean isFinished() {
-    		return (timeSinceInitialized() >= expireTime);
-  		  }
-
-  		  // Called once after isFinished returns true
-  		  @Override
-  		  protected void end() {
-  		  }
-
-  		  // Called when another command which requires one or more of the same
-  		  // subsystems is scheduled to run
-  		  @Override
-  		  protected void interrupted() {
-  		  }
+		public DoDelay(double seconds) {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		timeout = seconds;
 		}
-		   '''
+
+		protected void startTimer() {
+		expireTime = timeSinceInitialized() + timeout;
+		}
+
+		// Called just before this Command runs the first time
+		@Override
+		protected void initialize() {
+		startTimer();
+		}
+
+		// Called repeatedly when this Command is scheduled to run
+		@Override
+		protected void execute() {
+		}
+
+		// Make this return true when this Command no longer needs to run execute()
+		@Override
+		protected boolean isFinished() {
+		return (timeSinceInitialized() >= expireTime);
+		}
+
+		// Called once after isFinished returns true
+		@Override
+		protected void end() {
+		}
+
+		// Called when another command which requires one or more of the same
+		// subsystems is scheduled to run
+		@Override
+		protected void interrupted() {
+		}
+	}
+	```
     
 ## Adding the DoDelay Command to Autonomous.java
 
@@ -239,37 +239,37 @@ In this section we will be going over
 	
 ??? Example 
 
-		Your full **Autonomous.java** should look like this
-		
-		'''java
-		package frc.robot.commands;
+	Your full **Autonomous.java** should look like this
+	
+	```java
+	package frc.robot.commands;
 
-		import edu.wpi.first.wpilibj.command.CommandGroup;
-		import frc.robot.RobotPreferences;
+	import edu.wpi.first.wpilibj.command.CommandGroup;
+	import frc.robot.RobotPreferences;
 
-		public class Autonomous extends CommandGroup {
-  		  /**
-   		  * Add your docs here.
-   		  */
-  		  public Autonomous() {
-    		addSequential(new DriveDistance(RobotPreferences.autoDriveDistance()));
-    		addSequential(new DoDelay(RobotPreferences.autoDelay()));
-    		addSequential(new ShooterUp());
-  		  }
+	public class Autonomous extends CommandGroup {
+		/**
+		* Add your docs here.
+		*/
+		public Autonomous() {
+		addSequential(new DriveDistance(RobotPreferences.autoDriveDistance()));
+		addSequential(new DoDelay(RobotPreferences.autoDelay()));
+		addSequential(new ShooterUp());
 		}
-		   '''
-		   
-		The code you typed in **RobotPreferences.java** should look like this
+	}
+	```
 		
-		'''java
-		public static double autoDelay() {
-          return Preferences.getInstance().getDouble("autoDelay", 5.0);
-    	}
+	The code you typed in **RobotPreferences.java** should look like this
+	
+	```java
+	public static double autoDelay() {
+		return Preferences.getInstance().getDouble("autoDelay", 5.0);
+	}
 
-    	public static double autoDriveDistance() {
-       	  return Preferences.getInstance().getDouble("autoDriveDistance", 12.0);
-    	}
-		   '''
+	public static double autoDriveDistance() {
+		return Preferences.getInstance().getDouble("autoDriveDistance", 12.0);
+	}
+	```
 
 ## Adding Our Autonomous Command to Robot.java
 
@@ -277,13 +277,13 @@ In this section we will be going over
 
 - In **Robot.java** under **autonomousInit** find **m_autonomousCommand = m_chooser.getSelected();** and change it to
 		
-		<!-- TODO: Explain why we don't use chooser? -->
-		
-		'''java
-		public void autonomousInit() {
-		m_autonomousCommand = new Autonomous();
-		...
-		   '''
+	<!-- TODO: Explain why we don't use chooser? -->
+	
+	```java
+	public void autonomousInit() {
+	m_autonomousCommand = new Autonomous();
+	...
+	```
 		   
 ## Testing Our Autonomous Command
 
