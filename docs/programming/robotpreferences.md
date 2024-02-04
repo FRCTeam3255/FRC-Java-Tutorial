@@ -28,24 +28,24 @@ In this section we will be going over
 !!! summary "" 
     **2)** Inside the constructor type:
     
-    	'''java 
+	```java 
 	public static double driveEncoderCountsPerFoot(){
 	  return Preferences.getInstance().getDouble(“driveEncoderCountsPerFoot”, 1.0);
 	}
-	   '''
+	```
    
     - The format for creating a RobotPreference is
     
-    	'''java
+	```java
 	public static variableType preferenceName(){
 	  return Preferences.getInstance().getVariableType("preferenceName", value);
-	   '''
+	```
 	   
 ??? Example
 	
 	Your full **RobotPreferences.java** should look like this
 	
-	'''java
+	```java
 	package frc.robot;
 
 	import edu.wpi.first.wpilibj.Preferences;
@@ -63,7 +63,7 @@ In this section we will be going over
     	  }
 
 	}
-	   '''
+	```
 	   
 ## Creating getDriveEncoderDistance Method
 
@@ -75,9 +75,9 @@ In this section we will be going over
 !!! summary ""
     **2)** Inside type:
     
-    	'''java
+    ```java
 	return (getDriveEncoderCount() / RobotPreferences.driveEncoderCountsPerFoot()) * 12;
-	   '''
+	```
      
     - This will divide the current encoder count by however many counts there are in a foot then multiply that number by 12 to give us the encoder distance in inches
     
@@ -88,11 +88,11 @@ In this section we will be going over
 
 	The code you typed should be this
 	
-	'''java
+	```java
 	public double getDriveEncoderDistance() {
    	 return (getDriveEncoderCount() / RobotPreferences.driveEncoderCountsPerFoot()) * 12;
   	}
-	   '''
+	```
 	  
 !!! summary ""
     **3)** Add the method to the **update** method in **Telemetry**
