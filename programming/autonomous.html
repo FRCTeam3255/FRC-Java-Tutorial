@@ -1,0 +1,138 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Tayler Uva"><link rel="shortcut icon" href=../img/favicon.ico><title>[WIP] Creating an Autonomous Command - FRC Java Programming</title><link rel=stylesheet href=../css/theme.css><link rel=stylesheet href=../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><script>
+        // Current page data
+        var mkdocs_page_name = "[WIP] Creating an Autonomous Command";
+        var mkdocs_page_input_path = "programming/autonomous.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "UA-47256977-4", "auto");
+        ga('send', 'pageview');
+      </script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=.. class="icon icon-home"> FRC Java Programming </a><div role=search> <form id=rtd-search-form class=wy-form action=../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <p class=caption><span class=caption-text>Home</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../index.html>Introductions</a> </li> <li class=toctree-l1><a class="reference internal" href=../why_software.html>Why software</a> </li> </ul> <p class=caption><span class=caption-text>Programming Basics</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../basics/roboRIO.html>roboRIO</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/sensors.html>Sensors</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/wpilib.html>WPILib Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/java_basics.html>Java Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/vscode_tips.html>Visual Studio Code Tips</a> </li> </ul> <p class=caption><span class=caption-text>FRC Development Environment Setup</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../setup/install_software.html>Installing Necessary Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/install_other.html>Installing Other Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/imaging_roboRIO.html>Imaging the roboRIO</a> </li> </ul> <p class=caption><span class=caption-text>FRC Programming</span></p> <ul class=current> <li class=toctree-l1><a class="reference internal" href=new_project.html>Creating Project Files</a> </li> <li class=toctree-l1><a class="reference internal" href=driving_robot.html>Creating a Basic Driving Robot</a> </li> <li class=toctree-l1><a class="reference internal" href=deploying.html>Deploying Robot Code</a> </li> <li class=toctree-l1><a class="reference internal" href=using_sensors.html>[WIP] Using Sensors and Switches</a> </li> <li class=toctree-l1><a class="reference internal" href=pneumatics.html>[WIP] Using Pneumatics</a> </li> <li class=toctree-l1><a class="reference internal" href=shuffleboard.html>[WIP] Using Shuffleboard</a> </li> <li class=toctree-l1><a class="reference internal" href=robotpreferences.html>[WIP] Using RobotPreferences</a> </li> <li class="toctree-l1 current"><a class="reference internal current" href=autonomous.html>[WIP] Creating an Autonomous Command</a> <ul class=current> <li class=toctree-l2><a class="reference internal" href=#overview>Overview</a> </li> <li class=toctree-l2><a class="reference internal" href=#what-is-an-autonomous-command>What Is an Autonomous Command</a> </li> <li class=toctree-l2><a class="reference internal" href=#creating-commands-for-autonomous>Creating Commands For Autonomous</a> </li> <li class=toctree-l2><a class="reference internal" href=#creating-the-drivedistance-command>Creating the DriveDistance Command</a> </li> <li class=toctree-l2><a class="reference internal" href=#creating-the-autonomous-command>Creating The Autonomous Command</a> </li> <li class=toctree-l2><a class="reference internal" href=#creating-the-dodelay-command>Creating the DoDelay Command</a> </li> <li class=toctree-l2><a class="reference internal" href=#adding-the-dodelay-command-to-autonomousjava>Adding the DoDelay Command to Autonomous.java</a> </li> <li class=toctree-l2><a class="reference internal" href=#adding-our-autonomous-command-to-robotjava>Adding Our Autonomous Command to Robot.java</a> </li> <li class=toctree-l2><a class="reference internal" href=#testing-our-autonomous-command>Testing Our Autonomous Command</a> </li> <li class=toctree-l2><a class="reference internal" href=#tips-for-debugging-our-autonomous-command>Tips For Debugging Our Autonomous Command</a> </li> </ul> </li> <li class=toctree-l1><a class="reference internal" href=pid.html>[WIP] Getting started with PID</a> </li> </ul> <p class=caption><span class=caption-text>Example Subsystems</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../examples/basic_elevator.html>[WIP] Basic Elevator Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/basic_shooter.html>[WIP] Basic Shooting Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_elevator.html>[WIP] PID Driven Elevator</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_shooter.html>[WIP] PID Driven Shooter</a> </li> </ul> <p class=caption><span class=caption-text>Version Control</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../version_control/github.html>[WIP] Using GitHub</a> </li> </ul> <p class=caption><span class=caption-text>Improve the Documentation</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../contributing.html>Contributing</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=..>FRC Java Programming</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>FRC Programming</li> <li class="breadcrumb-item active">[WIP] Creating an Autonomous Command</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/FRCTeam3255/FRC-Java-Tutorial/edit/main/Docs_Source/docs/programming/autonomous.md>Edit on Tutorial Bot</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=wip-creating-an-autonomous-command>[WIP] Creating an Autonomous Command<a class=headerlink href=#wip-creating-an-autonomous-command title="Permanent link">#</a></h1> <!-- ![Image Title](imageURL)  --> <h2 id=overview>Overview<a class=headerlink href=#overview title="Permanent link">#</a></h2> <p>In this section we will be going over</p> <ol> <li>Creating an autonomous command group</li> <li>Using RobotPreferences to quickly change our autonomous values</li> <li>Using an encoder to autonomously drive</li> <li>Creating a delay timer to pace our commands in autonomous</li> </ol> <!-- TODO: Implement and revamp autonomous status code from robot2018/2019? --> <!-- 5. Creating an autonomous status readout in shuffleboard to aid in debugging autonomous --> <hr> <h2 id=what-is-an-autonomous-command>What Is an Autonomous Command<a class=headerlink href=#what-is-an-autonomous-command title="Permanent link">#</a></h2> <ul> <li>An autonomous command is a command that is ran during "autonomous mode" under the <strong>autonomousInit</strong> method in <strong>Robot.java</strong> </li> <li>It could be a single <strong>command</strong> or a <strong>command group</strong></li> <li>It's especially helpful to have if you don't have any cameras to drive the robot during a "sandstorm" period (2019 game mechanic where the drivers couldn't see during the pre tele-op phase)</li> <li>For this tutorial we will create an autonomous <strong>command group</strong> that makes the robot drive forward 5 feet, wait 5 seconds, and then pitch the shooter up during autonomous </li> </ul> <h2 id=creating-commands-for-autonomous>Creating Commands For Autonomous<a class=headerlink href=#creating-commands-for-autonomous title="Permanent link">#</a></h2> <ul> <li>Since we can't control our robot during an autonomous command we will want to create commands that allow the robot to move independently of a driver</li> </ul> <h2 id=creating-the-drivedistance-command>Creating the DriveDistance Command<a class=headerlink href=#creating-the-drivedistance-command title="Permanent link">#</a></h2> <div class="admonition summary"> <p><strong>1)</strong> Create a new command called <strong>DriveDistance</strong></p> </div> <div class="admonition summary"> <p><strong>2)</strong> Before the constructor create a <strong>double</strong> called <strong>distance</strong></p> <ul> <li>We will use this to tell the command to finish when the robot drives the inputted distance</li> </ul> </div> <div class="admonition summary"> <p><strong>3)</strong> In the <strong>DriveDistance</strong> constructor add a <strong>double</strong> parameter called <strong>inches</strong></p> </div> <div class="admonition summary"> <p><strong>4)</strong> Inside type:</p> <pre class=codehilite><code class=language-java>distance = inches;</code></pre> </div> <div class="admonition summary"> <p><strong>5)</strong> In <strong>initialize</strong> add our <strong>resetDriveEncoder</strong> method</p> <ul> <li>We want to reset the encoder before we drive so that it counts the distance from zero</li> </ul> </div> <div class="admonition summary"> <p><strong>6)</strong> In <strong>execute</strong> add our <strong>arcadeDrive</strong> method and change the <strong>moveSpeed</strong> parameter to a <strong>RobotPreference</strong> named <strong>driveDistanceSpeed</strong> and <strong>rotateSpeed</strong> to 0.0</p> <ul> <li>We only want to drive the robot forward; a <strong>RobotPreference</strong> will help us tune the drive speed</li> </ul> </div> <div class="admonition summary"> <p><strong>7)</strong> In <strong>isFinished</strong> type:</p> <pre class=codehilite><code class=language-java>return Robot.m_drivetrain.getDriveEncoderDistance() == distance;</code></pre> </div> <div class="admonition summary"> <p><strong>8)</strong> In <strong>end</strong> stop the <strong>Drivetrain</strong> and call <strong>end</strong> in <strong>interrupted</strong></p> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>DriveDistance.java</strong> should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.RobotPreferences;
+
+public class DriveDistance extends Command {
+
+    private double distance;
+
+    public DriveDistance(double inches) {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.m_drivetrain);
+    distance = inches;
+    }
+
+    // Called just before this Command runs the first time
+    @Override
+    protected void initialize() {
+    Robot.m_drivetrain.resetDriveEncoder();
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    @Override
+    protected void execute() {
+    Robot.m_drivetrain.arcadeDrive(RobotPreferences.driveDistanceSpeed(), 0.0);
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    @Override
+    protected boolean isFinished() {
+    return Robot.m_drivetrain.getDriveEncoderDistance() == distance;
+    }
+
+    // Called once after isFinished returns true
+    @Override
+    protected void end() {
+    Robot.m_drivetrain.arcadeDrive(0.0, 0.0);
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    @Override
+    protected void interrupted() {
+    end();
+    }
+}</code></pre> <p>The code you typed in <strong>RobotPreferences.java</strong> should be this</p> <pre class=codehilite><code class=language-java>public static final double driveDistanceSpeed() {
+    return Preferences.getInstance().getDouble("driveDistanceSpeed", 0.5);
+}</code></pre> </details> <h2 id=creating-the-autonomous-command>Creating The Autonomous Command<a class=headerlink href=#creating-the-autonomous-command title="Permanent link">#</a></h2> <ul> <li>We will create an <strong>Autonomous command group</strong> with the <strong>DriveDistance</strong> command and the <strong>ShooterPitchUp</strong> command</li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Create a new <strong>Command Group</strong> named <strong>Autonomous</strong></p> </div> <div class="admonition summary"> <p><strong>2)</strong> In the constructor type</p> <pre class=codehilite><code class=language-java>addSequential(new DriveDistance(RobotPreferences.autoDriveDistance()));
+addSequential(new ShooterUp());</code></pre> <ul> <li>To add a <strong>command</strong> to run in a <strong>command group</strong> use <strong>addSequential</strong> to execute commands in order</li> </ul> </div> <h2 id=creating-the-dodelay-command>Creating the DoDelay Command<a class=headerlink href=#creating-the-dodelay-command title="Permanent link">#</a></h2> <ul> <li>In order to add timing in between our <strong>commands</strong> in our <strong>command groups</strong> we will need to create a <strong>DoDelay</strong> command</li> <li>Unlike regular <strong>delays</strong> the <strong>DoDelay</strong> command will not stall our robot, but wait a certain amount of time before running a command</li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Create a new command called <strong>DoDelay</strong></p> </div> <div class="admonition summary"> <p><strong>2)</strong> Before the constructor add two private <strong>doubles</strong> called <strong>expireTime</strong> and <strong>timeout</strong></p> </div> <div class="admonition summary"> <p><strong>3)</strong> In the constructor add a <strong>double</strong> called <strong>seconds</strong> in the parameter</p> </div> <div class="admonition summary"> <p><strong>4)</strong> Inside the constructor set <strong>timeout</strong> equal to <strong>seconds</strong></p> </div> <div class="admonition summary"> <p><strong>5)</strong> Create a protected <strong>void</strong> method called <strong>startTimer</strong></p> </div> <div class="admonition summary"> <p><strong>6)</strong> Inside set <strong>expireTime</strong> equal to <strong>timeSinceInitialized</strong> + <strong>timeout</strong></p> <ul> <li>This will let the robot know how much time will have passed since the command was initialized when it finishes</li> </ul> </div> <div class="admonition summary"> <p><strong>7)</strong> In <strong>initialized</strong> add our <strong>startTimer</strong> method</p> </div> <div class="admonition summary"> <p><strong>8)</strong> In <strong>isFinished</strong> return <strong>timeSinceInitialized</strong> is greater or equal to <strong>expireTime</strong></p> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>DoDelay.java</strong> should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+public class DoDelay extends Command {
+
+private double expireTime;
+private double timeout;
+
+    public DoDelay(double seconds) {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    timeout = seconds;
+    }
+
+    protected void startTimer() {
+    expireTime = timeSinceInitialized() + timeout;
+    }
+
+    // Called just before this Command runs the first time
+    @Override
+    protected void initialize() {
+    startTimer();
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    @Override
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    @Override
+    protected boolean isFinished() {
+    return (timeSinceInitialized() &gt;= expireTime);
+    }
+
+    // Called once after isFinished returns true
+    @Override
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    @Override
+    protected void interrupted() {
+    }
+}</code></pre> </details> <h2 id=adding-the-dodelay-command-to-autonomousjava>Adding the DoDelay Command to Autonomous.java<a class=headerlink href=#adding-the-dodelay-command-to-autonomousjava title="Permanent link">#</a></h2> <div class="admonition summary"> <ul> <li>Add our <strong>DoDelay</strong> command in between <strong>DriveDistance</strong> and <strong>ShooterPitchUp</strong> with a <strong>RobotPreference</strong> called <strong>autoDelay</strong></li> </ul> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>Autonomous.java</strong> should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.RobotPreferences;
+
+public class Autonomous extends CommandGroup {
+    /**
+    * Add your docs here.
+    */
+    public Autonomous() {
+    addSequential(new DriveDistance(RobotPreferences.autoDriveDistance()));
+    addSequential(new DoDelay(RobotPreferences.autoDelay()));
+    addSequential(new ShooterUp());
+    }
+}</code></pre> <p>The code you typed in <strong>RobotPreferences.java</strong> should look like this</p> <pre class=codehilite><code class=language-java>public static double autoDelay() {
+    return Preferences.getInstance().getDouble("autoDelay", 5.0);
+}
+
+public static double autoDriveDistance() {
+    return Preferences.getInstance().getDouble("autoDriveDistance", 12.0);
+}</code></pre> </details> <h2 id=adding-our-autonomous-command-to-robotjava>Adding Our Autonomous Command to Robot.java<a class=headerlink href=#adding-our-autonomous-command-to-robotjava title="Permanent link">#</a></h2> <ul> <li> <p>In order to run our <strong>Autonomous</strong> command in autonomous we will have to put it in <strong>Robot.java</strong> so that it will run as soon as the robot enters the autonomous mode</p> </li> <li> <p>In <strong>Robot.java</strong> under <strong>autonomousInit</strong> find <strong>m_autonomousCommand = m_chooser.getSelected();</strong> and change it to</p> <!-- TODO: Explain why we don't use chooser? --> <pre class=codehilite><code class=language-java>public void autonomousInit() {
+m_autonomousCommand = new Autonomous();
+...</code></pre> </li> </ul> <h2 id=testing-our-autonomous-command>Testing Our Autonomous Command<a class=headerlink href=#testing-our-autonomous-command title="Permanent link">#</a></h2> <ul> <li>Now that we have finished coding our <strong>Autonomous</strong> command deploy code and add our new <strong>RobotPreferences</strong> to the widget on the <strong>ShuffleBoard</strong></li> <li>We have three preferences that change our autonomous behavior <strong>driveDistanceSpeed</strong>, <strong>autoDriveDistance</strong> and <strong>autoDelay</strong></li> <li><strong>driveDistanceSpeed</strong> will determine the <strong>direction</strong> and how <strong>fast</strong> the robot drives </li> <li><strong>autoDriveDistance</strong> will determine how many <strong>inches</strong> the robot drives <strong>forward</strong> or <strong>backward</strong> </li> <li><strong>autoDelay</strong> will determine how long the robot <strong>waits</strong> before executing <strong>ShooterPitchUp</strong></li> <li>Change these values before enabling your robot in autonomous to make you get the desired results</li> </ul> <h2 id=tips-for-debugging-our-autonomous-command>Tips For Debugging Our Autonomous Command<a class=headerlink href=#tips-for-debugging-our-autonomous-command title="Permanent link">#</a></h2> <ul> <li>If the robot doesn't seem to stop moving or drive in the right direction check for inversions in your <strong>Drive</strong> commands or in the <strong>Drivetrain</strong> subsystem</li> <li>You may also need to check if your <strong>encoder</strong> is working, if there are inversions, or if you are using the <strong>getEncoderCount</strong> method instead of the <strong>getEncoderDistanceMethod</strong></li> <li>If your robot doesn't move make sure you typed in the <strong>RobotPreference</strong> names exactly or check your talon IDs/Connection</li> <li>If nothing happens after your robot is finished driving check your <strong>autoDelay</strong> preference and whether your <strong>Shooter piston</strong> is already actuated or if your solenoids are working</li> </ul> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=robotpreferences.html class="btn btn-neutral float-left" title="[WIP] Using RobotPreferences"><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=pid.html class="btn btn-neutral float-right" title="[WIP] Getting started with PID">Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span><a href=robotpreferences.html style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=pid.html style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../js/jquery-3.6.0.min.js></script> <script>var base_url = "..";</script> <script src=../js/theme_extra.js></script> <script src=../js/theme.js></script> <script src=../search/main.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 

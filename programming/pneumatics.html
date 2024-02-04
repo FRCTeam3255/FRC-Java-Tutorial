@@ -1,0 +1,124 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Tayler Uva"><link rel="shortcut icon" href=../img/favicon.ico><title>[WIP] Using Pneumatics - FRC Java Programming</title><link rel=stylesheet href=../css/theme.css><link rel=stylesheet href=../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><script>
+        // Current page data
+        var mkdocs_page_name = "[WIP] Using Pneumatics";
+        var mkdocs_page_input_path = "programming/pneumatics.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "UA-47256977-4", "auto");
+        ga('send', 'pageview');
+      </script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=.. class="icon icon-home"> FRC Java Programming </a><div role=search> <form id=rtd-search-form class=wy-form action=../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <p class=caption><span class=caption-text>Home</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../index.html>Introductions</a> </li> <li class=toctree-l1><a class="reference internal" href=../why_software.html>Why software</a> </li> </ul> <p class=caption><span class=caption-text>Programming Basics</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../basics/roboRIO.html>roboRIO</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/sensors.html>Sensors</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/wpilib.html>WPILib Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/java_basics.html>Java Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/vscode_tips.html>Visual Studio Code Tips</a> </li> </ul> <p class=caption><span class=caption-text>FRC Development Environment Setup</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../setup/install_software.html>Installing Necessary Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/install_other.html>Installing Other Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/imaging_roboRIO.html>Imaging the roboRIO</a> </li> </ul> <p class=caption><span class=caption-text>FRC Programming</span></p> <ul class=current> <li class=toctree-l1><a class="reference internal" href=new_project.html>Creating Project Files</a> </li> <li class=toctree-l1><a class="reference internal" href=driving_robot.html>Creating a Basic Driving Robot</a> </li> <li class=toctree-l1><a class="reference internal" href=deploying.html>Deploying Robot Code</a> </li> <li class=toctree-l1><a class="reference internal" href=using_sensors.html>[WIP] Using Sensors and Switches</a> </li> <li class="toctree-l1 current"><a class="reference internal current" href=pneumatics.html>[WIP] Using Pneumatics</a> <ul class=current> <li class=toctree-l2><a class="reference internal" href=#overview>Overview</a> </li> <li class=toctree-l2><a class="reference internal" href=#background-info>Background info</a> <ul> <li class=toctree-l3><a class="reference internal" href=#what-are-pneumatics>What Are Pneumatics</a> </li> <li class=toctree-l3><a class="reference internal" href=#what-are-solenoids>What Are Solenoids</a> </li> </ul> </li> <li class=toctree-l2><a class="reference internal" href=#programming-solenoids>Programming Solenoids</a> <ul> <li class=toctree-l3><a class="reference internal" href=#what-will-be-added-to-the-shooter-subsystem>What will be added to the Shooter subsystem</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-pitch-updown-methods>Creating Pitch Up/Down Methods</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-the-commands-to-use-pneumatics>Creating The Commands to Use Pneumatics</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-deployretract-instant-commands>Creating Deploy/Retract Instant Commands</a> </li> <li class=toctree-l3><a class="reference internal" href=#mapping-commands-to-buttons>Mapping Commands to Buttons</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-joystick-buttons>Creating Joystick Buttons</a> </li> <li class=toctree-l3><a class="reference internal" href=#mapping-joystick-buttons>Mapping Joystick Buttons</a> </li> </ul> </li> </ul> </li> <li class=toctree-l1><a class="reference internal" href=shuffleboard.html>[WIP] Using Shuffleboard</a> </li> <li class=toctree-l1><a class="reference internal" href=robotpreferences.html>[WIP] Using RobotPreferences</a> </li> <li class=toctree-l1><a class="reference internal" href=autonomous.html>[WIP] Creating an Autonomous Command</a> </li> <li class=toctree-l1><a class="reference internal" href=pid.html>[WIP] Getting started with PID</a> </li> </ul> <p class=caption><span class=caption-text>Example Subsystems</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../examples/basic_elevator.html>[WIP] Basic Elevator Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/basic_shooter.html>[WIP] Basic Shooting Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_elevator.html>[WIP] PID Driven Elevator</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_shooter.html>[WIP] PID Driven Shooter</a> </li> </ul> <p class=caption><span class=caption-text>Version Control</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../version_control/github.html>[WIP] Using GitHub</a> </li> </ul> <p class=caption><span class=caption-text>Improve the Documentation</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../contributing.html>Contributing</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=..>FRC Java Programming</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>FRC Programming</li> <li class="breadcrumb-item active">[WIP] Using Pneumatics</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/FRCTeam3255/FRC-Java-Tutorial/edit/main/Docs_Source/docs/programming/pneumatics.md>Edit on Tutorial Bot</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=wip-using-pneumatics>[WIP] Using Pneumatics<a class=headerlink href=#wip-using-pneumatics title="Permanent link">#</a></h1> <p>Check the air pressure</p> <p><img alt=Piston src=../assets/images/pneumatics/piston.png></p> <h2 id=overview>Overview<a class=headerlink href=#overview title="Permanent link">#</a></h2> <p>This section will help you learn to program pneumatic for your robot. For this section we are going to create a new subsystem called shooter and add one pneumatic piston (cylinder) which will be used for changing the pitch of the shooter.</p> <p><strong>See table of contents for a breakdown of this section.</strong></p> <hr> <h2 id=background-info>Background info<a class=headerlink href=#background-info title="Permanent link">#</a></h2> <h3 id=what-are-pneumatics>What Are Pneumatics<a class=headerlink href=#what-are-pneumatics title="Permanent link">#</a></h3> <ul> <li>You have probably heard of hydraulics before (which is based on water pressure). Pneumatics are essentially the same but with air pressure.</li> <li>Unlike motors and gears which are commonly infinitely positional, pneumatic cylinders are typically dual-positional or sometimes tri-positional.</li> <li>Pneumatic cylinders are actuated through devices called solenoids.</li> <li>Solenoids are used to control pneumatic pistons (air cylinders) similar to how Talons control motors.</li> </ul> <h3 id=what-are-solenoids>What Are Solenoids<a class=headerlink href=#what-are-solenoids title="Permanent link">#</a></h3> <ul> <li>Cylinders are actuated with either <strong>single solenoids</strong> or <strong>double solenoids</strong>.</li> <li>A <strong>single solenoid</strong> actuates with one air line, using air to switch to and hold the extended state and releasing air (sometimes paired with a spring) to allow the cylinder to return to the retracted state.<ul> <li>A single solenoid valve has one solenoid, and shifts when voltage is <strong>CONSTANTLY</strong> supplied to that solenoid. When voltage is removed, it shifts back to a "home" position.</li> </ul> </li> <li>A <strong>double solenoid</strong> actuates with two air lines, using air to switch and hold states between retracted and extended.<ul> <li>A double solenoid has two solenoids, and when voltage is supplied to one (and not the other) the valve shifts.</li> </ul> </li> <li>Solenoids are connected to the Pneumatics Control Module (PCM)<ul> <li>The PCM is connected to the roboRIO via the CAN bus.</li> </ul> </li> </ul> <h2 id=programming-solenoids>Programming Solenoids<a class=headerlink href=#programming-solenoids title="Permanent link">#</a></h2> <p>For this section we are going to create a new subsystem called shooter and add one pneumatic piston (cylinder) which will be used for changing the pitch of the shooter.</p> <p>See <a href=new_project.html#creating-a-new-subsystem target=_blank>Creating a New Subsystem</a>.</p> <h3 id=what-will-be-added-to-the-shooter-subsystem>What will be added to the Shooter subsystem<a class=headerlink href=#what-will-be-added-to-the-shooter-subsystem title="Permanent link">#</a></h3> <div class="admonition summary"> <p><strong>1)</strong> </p> <ul> <li>Create a new Shooter subsystem.</li> <li>It will be controlled through a double solenoid.</li> <li>We are going to create a DoubleSolenoid named pitchSolenoid.</li> <li>DoubleSolenoids have 2 controllable positions (deployed(forward) and retracted(reverse)).</li> <li>The DoubleSolenoid constructor takes 2 parameters - (new DoubleSolenoid(port1, port2) )</li> <li>Port 1 and Port 2 refer to Forward control and Reverse control ports on the PCM.</li> <li>Like all ports we use, we will store this in the RobotMap.</li> </ul> </div> <div class="admonition summary"> <p><strong>2)</strong> Create your DoubleSolenoid named pitchSolenoid now using the same technique used to create a talon but replacing Talon with DoubleSolenoid. (For single solenoids just use Solenoid).</p> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>Shooter.java</strong> should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+
+/**
+* Add your docs here.
+*/
+public class Shooter extends Subsystem {
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+    DoubleSolenoid pitchSolenoid = null;
+
+    public Shooter() {
+       pitchSolenoid = new DoubleSolenoid(RobotMap.SHOOTER_PITCH_SOLENOID_DEPLOY, RobotMap.SHOOTER_PITCH_SOLENOID_RETRACT);
+    }
+
+    @Override
+    public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+    }
+}</code></pre> <p>The code you typed in <strong>Robot.java</strong> should be this</p> <p>Outside robotInit <pre class=codehilite><code class=language-java>public static Shooter m_shooter = null;</code></pre> Inside robotInit <pre class=codehilite><code class=language-java>m_shooter = new Shooter();</code></pre></p> <p>The code you typed in <strong>RobotMap.java</strong> should be this</p> <pre class=codehilite><code class=language-java>// Solenoids
+public static final int SHOOTER_PITCH_SOLENOID_DEPLOY = 0;
+public static final int SHOOTER_PITCH_SOLENOID_RETRACT = 1;</code></pre> </details> <h3 id=creating-pitch-updown-methods>Creating Pitch Up/Down Methods<a class=headerlink href=#creating-pitch-updown-methods title="Permanent link">#</a></h3> <div class="admonition summary"> <p><strong>1)</strong> Create a public void method called pitchUp.</p> </div> <div class="admonition summary"> <p><strong>2)</strong> Inside type:</p> <pre class=codehilite><code class=language-java>pitchSolenoid.set(Value.kForward);</code></pre> <ul> <li>This sets the value of the solenoid to forward (deployed) !!! Note if you wanted multiple solenoids to deploy at the same time also have them do .set(Value.kForward);</li> </ul> </div> <div class="admonition summary"> <p><strong>3)</strong> Do the same for the <strong>pitchDown</strong> method but change <strong>kForward</strong> to <strong>kReverse</strong>.</p> </div> <details class=example> <summary>Example</summary> <p>The code you typed should be this</p> <pre class=codehilite><code class=language-java>public void pitchUp(){
+   pitchSolenoid.set(Value.kForward);
+}
+
+public void pitchDown(){
+   pitchSolenoid.set(Value.kForward);
+}</code></pre> </details> <h3 id=creating-the-commands-to-use-pneumatics>Creating The Commands to Use Pneumatics<a class=headerlink href=#creating-the-commands-to-use-pneumatics title="Permanent link">#</a></h3> <h3 id=creating-deployretract-instant-commands>Creating Deploy/Retract Instant Commands<a class=headerlink href=#creating-deployretract-instant-commands title="Permanent link">#</a></h3> <ul> <li>Now that we have created the methods we must create commands to use them.</li> <li>Since changing the state of a solenoid only requires us to send a signal once (not continuously) we will create an <strong>InstantCommand</strong> instead of a <strong>Command</strong></li> <li><strong>InstantCommands</strong> work the same as regular commands but hide everything except for initialize(). (InstantCommand extends Command)</li> <li>Internally, they set isFinished to return always true so execute never runs.</li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Create a new <strong>InstantCommand</strong> called <strong>ShooterUp</strong></p> <ul> <li>Alternatively: Create a regular <strong>Command</strong> and set <strong>isFinished</strong> to <strong>true</strong></li> </ul> </div> <div class="admonition summary"> <p><strong>2)</strong> In the constructor adds requires(Robot.m_shooter)</p> </div> <div class="admonition summary"> <p><strong>3)</strong> In initialize() add our newly created method <strong>pitchUp</strong> method </p> </div> <div class="admonition summary"> <p><strong>4)</strong> Repeat steps for <strong>ShooterDown</strong> command but change <strong>pitchUp* to **pitchDown</strong></p> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>ShooterUp.java</strong> should look like this </p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.InstantCommand;
+import frc.robot.Robot;
+
+/**
+* Add your docs here.
+*/
+public class ShooterUp extends InstantCommand {
+    /**
+    * Add your docs here.
+    */
+    public ShooterUp() {
+       super();
+       // Use requires() here to declare subsystem dependencies
+       // eg. requires(chassis);
+       requires(Robot.m_shooter);
+    }
+
+    // Called once when the command executes
+    @Override
+    protected void initialize() {
+       Robot.m_shooter.pitchUp();
+    }   
+}</code></pre> <p>Your full <strong>ShooterDown.java</strong> should look like this </p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.InstantCommand;
+import frc.robot.Robot;
+
+/**
+* Add your docs here.
+*/
+public class ShooterDown extends InstantCommand {
+    /**
+    * Add your docs here.
+    */
+    public ShooterDown() {
+       super();
+       // Use requires() here to declare subsystem dependencies
+       // eg. requires(chassis);
+       requires(Robot.m_shooter);
+    }
+
+    // Called once when the command executes
+    @Override
+    protected void initialize() {
+       Robot.m_shooter.pitchDown();
+    }   
+}</code></pre> </details> <!-- TODO: make into new section --> <h3 id=mapping-commands-to-buttons>Mapping Commands to Buttons<a class=headerlink href=#mapping-commands-to-buttons title="Permanent link">#</a></h3> <h3 id=creating-joystick-buttons>Creating Joystick Buttons<a class=headerlink href=#creating-joystick-buttons title="Permanent link">#</a></h3> <ul> <li>Now that we have created our ShooterUp and ShooterDown commands we need a way to run them. </li> <li>Lets map them to buttons on our controller!</li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Open OI.java</p> </div> <div class="admonition summary"> <p><strong>2)</strong> Under our created joystick we will create Button variables and assign them to a button on our joystick </p> </div> <div class="admonition summary"> <p><strong>3)</strong> Type: </p> <pre class=codehilite><code class=language-java>Button D1 = new JoystickButton(driverController, 1);</code></pre> <ul> <li>This creates a new Button named D1 (D representing driverController and 1 representing the button number) and sets it as a JoystickButton on the controller ‘driverController’ and button value 1 (this can be found in the Driverstation software). </li> </ul> </div> <div class="admonition summary"> <p><strong>4)</strong> Do this for the rest of the buttons on your controller.</p> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>OI.Java</strong> should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+/**
+* This class is the glue that binds the controls on the physical operator
+* interface to the commands and command groups that allow control of the robot.
+*/
+public class OI {
+   public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+
+   Button D1 = new JoystickButton(driverController, 1);
+   Button D2 = new JoystickButton(driverController, 2);
+   Button D3 = new JoystickButton(driverController, 3);
+   Button D4 = new JoystickButton(driverController, 4);
+   Button D5 = new JoystickButton(driverController, 5);
+   Button D6 = new JoystickButton(driverController, 6);
+   Button D7 = new JoystickButton(driverController, 7);
+   Button D8 = new JoystickButton(driverController, 8);
+   Button D9 = new JoystickButton(driverController, 9);
+   Button D10 = new JoystickButton(driverController, 10);
+}</code></pre> </details> <h3 id=mapping-joystick-buttons>Mapping Joystick Buttons<a class=headerlink href=#mapping-joystick-buttons title="Permanent link">#</a></h3> <ul> <li>Now that we have created the buttons in the code we can map certain commands to them. </li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Create a constructor for OI </p> </div> <div class="admonition summary"> <p><strong>2)</strong> In the constructor type: </p> <pre class=codehilite><code class=language-java>D1.whenPressed(new ShooterUp());</code></pre> <ul> <li>This means <strong>when</strong> the button D1 is <strong>pressed</strong> it runs the ShooterUp command and deploys our pneumatic piston. </li> <li>There are other types of activations for buttons besides <strong>whenPressed</strong> like: <strong>whenRelease, whileHeld, etc</strong>. </li> </ul> </div> <div class="admonition summary"> <p><strong>3)</strong> Create a whenPressed button for ShooterDown as well</p> </div> <details class=example> <summary>Example</summary> <p>The code you typed should be this</p> <pre class=codehilite><code class=language-java>public OI(){
+   D1.whenPressed(new ShooterUp());
+   D2.whenPressed(new ShooterDown());
+}</code></pre> </details> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>You can change your import at the top of the file from:<br> <code>import frc.robot.commands.ShooterUp;</code> to<br> <code>import frc.robot.commands.*;</code></p> <p>The asterisk (wildcard) makes it so all files in the .command package (folder) are imported. This way you only have to import once.</p> </div> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=using_sensors.html class="btn btn-neutral float-left" title="[WIP] Using Sensors and Switches"><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=shuffleboard.html class="btn btn-neutral float-right" title="[WIP] Using Shuffleboard">Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span><a href=using_sensors.html style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=shuffleboard.html style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../js/jquery-3.6.0.min.js></script> <script>var base_url = "..";</script> <script src=../js/theme_extra.js></script> <script src=../js/theme.js></script> <script src=../search/main.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 

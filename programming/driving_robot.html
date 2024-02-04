@@ -1,0 +1,342 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Tayler Uva"><link rel="shortcut icon" href=../img/favicon.ico><title>Creating a Basic Driving Robot - FRC Java Programming</title><link rel=stylesheet href=../css/theme.css><link rel=stylesheet href=../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><script>
+        // Current page data
+        var mkdocs_page_name = "Creating a Basic Driving Robot";
+        var mkdocs_page_input_path = "programming/driving_robot.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "UA-47256977-4", "auto");
+        ga('send', 'pageview');
+      </script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=.. class="icon icon-home"> FRC Java Programming </a><div role=search> <form id=rtd-search-form class=wy-form action=../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <p class=caption><span class=caption-text>Home</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../index.html>Introductions</a> </li> <li class=toctree-l1><a class="reference internal" href=../why_software.html>Why software</a> </li> </ul> <p class=caption><span class=caption-text>Programming Basics</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../basics/roboRIO.html>roboRIO</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/sensors.html>Sensors</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/wpilib.html>WPILib Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/java_basics.html>Java Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/vscode_tips.html>Visual Studio Code Tips</a> </li> </ul> <p class=caption><span class=caption-text>FRC Development Environment Setup</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../setup/install_software.html>Installing Necessary Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/install_other.html>Installing Other Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/imaging_roboRIO.html>Imaging the roboRIO</a> </li> </ul> <p class=caption><span class=caption-text>FRC Programming</span></p> <ul class=current> <li class=toctree-l1><a class="reference internal" href=new_project.html>Creating Project Files</a> </li> <li class="toctree-l1 current"><a class="reference internal current" href=driving_robot.html>Creating a Basic Driving Robot</a> <ul class=current> <li class=toctree-l2><a class="reference internal" href=#overview>Overview</a> </li> <li class=toctree-l2><a class="reference internal" href=#creating-the-drivetrain-subsystem>Creating the Drivetrain Subsystem</a> <ul> <li class=toctree-l3><a class="reference internal" href=#what-will-be-added-to-the-drivetrain>What will be added to the Drivetrain</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-the-talon-variables>Creating the Talon Variables</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-and-filling-the-constructor>Creating and filling the constructor</a> </li> <li class=toctree-l3><a class="reference internal" href=#using-constants>Using Constants</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-the-arcade-drive>Creating the arcade drive</a> <ul> <li class=toctree-l4><a class="reference internal" href=#what-is-the-drive-class>What is the Drive Class</a> </li> <li class=toctree-l4><a class="reference internal" href=#programing-a-robotdrive>Programing a RobotDrive</a> </li> <li class=toctree-l4><a class="reference internal" href=#creating-the-arcadedrive-method>Creating the arcadeDrive method</a> </li> </ul> </li> </ul> </li> <li class=toctree-l2><a class="reference internal" href=#making-our-robot-controllable>Making our robot controllable</a> <ul> <li class=toctree-l3><a class="reference internal" href=#creating-the-joystick>Creating the Joystick</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-the-drivearcade-command>Creating the DriveArcade Command</a> <ul> <li class=toctree-l4><a class="reference internal" href=#in-the-constructor>In the constructor</a> </li> <li class=toctree-l4><a class="reference internal" href=#in-the-execute-method>In the execute method</a> </li> <li class=toctree-l4><a class="reference internal" href=#in-the-isfinished-method>In the isFinished method</a> </li> <li class=toctree-l4><a class="reference internal" href=#in-the-end-method>In the end method</a> </li> <li class=toctree-l4><a class="reference internal" href=#completed-example>Completed Example</a> </li> </ul> </li> <li class=toctree-l3><a class="reference internal" href=#using-setdefaultcommand>Using setDefaultCommand</a> </li> </ul> </li> </ul> </li> <li class=toctree-l1><a class="reference internal" href=deploying.html>Deploying Robot Code</a> </li> <li class=toctree-l1><a class="reference internal" href=using_sensors.html>[WIP] Using Sensors and Switches</a> </li> <li class=toctree-l1><a class="reference internal" href=pneumatics.html>[WIP] Using Pneumatics</a> </li> <li class=toctree-l1><a class="reference internal" href=shuffleboard.html>[WIP] Using Shuffleboard</a> </li> <li class=toctree-l1><a class="reference internal" href=robotpreferences.html>[WIP] Using RobotPreferences</a> </li> <li class=toctree-l1><a class="reference internal" href=autonomous.html>[WIP] Creating an Autonomous Command</a> </li> <li class=toctree-l1><a class="reference internal" href=pid.html>[WIP] Getting started with PID</a> </li> </ul> <p class=caption><span class=caption-text>Example Subsystems</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../examples/basic_elevator.html>[WIP] Basic Elevator Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/basic_shooter.html>[WIP] Basic Shooting Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_elevator.html>[WIP] PID Driven Elevator</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_shooter.html>[WIP] PID Driven Shooter</a> </li> </ul> <p class=caption><span class=caption-text>Version Control</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../version_control/github.html>[WIP] Using GitHub</a> </li> </ul> <p class=caption><span class=caption-text>Improve the Documentation</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../contributing.html>Contributing</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=..>FRC Java Programming</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>FRC Programming</li> <li class="breadcrumb-item active">Creating a Basic Driving Robot</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/FRCTeam3255/FRC-Java-Tutorial/edit/main/Docs_Source/docs/programming/driving_robot.md>Edit on Tutorial Bot</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=creating-a-basic-driving-robot>Creating a Basic Driving Robot<a class=headerlink href=#creating-a-basic-driving-robot title="Permanent link">#</a></h1> <!-- TODO: Maybe split this into different pages --> <p>Lets get moving!</p> <p><img alt="Drive base" src=../assets/images/driving_robot/kitbot.jpg></p> <blockquote> <p><a href=http://ljrobotics.org/games/power-up-2018/ target=_blank>Picture source: Team 2984</a></p> </blockquote> <h2 id=overview>Overview<a class=headerlink href=#overview title="Permanent link">#</a></h2> <p>This section is designed to help you program a basic driving robot, start to finish.</p> <p><strong>See table of contents for a breakdown of this section.</strong></p> <hr> <h2 id=creating-the-drivetrain-subsystem>Creating the Drivetrain Subsystem<a class=headerlink href=#creating-the-drivetrain-subsystem title="Permanent link">#</a></h2> <p>Before we begin we must create the class file for the drivetrain subsystem. See <a href=new_project.html#creating-a-new-subsystem target=_blank>Creating a New Subsystem</a> for info on how to do this.</p> <h3 id=what-will-be-added-to-the-drivetrain>What will be added to the Drivetrain<a class=headerlink href=#what-will-be-added-to-the-drivetrain title="Permanent link">#</a></h3> <p>In the Drivetrain class we will tell the subsystem what type of components it will be using.</p> <ul> <li>A Drivetrain needs motor controllers. In our case we will use 4 Talon SRs (a brand of controller for motors).<ul> <li>You could use other motor controllers such as Victor SPs or Talon SRXs but we will be using Talon SRs</li> <li>If you are using other motor controllers, replace Talon with TalonSRX, Victor, or VictorSP in the code you write depending on the type you use.</li> <li>You can use 2 motors (left and right), but for this tutorial we will use 4.</li> </ul> </li> </ul> <div class="admonition tip"> <p class=admonition-title>Tip</p> <pre class=codehilite><code>Be sure to read [Visual Studio Code Tips](../basics/vscode_tips.md){target=_blank} before getting started! It will make your life a lot easier.</code></pre> </div> <h3 id=creating-the-talon-variables>Creating the Talon Variables<a class=headerlink href=#creating-the-talon-variables title="Permanent link">#</a></h3> <div class="admonition summary"> <p><strong>1)</strong> Create 4 global variables of data type <strong>Talon</strong> and name them: <code>leftFrontTalon</code>, <code>rightFrontTalon</code>, <code>leftBackTalon</code>, <code>rightBackTalon</code></p> <ul> <li>To get started type the word Talon followed by the name i.e. <code class="language-java codehilite">Talon leftFrontTalon;</code></li> <li>These will eventually hold the object values for Talons and their port numbers.</li> </ul> </div> <div class="admonition summary"> <p><strong>2)</strong> Next assign their values to <code class="language-java codehilite">null</code> (<a href=../basics/java_basics.html#overview target=_blank>more info on <code>null</code></a>).</p> <ul> <li>We do this to make sure it is empty at this point. </li> <li>When we assign these variables a value, we will be getting the motor controller's port numbers out of Constants<ul> <li>This means we cannot assign them at the global level</li> </ul> </li> </ul> </div> <details class=example> <summary>Example</summary> <p>The code you typed should be this:</p> <pre class=codehilite><code class=language-java>Talon leftFrontTalon = null;
+Talon leftBackTalon = null;
+Talon rightFrontTalon = null;
+Talon rightBackTalon = null;</code></pre> <p>Your full <strong>Drivetrain.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ * Add your docs here.
+ */
+public class Drivetrain extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+
+  Talon leftFrontTalon = null;
+  Talon leftBackTalon = null;
+  Talon rightFrontTalon = null;
+  Talon rightBackTalon = null;
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+}</code></pre> </details> <!-- TODO: Generalize this more --> <details class=fail> <summary>If an error occurs (red squiggles)</summary> <ol> <li>Click the word Talon <img alt src=../assets/images/driving_robot/e1.png></li> <li>💡 Click the light bulb<br> <img alt src=../assets/images/driving_robot/e2.png></li> <li>Select "Import 'Talon' (edu.wpi.first.wpilibj)" <img alt src=../assets/images/driving_robot/e3.png></li> <li>Your error should be gone!</li> </ol> </details> <h3 id=creating-and-filling-the-constructor>Creating and filling the constructor<a class=headerlink href=#creating-and-filling-the-constructor title="Permanent link">#</a></h3> <div class="admonition summary"> <p><strong>1)</strong> Create the constructor for Drivetrain.java (<a href=../basics/java_basics.html#constructors target=_blank>more info on constructors</a>)</p> <ul> <li>The constructor is where we will assign values to our talon variables.</li> </ul> </div> <div class="admonition summary"> <p>Now that we have created the Talons we must initialize them and tell them what port on the roboRIO they are on.</p> <p><strong>2)</strong> Initialize (set value of) <code>leftFrontTalon</code> to <code class="language-java codehilite">new Talon(0)</code>. </p> <ul> <li>This initializes a new talon, <code>leftFrontTalon</code>, in a new piece of memory and states it is on port 0 of the roboRIO. </li> <li>This should be done within the constructor <code class="language-java codehilite">Drivetrain()</code></li> <li> <ul> <li>The constructor <code class="language-java codehilite">Talon(int)</code> takes a variable of type <code class="language-java codehilite">int</code>. In this case the <code class="language-java codehilite">int</code> (integer) refers to the port number on the roboRIO. </li> </ul> <p>This calls the constructor <code class="language-java codehilite">Talon(int)</code> in the Talon class. </p> <details class=info> <summary>roboRIO port diagram</summary> <p><img alt src=../assets/images/driving_robot/roboRIO_port.png></p> </details> </li> </ul> </div> <details class=example> <summary>Example</summary> <p>The code you typed should be this:</p> <pre class=codehilite><code class=language-java>public Drivetrain() {
+  // Talons
+  leftFrontTalon = new Talon(0);
+}</code></pre> <p>Your full <strong>Drivetrain.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ * Add your docs here.
+ */
+public class Drivetrain extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+
+  Talon leftFrontTalon = null;
+  Talon leftBackTalon = null;
+  Talon rightFrontTalon = null;
+  Talon rightBackTalon = null;
+
+  public Drivetrain() {
+    // Talons
+    leftFrontTalon = new Talon(0);
+  }
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }</code></pre> </details> <h3 id=using-constants>Using Constants<a class=headerlink href=#using-constants title="Permanent link">#</a></h3> <!-- TODO: Link this as example where robot map mentioned --> <p>Since each subsystem has its own components with their own ports, it is easy to lose track of which ports are being used and for what. To counter this you can use a class called <strong>Constants</strong> to hold all these values in a single location.</p> <div class="admonition summary"> <p><strong>1)</strong> To use Constants, instead of putting <code>0</code> for the port on the Talon type: <pre class=codehilite><code class=language-java>Constants.DRIVETRAIN_LEFT_FRONT_TALON</code></pre></p> <ul> <li>Names should follow the pattern SUBSYSTEM_NAME_OF_COMPONENT</li> <li>The name is all caps since it is a <strong>constant</strong> (<a href=../basics/java_basics.html#constants target=_blank>more info on constants</a>).</li> </ul> </div> <div class="admonition summary"> <p><strong>2)</strong> Click on the underlined text <img alt src=../assets/images/driving_robot/constants/step_1.png></p> </div> <div class="admonition summary"> <p><strong>3)</strong> Click on the 💡light bulb and select “create constant…” <img alt src=../assets/images/driving_robot/constants/step_2.png></p> </div> <div class="admonition summary"> <p><strong>4)</strong> Click on Constants.java tab that just popped up <img alt src=../assets/images/driving_robot/constants/step_3.png> </p> </div> <div class="admonition summary"> <p><strong>5)</strong> Change the <code>0</code> to the correct port for that motor controller on your robot/roboRIO <img alt src=../assets/images/driving_robot/constants/step_4.png></p> <div class="admonition danger"> <p class=admonition-title>Danger</p> <p><strong><em>If you set this to the wrong value, you could damage your robot when it tries to move!</em></strong></p> </div> </div> <div class="admonition summary"> <p><strong>6)</strong> Repeat these steps for the remaining Talons.</p> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Remember to save both <strong>Drivetrain.java</strong> and <strong>Constants.java</strong></p> </div> </div> <details class=example> <summary>Example</summary> <p>The code you type should be this:</p> <pre class=codehilite><code class=language-java>leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);</code></pre> <p>Your full <strong>Drivetrain.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Constants;
+
+/**
+ * Add your docs here.
+ */
+public class Drivetrain extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+
+  Talon leftFrontTalon = null;
+  Talon leftBackTalon = null;
+  Talon rightFrontTalon = null;
+  Talon rightBackTalon = null;
+
+  public Drivetrain() {
+    // Talons
+    leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
+    leftBackTalon = new Talon(Constants.DRIVETRAIN_LEFT_BACK_TALON);
+    rightFrontTalon = new Talon(Constants.DRIVETRAIN_RIGHT_FRONT_TALON);
+    rightBackTalon = new Talon(Constants.DRIVETRAIN_RIGHT_BACK_TALON);
+  }
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+}</code></pre> <p>Your full <strong>Constants.java</strong> should look similar to this: </p> <pre class=codehilite><code class=language-java>package frc.robot;
+
+public class Constants {
+  // Talons
+  public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+  public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+  public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+  public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
+}</code></pre> <div class="admonition warning"> <p class=admonition-title>Warning</p> <p>Remember to use the values for <strong>YOUR</strong> specific robot or you could risk damaging it!</p> </div> </details> <h3 id=creating-the-arcade-drive>Creating the arcade drive<a class=headerlink href=#creating-the-arcade-drive title="Permanent link">#</a></h3> <h4 id=what-is-the-drive-class>What is the Drive Class<a class=headerlink href=#what-is-the-drive-class title="Permanent link">#</a></h4> <ul> <li>The FIRST Drive class has many pre-configured methods available to us including DifferentialDrive, and many alterations of MecanumDrive.</li> <li>DifferentialDrive contains subsections such as TankDrive and ArcadeDrive. <!-- TODO: add back - For more information and details on drive bases see the WPILib documentation --></li> <li>For our tutorial we will be creating an ArcadeDrive</li> <li>Arcade drives run by taking a moveSpeed and rotateSpeed. moveSpeed defines the forward and reverse speed and rotateSpeed defines the turning left and right speed.</li> <li>To create an arcade drive we will be using our already existing Drivetrain class and adding to it.</li> </ul> <h4 id=programing-a-robotdrive>Programing a RobotDrive<a class=headerlink href=#programing-a-robotdrive title="Permanent link">#</a></h4> <!-- TODO: Add instructions for TalonSRX --> <div class="admonition summary"> <p><strong>1)</strong> In the same place we created our talons (outside of the constructor) we will create a <strong>DifferentialDrive</strong> and <strong>SpeedControllerGroups</strong> for our left and right motor controllers.</p> <p>Outside of the constructor type:</p> <pre class=codehilite><code class=language-java>SpeedControllerGroup leftMotors = null;
+SpeedControllerGroup rightMotors = null;
+
+DifferentialDrive differentialDrive = null;</code></pre> <ul> <li>Since DifferentialDrive only takes 2 parameters we need to create speed controller groups to combine like motor controllers together.<ul> <li>In this case we will combine the left motors together and the right motors together.</li> </ul> </li> </ul> <div class="admonition warning"> <p class=admonition-title>Warning</p> <p>You should only group motors that are spinning the same direction physically when positive power is being applied otherwise you could damage your robot.</p> </div> </div> <div class="admonition summary"> <p><strong>2)</strong> Now we must initialize the <strong>SpeedControllerGroups</strong> and <strong>DifferentialDrive</strong> like we did our talons. ...</p> <p>In the constructor type:</p> <pre class=codehilite><code class=language-java>leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+differentialDrive = new DifferentialDrive(leftMotors, rightMotors);</code></pre> </div> <details class=example> <summary>Example</summary> <p>The code you type outside the constructor should be this:</p> <pre class=codehilite><code class=language-java>SpeedControllerGroup leftMotors = null;
+SpeedControllerGroup rightMotors = null;
+
+DifferentialDrive differentialDrive = null;</code></pre> <p>The code you type inside the constructor should be this:</p> <pre class=codehilite><code class=language-java>leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+differentialDrive = new DifferentialDrive(leftMotors, rightMotors);</code></pre> <p>Your full <strong>Drivetrain.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.Constants;
+
+/**
+ * Add your docs here.
+ */
+public class Drivetrain extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+
+  Talon leftFrontTalon = null;
+  Talon leftBackTalon = null;
+  Talon rightFrontTalon = null;
+  Talon rightBackTalon = null;
+
+  SpeedControllerGroup leftMotors = null;
+  SpeedControllerGroup rightMotors = null;
+
+  DifferentialDrive differentialDrive = null;
+
+  public Drivetrain() {
+    // Talons
+    leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
+    leftBackTalon = new Talon(Constants.DRIVETRAIN_LEFT_BACK_TALON);
+    rightFrontTalon = new Talon(Constants.DRIVETRAIN_RIGHT_FRONT_TALON);
+    rightBackTalon = new Talon(Constants.DRIVETRAIN_RIGHT_BACK_TALON);
+
+    leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+    rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+    differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+  }
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+}</code></pre> </details> <h4 id=creating-the-arcadedrive-method>Creating the arcadeDrive method<a class=headerlink href=#creating-the-arcadedrive-method title="Permanent link">#</a></h4> <p>Now it’s time to make an arcadeDrive from our differentialDrive!</p> <div class="admonition summary"> <p><strong>1)</strong> Let’s create a public void method called “arcadeDrive” with type “double” parameters moveSpeed and rotateSpeed.</p> <p>Below the constructor type:</p> <pre class=codehilite><code class=language-java>public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+
+}</code></pre> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>By putting something in the parentheses it makes the method require a parameter when it is used. When the method gets used and parameters are passed, they will be store in moveSpeed and rotateSpeed (in that order). See <a href=../basics/java_basics.html#parameters target=_blank>parameters</a> for more info.</p> </div> </div> <div class="admonition summary"> <p><strong>2)</strong> Now lets make our method call the differentialDrive's arcadeDrive method.</p> <p>Inside our method type:</p> <pre class=codehilite><code class=language-java>differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);</code></pre> <p>DifferentialDrive's arcadeDrive method takes parameters moveValue and rotateValue.</p> <div class="admonition note"> <p class=admonition-title>Note</p> <p>At this point you could instead create a tank drive, however implementation differs slightly. To do so type <code class="language-java codehilite">differentialDrive.tankDrive(moveSpeed, rotateSpeed);</code> instead of <code class="language-java codehilite">differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);</code> and change the method name reflect this.</p> </div> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>If you want to limit the max speed you can multiple the speeds by a decimal (i.e. 0.5*moveSpeed will make the motors only move half of their maximum speed)</p> <p>You may want to do this for initial testing to make sure everything is going the right direction.</p> </div> </div> <details class=example> <summary>Example</summary> <p>The code you type should be this:</p> <pre class=codehilite><code class=language-java>public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+  differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+}</code></pre> <p>Your full <strong>Drivetrain.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.Constants;
+
+/**
+ * Add your docs here.
+ */
+public class Drivetrain extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+
+  Talon leftFrontTalon = null;
+  Talon leftBackTalon = null;
+  Talon rightFrontTalon = null;
+  Talon rightBackTalon = null;
+
+  SpeedControllerGroup leftMotors = null;
+  SpeedControllerGroup rightMotors = null;
+
+  DifferentialDrive differentialDrive = null;
+
+  public Drivetrain() {
+    // Talons
+    leftFrontTalon = new Talon(Constants.DRIVETRAIN_LEFT_FRONT_TALON);
+    leftBackTalon = new Talon(Constants.DRIVETRAIN_LEFT_BACK_TALON);
+    rightFrontTalon = new Talon(Constants.DRIVETRAIN_RIGHT_FRONT_TALON);
+    rightBackTalon = new Talon(Constants.DRIVETRAIN_RIGHT_BACK_TALON);
+
+    leftMotors = new SpeedControllerGroup(leftFrontTalon, leftBackTalon);
+    rightMotors = new SpeedControllerGroup(rightFrontTalon, rightBackTalon);
+
+    differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+  }
+
+  public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+  }
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+}</code></pre> </details> <hr> <h2 id=making-our-robot-controllable>Making our robot controllable<a class=headerlink href=#making-our-robot-controllable title="Permanent link">#</a></h2> <h3 id=creating-the-joystick>Creating the Joystick<a class=headerlink href=#creating-the-joystick title="Permanent link">#</a></h3> <p>In order to drive our robot, it needs to know what will be controlling it. To do so, we will create a new joystick in RobotContainer.java</p> <div class="admonition summary"> <p><strong>1)</strong> Open RobotContainer.java</p> <p><strong>2)</strong> Type:  <pre class=codehilite><code class=language-java>public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);</code></pre></p> <!-- TODO: Change this to a general fix imports --> <ul> <li>Import any classes if necessary such as: <code class="language-java codehilite">import edu.wpi.first.wpilibj.Joystick;</code> </li> <li>A variable <code>driverController</code> of type Joystick pointing to a joystick on port <code>DRIVER_CONTROLLER</code> from <strong>Constants</strong></li> </ul> <p><strong>3)</strong> Click the 💡 light bulb to create a new <strong>CONSTANT</strong> and set the value to the port number the joystick uses on the laptop (this can be found in the Driverstation software).</p> </div> <!-- TODO: add details on how to find joystick port in driverstation tips --> <details class=example> <summary>Example</summary> <p>The code you type should be this:</p> <pre class=codehilite><code class=language-java>public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);</code></pre> <p>Your full <strong>RobotContainer.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot;
+
+import edu.wpi.first.wpilibj.Joystick;
+
+/**
+ * This class is where the bulk of the robot should be declared. Since
+ * Command-based is a "declarative" paradigm, very little robot logic should
+ * actually be handled in the {@link Robot} periodic methods (other than the
+ * scheduler calls). Instead, the structure of the robot (including subsystems,
+ * commands, and button mappings) should be declared here.
+ */
+public class RobotContainer {
+  // The robot's subsystems and commands are defined here...
+  public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
+}</code></pre> <p>Your full <strong>Constants.java</strong> should look similar to this: </p> <pre class=codehilite><code class=language-java>package frc.robot;
+
+public class Constants {
+  // Talons
+  public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+  public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+  public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+  public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
+
+  // Joysticks
+  public static final int DRIVER_CONTROLLER = 0;
+}</code></pre> </details> <h3 id=creating-the-drivearcade-command>Creating the DriveArcade Command<a class=headerlink href=#creating-the-drivearcade-command title="Permanent link">#</a></h3> <ul> <li>Remember that <strong>methods</strong> tell the robot what it can do but in order to make it do these things we must give it a <strong>command</strong>. See <a href=../basics/wpilib.html#command-based-robot target=_blank>Command Based Robot</a></li> <li>Now that we have created the method, we need to create a command to call and use that method.</li> <li>Let’s create a new command called <strong>DriveArcade</strong> that calls arcadeDrive method we just created!</li> </ul> <p>Before we begin we must create the class file for the DriveArcade command. See <a href=new_project.html#creating-a-new-command target=_blank>Creating a New Command</a> for info on how to do this and info on what each pre-created method does.</p> <h4 id=in-the-constructor>In the constructor<a class=headerlink href=#in-the-constructor title="Permanent link">#</a></h4> <div class="admonition summary"> <p><strong>1)</strong> In the constructor <code class="language-java codehilite">DriveArcade()</code> type:</p> <pre class=codehilite><code class=language-java>addRequirements(RobotContainer.m_drivetrain);</code></pre> <ul> <li>This means, this command will end all other commands currently using drivetrain and will run instead when executed.</li> <li>It also means, other commands that require drivetrain will stop this command and run instead when executed.</li> </ul> <div class="admonition warning"> <p class=admonition-title>Warning</p> <p>If you use the light bulb to import ‘Robot', be sure to import the one with “frc.robot”</p> </div> </div> <h4 id=in-the-execute-method>In the execute method<a class=headerlink href=#in-the-execute-method title="Permanent link">#</a></h4> <div class="admonition summary"> <p><strong>1)</strong> In the execute method we will create 2 variables of type double called moveSpeed and rotateSpeed.</p> <ul> <li>We want these variables to be the value of the axis of the controller we are using to drive the robot. So we will set them equal to that by using the joystick getRawAxis method.</li> <li>Controllers return an axis value between 1 and -1 to indicate how far the joystick is pushed up or down. Our personal controller returns up as -1 so we want to invert it.<ul> <li>In Java you can put a negative “ - “in front of a numeric value to invert it (value * -1)</li> <li>The joystick’s getRawAxis method will get the position value of the axis as you move it. The method takes parameter “axis number.” (This can be found in the Driverstation software and we will store it in Constants).</li> </ul> </li> </ul> <p>In the execute() method type:</p> <pre class=codehilite><code class=language-java>double moveSpeed = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_MOVE_AXIS);
+double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);</code></pre> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Remember to use the light bulb for importing and creating constants if needed!</p> </div> </div> <div class="admonition summary"> <p><strong>2)</strong> Also in the execute method we will we want to call the <strong>arcadeDrive</strong> method we created in <strong>Drivetrain</strong> and give it the variables <strong>moveSpeed</strong> and <strong>rotateSpeed</strong> we created as parameters.</p> <p>In the execute() method below rotateSpeed type:</p> <pre class=codehilite><code class=language-java>RobotContainer.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);</code></pre> </div> <h4 id=in-the-isfinished-method>In the isFinished method<a class=headerlink href=#in-the-isfinished-method title="Permanent link">#</a></h4> <p>Since we will be using this command to control the robot we want it to run indefinitely.</p> <div class="admonition summary"> <p><strong>1)</strong> To do this we are going to continue having isFinished return false, meaning the command will never finish. </p> <p>(We don't need to change anything as this is the default)</p> <div class="admonition tip"> <p class=admonition-title>Tip</p> <ul> <li>If we did want a command to finish, we make this return true.</li> <li>This can be done by replacing false with true to make it finish instantly</li> <li>Alternatively we can make a condition which can return true<ul> <li>For example <code>(timePassed &gt; 10)</code> will return true after 10 seconds but return false anytime before 10 seconds have passed.</li> </ul> </li> </ul> </div> </div> <h4 id=in-the-end-method>In the end method<a class=headerlink href=#in-the-end-method title="Permanent link">#</a></h4> <div class="admonition summary"> <p><strong>1)</strong> We will call the arcadeDrive method and give it 0 and 0 as the parameters. </p> <p>In the end() method type:</p> <pre class=codehilite><code class=language-java>RobotContainer.m_drivetrain.arcadeDrive(0, 0);</code></pre> <ul> <li>This make the motors stop running when the command ends by setting the movement speed to zero and rotation speed to zero.</li> </ul> </div> <h4 id=completed-example>Completed Example<a class=headerlink href=#completed-example title="Permanent link">#</a></h4> <details class=example> <summary>Example</summary> <p>Your full <strong>Constants.java</strong> should look similar to this: </p> <pre class=codehilite><code class=language-java>package frc.robot;
+
+public class Constants {
+  // Talons
+  public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+  public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+  public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+  public static final int DRIVETRAIN_RIGHT_BACK_TALON = 3;
+
+  // Joysticks
+  public static final int DRIVER_CONTROLLER = 0;
+  public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1; // Change for your controller
+  public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 2; // Change for your controller
+}</code></pre> <p>Your full <strong>DriveArcade.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.RobotContainer;
+import frc.robot.Constants;
+
+public class DriveArcade extends Command {
+  public DriveArcade() {
+    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(RobotContainer.m_drivetrain);
+  }
+
+  // Called just before this Command runs the first time
+  @Override
+  protected void initialize() {
+  }
+
+  // Called repeatedly when this Command is scheduled to run
+  @Override
+  protected void execute() {
+    double moveSpeed = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_MOVE_AXIS);
+    double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);
+
+    RobotContainer.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  protected void end(boolean interrupted) {
+    Robot.m_drivetrain.arcadeDrive(0, 0);
+  }
+
+  // Make this return true when this Command no longer needs to run execute()
+  @Override
+  protected boolean isFinished() {
+    return false;
+  }
+}</code></pre> </details> <h3 id=using-setdefaultcommand>Using setDefaultCommand<a class=headerlink href=#using-setdefaultcommand title="Permanent link">#</a></h3> <ul> <li>Commands passed to this method will run when the robot is enabled.</li> <li>They also run if no other commands using the subsystem are running.<ul> <li>This is why we write <strong>addRequirements(Robot.m_subsystemName)</strong> in the commands we create, it ends currently running commands using that subsystem to allow a new command is run.</li> </ul> </li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Back in <strong>RobotContainer.java</strong> in the constructor we will call the <code>setDefaultCommand</code> of <code>m_drivetrain</code> and pass it the <code>DriveArcade</code> command</p> <p>In the <strong>RobotContainer.java</strong> constructor type:</p> <pre class=codehilite><code class=language-java>m_drivetrain.setDefaultCommand(new DriveArcade());</code></pre> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Remember to use the light bulb for importing if needed!</p> </div> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>RobotContainer.java</strong> should look like this:</p> <pre class=codehilite><code class=language-java>package frc.robot;
+
+import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
+import edu.wpi.first.wpilibj2.command.Command;
+
+/**
+ * This class is where the bulk of the robot should be declared.  Since Command-based is a
+ * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
+ * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
+ * (including subsystems, commands, and button mappings) should be declared here.
+ */
+public class RobotContainer {
+  // The robot's subsystems and commands are defined here...
+  public static final Drivetrain m_drivetrain = new Drivetrain();
+  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+
+  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+
+  public Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
+
+  /**
+   * The container for the robot.  Contains subsystems, OI devices, and commands.
+   */
+  public RobotContainer() {
+    // Configure the button bindings
+    configureButtonBindings();
+
+    // Set default commands on subsystems
+    m_drivetrain.setDefaultCommand(new DriveArcade());
+  }
+
+  /**
+   * Use this method to define your button-&gt;command mappings.  Buttons can be created by
+   * instantiating a {@link GenericHID} or one of its subclasses ({@link
+   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
+   * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
+   */
+  private void configureButtonBindings() {
+  }
+
+
+  /**
+   * Use this to pass the autonomous command to the main {@link Robot} class.
+   *
+   * @return the command to run in autonomous
+   */
+  public Command getAutonomousCommand() {
+    // An ExampleCommand will run in autonomous
+    return m_autoCommand;
+  }
+}</code></pre> </details> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=new_project.html class="btn btn-neutral float-left" title="Creating Project Files"><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=deploying.html class="btn btn-neutral float-right" title="Deploying Robot Code">Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span><a href=new_project.html style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=deploying.html style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../js/jquery-3.6.0.min.js></script> <script>var base_url = "..";</script> <script src=../js/theme_extra.js></script> <script src=../js/theme.js></script> <script src=../search/main.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 

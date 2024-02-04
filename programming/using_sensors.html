@@ -1,0 +1,116 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Tayler Uva"><link rel="shortcut icon" href=../img/favicon.ico><title>[WIP] Using Sensors and Switches - FRC Java Programming</title><link rel=stylesheet href=../css/theme.css><link rel=stylesheet href=../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><script>
+        // Current page data
+        var mkdocs_page_name = "[WIP] Using Sensors and Switches";
+        var mkdocs_page_input_path = "programming/using_sensors.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "UA-47256977-4", "auto");
+        ga('send', 'pageview');
+      </script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=.. class="icon icon-home"> FRC Java Programming </a><div role=search> <form id=rtd-search-form class=wy-form action=../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <p class=caption><span class=caption-text>Home</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../index.html>Introductions</a> </li> <li class=toctree-l1><a class="reference internal" href=../why_software.html>Why software</a> </li> </ul> <p class=caption><span class=caption-text>Programming Basics</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../basics/roboRIO.html>roboRIO</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/sensors.html>Sensors</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/wpilib.html>WPILib Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/java_basics.html>Java Programming Basics</a> </li> <li class=toctree-l1><a class="reference internal" href=../basics/vscode_tips.html>Visual Studio Code Tips</a> </li> </ul> <p class=caption><span class=caption-text>FRC Development Environment Setup</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../setup/install_software.html>Installing Necessary Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/install_other.html>Installing Other Software</a> </li> <li class=toctree-l1><a class="reference internal" href=../setup/imaging_roboRIO.html>Imaging the roboRIO</a> </li> </ul> <p class=caption><span class=caption-text>FRC Programming</span></p> <ul class=current> <li class=toctree-l1><a class="reference internal" href=new_project.html>Creating Project Files</a> </li> <li class=toctree-l1><a class="reference internal" href=driving_robot.html>Creating a Basic Driving Robot</a> </li> <li class=toctree-l1><a class="reference internal" href=deploying.html>Deploying Robot Code</a> </li> <li class="toctree-l1 current"><a class="reference internal current" href=using_sensors.html>[WIP] Using Sensors and Switches</a> <ul class=current> <li class=toctree-l2><a class="reference internal" href=#overview>Overview</a> </li> <li class=toctree-l2><a class="reference internal" href=#what-are-sensors>What Are Sensors</a> </li> <li class=toctree-l2><a class="reference internal" href=#programming-switches-ie-limit-switches>Programming Switches (i.e. Limit Switches)</a> <ul> <li class=toctree-l3><a class="reference internal" href=#creating-isshooterswitchclosed-method>Creating isShooterSwitchClosed Method</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-shooterupauto-command>Creating ShooterUpAuto Command</a> <ul> <li class=toctree-l4><a class="reference internal" href=#mapping-shooterautoupcommand>Mapping ShooterAutoUpCommand</a> </li> </ul> </li> </ul> </li> <li class=toctree-l2><a class="reference internal" href=#programming-encoders>Programming Encoders</a> <ul> <li class=toctree-l3><a class="reference internal" href=#creating-drive-encoder-methods>Creating Drive Encoder Methods</a> </li> <li class=toctree-l3><a class="reference internal" href=#creating-resetdriveencoder-instantcommand>Creating ResetDriveEncoder InstantCommand</a> </li> </ul> </li> </ul> </li> <li class=toctree-l1><a class="reference internal" href=pneumatics.html>[WIP] Using Pneumatics</a> </li> <li class=toctree-l1><a class="reference internal" href=shuffleboard.html>[WIP] Using Shuffleboard</a> </li> <li class=toctree-l1><a class="reference internal" href=robotpreferences.html>[WIP] Using RobotPreferences</a> </li> <li class=toctree-l1><a class="reference internal" href=autonomous.html>[WIP] Creating an Autonomous Command</a> </li> <li class=toctree-l1><a class="reference internal" href=pid.html>[WIP] Getting started with PID</a> </li> </ul> <p class=caption><span class=caption-text>Example Subsystems</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../examples/basic_elevator.html>[WIP] Basic Elevator Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/basic_shooter.html>[WIP] Basic Shooting Subsystem</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_elevator.html>[WIP] PID Driven Elevator</a> </li> <li class=toctree-l1><a class="reference internal" href=../examples/pid_shooter.html>[WIP] PID Driven Shooter</a> </li> </ul> <p class=caption><span class=caption-text>Version Control</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../version_control/github.html>[WIP] Using GitHub</a> </li> </ul> <p class=caption><span class=caption-text>Improve the Documentation</span></p> <ul> <li class=toctree-l1><a class="reference internal" href=../contributing.html>Contributing</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=..>FRC Java Programming</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>FRC Programming</li> <li class="breadcrumb-item active">[WIP] Using Sensors and Switches</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/FRCTeam3255/FRC-Java-Tutorial/edit/main/Docs_Source/docs/programming/using_sensors.md>Edit on Tutorial Bot</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=wip-using-sensors-and-switches>[WIP] Using Sensors and Switches<a class=headerlink href=#wip-using-sensors-and-switches title="Permanent link">#</a></h1> <!-- ![Image Title](imageURL)  --> <h2 id=overview>Overview<a class=headerlink href=#overview title="Permanent link">#</a></h2> <p>In this section we will be going over</p> <ol> <li>Creating and using a switch in a shooter subsystem<ol> <li>Create this subsystem now. (See <a href=new_project.html#creating-a-new-subsystem>Creating a New Subsystem</a>)</li> </ol> </li> <li>Creating an encoder in the <a href=driving_robot.html>drivetrain subsystem</a> (See creating a driving robot)</li> </ol> <hr> <h2 id=what-are-sensors>What Are Sensors<a class=headerlink href=#what-are-sensors title="Permanent link">#</a></h2> <ul> <li>There are different types of sensors that give feedback on different things (i.e. <strong>Encoders</strong> measure distance, <strong>switches</strong> detect contact, <strong>gyros</strong> give orientation).</li> <li>Most of these interface with the roboRIO through either the DIO, analog input, or custom electronics port.</li> </ul> <h2 id=programming-switches-ie-limit-switches>Programming Switches (i.e. Limit Switches)<a class=headerlink href=#programming-switches-ie-limit-switches title="Permanent link">#</a></h2> <div class="admonition summary"> <p><strong>1)</strong> For this tutorial we are going to add a <strong>switch</strong> to a <strong>shooter subsystem</strong> to automatically change the pitch of the shooter</p> <ul> <li>Inside the shooter subsystem we are going to create a <strong>switch</strong> called <strong>shooterSwitch</strong></li> <li>It will be created as a <strong>DigitalInput</strong></li> <li>The <strong>DigitalInput</strong> constructor only takes 1 parameter - DigitalInput(port)</li> <li>The port refers to the port numbers on the RoboRIO’s DIO</li> <li>Store the port in <strong>Constants</strong></li> </ul> </div> <details class=example> <summary>Example</summary> <p>The code you typed should be this</p> <pre class=codehilite><code class=language-java>DigitalInput shooterSwitch = null;</code></pre> <p>In the constructor</p> <pre class=codehilite><code class=language-java>shooterSwitch = new DigitalInput(Constants.SHOOTER_SWITCH);</code></pre> <p>In <strong>Constants.Java</strong></p> <pre class=codehilite><code class=language-java>// Digital Inputs
+public static final int SHOOTER_SWITCH = 0;</code></pre> </details> <h3 id=creating-isshooterswitchclosed-method>Creating isShooterSwitchClosed Method<a class=headerlink href=#creating-isshooterswitchclosed-method title="Permanent link">#</a></h3> <div class="admonition summary"> <p><strong>1)</strong> Create a <strong>public boolean</strong> method called <strong>isShooterSwitchClosed</strong></p> <ul> <li>This method will tell us when the shooter switch is pressed</li> </ul> </div> <div class="admonition summary"> <p><strong>2)</strong> Inside type:</p> <pre class=codehilite><code class=language-java>return shooterSwitch.get();</code></pre> </div> <ul> <li> <p>Switches have 2 states: open and closed. <!-- TODO: Add a tip about keeping inversions at the lowest level or in the subsystems --> <!-- TODO: Make note about normally open/close which to choose and why. talk about how we do one and invert the code so if the switch becomes unplugged it defaults to closed (off)  --></p> </li> <li> <p>Make sure you know which is true or false or you may have to invert the switch by rewiring or using the ! operator</p> </li> </ul> <details class=example> <summary>Example</summary> <p>Your <strong>isShooterSwitchClosed()</strong> should look like this</p> <pre class=codehilite><code class=language-java>public boolean isShooterSwitchClosed() {
+   return shooterSwitch.get();
+}</code></pre> </details> <details class=example> <summary>Full Shooter.java Example</summary> <pre class=codehilite><code class=language-java>package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
+public class Shooter extends SubsystemBase {
+  /**
+   * Creates a new Shooter.
+   */
+  DigitalInput shooterSwitch = null;
+
+  public Shooter() {
+    shooterSwitch = new DigitalInput(Constants.SHOOTER_SWITCH);
+  }
+
+  public boolean isShooterSwitchClosed() {
+    return shooterSwitch.get();
+  }
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+}</code></pre> </details> <h3 id=creating-shooterupauto-command>Creating ShooterUpAuto Command<a class=headerlink href=#creating-shooterupauto-command title="Permanent link">#</a></h3> <ul> <li>We will create a <strong>command</strong> that gives an example of how a Shooter switch may be used</li> </ul> <div class="admonition summary"> <p><strong>1)</strong> For this tutorial we will use the switch to create a button that automatically pitches the shooter up after the switch is pressed</p> </div> <div class="admonition summary"> <p><strong>2)</strong> Create a new <strong>command</strong> called <strong>ShooterUpAuto</strong></p> </div> <div class="admonition summary"> <p><strong>3)</strong> In the constructor add requires(Robot.m_Shooter)</p> </div> <div class="admonition summary"> <p><strong>4)</strong> In isFinished return our <strong>isShooterSwitchClosed</strong> method</p> <ul> <li>we will not put anything in initialize or execute because we don't want anything to happen until the switch is closed</li> </ul> </div> <div class="admonition summary"> <p><strong>5)</strong> In end add our <strong>pitchUp</strong> method</p> <ul> <li>we will not put end in interrupted either because we only want to change the pitch of the shooter if the switch is closed</li> </ul> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>ShooterUpAuto.java</strong> should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+
+public class ShooterUpAuto extends Command {
+  public ShooterUpAuto() {
+  // Use requires() here to declare subsystem dependencies
+  // eg. requires(chassis);
+  requires(Robot.m_shooter);
+  }
+
+  // Called just before this Command runs the first time
+  @Override
+  protected void initialize() {
+  }
+
+  // Called repeatedly when this Command is scheduled to run
+  @Override
+  protected void execute() {
+  }
+
+  // Make this return true when this Command no longer needs to run execute()
+  @Override
+  protected boolean isFinished() {
+    return Robot.m_shooter.isShooterSwitchClosed();
+  }
+
+  // Called once after isFinished returns true
+  @Override
+  protected void end() {
+    Robot.m_shooter.pitchUp();
+  }
+
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
+  @Override
+  protected void interrupted() {
+  }
+}</code></pre> </details> <h4 id=mapping-shooterautoupcommand>Mapping ShooterAutoUpCommand<a class=headerlink href=#mapping-shooterautoupcommand title="Permanent link">#</a></h4> <ul> <li>To be able to test our command right now we can map it to a joystick button like we did our other Shooter commands</li> <li>It would be best to make it a whenPressed or whileHeld button</li> <li>whileHeld will run normally while the button is being held and be interrupted when released</li> </ul> <details class=example> <summary>Example</summary> <p>The code you typed should be this</p> <pre class=codehilite><code class=language-java>D3.whenPressed(new ShooterUpAuto());</code></pre> <p>Or this</p> <pre class=codehilite><code class=language-java>D3.whileHeld(new ShooterUpAuto());</code></pre> </details> <h2 id=programming-encoders>Programming Encoders<a class=headerlink href=#programming-encoders title="Permanent link">#</a></h2> <div class="admonition summary"> <p><strong>1)</strong> For this tutorial we are going to add a <strong>encoder</strong> to the <strong>Drivetrain</strong> subsystem to keep track of the distance the robot has driven</p> </div> <div class="admonition summary"> <p><strong>2)</strong> Inside the <strong>Drivetrain</strong> subsystem we are going to create an <strong>encoder</strong> called <strong>driveEncoder</strong></p> <ul> <li>It will be created as an Encoder</li> <li>The Encoder constructor takes 2 parameters - (new Encoder(port1,port2))</li> <li>These are DIO ports on the RoboRIO</li> <li>Store ports in Constants as DRIVE_ENCODER_A and B</li> </ul> </div> <details class=example> <summary>Example</summary> <p>The code you typed outside the constructor should be this</p> <pre class=codehilite><code class=language-java>Encoder driveEncoder = null;</code></pre> <p>Inside the constructor</p> <pre class=codehilite><code class=language-java>driveEncoder = new Encoder(Constants.DRIVETRAIN_ENCODER_A, Constants.DRIVETRAIN_ENCODER_B);</code></pre> </details> <h3 id=creating-drive-encoder-methods>Creating Drive Encoder Methods<a class=headerlink href=#creating-drive-encoder-methods title="Permanent link">#</a></h3> <div class="admonition summary"> <p><strong>1)</strong> Create a public double method called <strong>getDriveEncoderCount</strong></p> </div> <div class="admonition summary"> <p><strong>2)</strong> Inside type: </p> <pre class=codehilite><code class=language-java>return driveEncoder.get();</code></pre> <!-- TODO: Explain why the method is a returning a double from an int --> <ul> <li>Encoders will return counts as an int</li> <li>Depending which direction the encoder shaft rotates the value will increase or decrease</li> </ul> </div> <div class="admonition summary"> <p><strong>3)</strong> Create a public method called <strong>resetDriveEncoderCount</strong></p> </div> <div class="admonition summary"> <p><strong>4)</strong> Inside type:</p> <pre class=codehilite><code class=language-java>driveEncoder.reset();</code></pre> <ul> <li>This method will reset the drive encoder to zero which is useful for autonomous or when we use the robot as a ruler</li> </ul> </div> <details class=example> <summary>Example</summary> <p>The code you typed should be this</p> <pre class=codehilite><code class=language-java>public double getDriveEncoderCount() {
+      return driveEncoder.get();
+}
+
+public void resetDriveEncoder() {
+      driveEncoder.reset();
+}</code></pre> </details> <h3 id=creating-resetdriveencoder-instantcommand>Creating ResetDriveEncoder InstantCommand<a class=headerlink href=#creating-resetdriveencoder-instantcommand title="Permanent link">#</a></h3> <ul> <li>We need to create a command to use the <strong>resetDriveEncoder</strong> method since it’s a <strong>void</strong> method</li> <li>We will create a <strong>InstantCommand</strong> since we will only use it to reset the drive encoder</li> </ul> <div class="admonition summary"> <p><strong>1)</strong> Create a new <strong>InstantCommand</strong> called <strong>DriveResetEncoder</strong></p> </div> <div class="admonition summary"> <p><strong>2)</strong> In the constructor add requires(Robot.m_drivetrain)</p> </div> <div class="admonition summary"> <p><strong>3)</strong> In initialize() add our <strong>resetDriveEncoder</strong> method</p> </div> <details class=example> <summary>Example</summary> <p>Your full <strong>DriveResetEncoder</strong> command should look like this</p> <pre class=codehilite><code class=language-java>package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.InstantCommand;
+import frc.robot.Robot;
+
+/**
+* Add your docs here.
+*/
+public class DriveResetEncoder extends InstantCommand {
+/**
+* Add your docs here.
+*/
+ public DriveResetEncoder() {
+       super();
+       // Use requires() here to declare subsystem dependencies
+       // eg. requires(chassis);
+       requires(Robot.m_drivetrain);
+ }
+
+ // Called once when the command executes
+ @Override
+ protected void initialize() {
+       Robot.m_drivetrain.resetDriveEncoder();
+ }
+}</code></pre> </details> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=deploying.html class="btn btn-neutral float-left" title="Deploying Robot Code"><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=pneumatics.html class="btn btn-neutral float-right" title="[WIP] Using Pneumatics">Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span><a href=deploying.html style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=pneumatics.html style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../js/jquery-3.6.0.min.js></script> <script>var base_url = "..";</script> <script src=../js/theme_extra.js></script> <script src=../js/theme.js></script> <script src=../search/main.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 
